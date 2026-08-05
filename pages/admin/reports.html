@@ -33,7 +33,6 @@
 
 <aside class="sidebar">
 
-
     <div class="sidebar-brand">
 
         <div class="sidebar-logo">
@@ -42,22 +41,15 @@
 
         <div>
 
-            <strong>
-                CENDEKIA
-            </strong>
-
-            <span>
-                MEDIKA
-            </span>
+            <strong>CENDEKIA</strong>
+            <span>MEDIKA</span>
 
         </div>
 
     </div>
 
 
-
     <nav class="sidebar-nav">
-
 
         <p class="nav-label">
             MAIN MENU
@@ -140,9 +132,7 @@
             <span>Settings</span>
         </a>
 
-
     </nav>
-
 
 
     <div class="sidebar-bottom">
@@ -153,9 +143,7 @@
             onclick="logout()"
         >
 
-            <span>
-                ↪
-            </span>
+            <span>↪</span>
 
             Sign out
 
@@ -178,14 +166,12 @@
 
     <header class="topbar">
 
-
         <div class="mobile-menu">
             ☰
         </div>
 
 
         <div class="topbar-right">
-
 
             <button
                 class="notification-button"
@@ -197,7 +183,6 @@
 
 
             <div class="profile">
-
 
                 <div class="profile-avatar">
                     A
@@ -221,9 +206,7 @@
                     ▾
                 </span>
 
-
             </div>
-
 
         </div>
 
@@ -241,7 +224,6 @@
         <!-- PAGE HEADER -->
 
         <div class="page-heading">
-
 
             <div>
 
@@ -261,34 +243,122 @@
             </div>
 
 
-            <div class="heading-actions">
-
-                <button
-                    class="secondary-button"
-                    type="button"
-                    onclick="printReport()"
-                >
-                    🖨 Print
-                </button>
-
-
-                <button
-                    class="primary-button"
-                    type="button"
-                    onclick="generateReport()"
-                >
-                    + Generate Report
-                </button>
-
-            </div>
-
+            <button
+                class="primary-button"
+                type="button"
+                onclick="generateReport()"
+            >
+                ↓ Generate Report
+            </button>
 
         </div>
 
 
 
         <!-- =====================================
-             SUMMARY STATISTICS
+             FILTER BAR
+        ====================================== -->
+
+        <section class="filter-card">
+
+            <div class="filter-heading">
+
+                <div>
+
+                    <h2>
+                        Report Overview
+                    </h2>
+
+                    <p>
+                        Select a reporting period to view
+                        hospital statistics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="filter-grid">
+
+
+                <div class="form-group">
+
+                    <label for="reportPeriod">
+                        Period
+                    </label>
+
+                    <select id="reportPeriod">
+
+                        <option value="today">
+                            Today
+                        </option>
+
+                        <option value="week">
+                            This Week
+                        </option>
+
+                        <option
+                            value="month"
+                            selected
+                        >
+                            This Month
+                        </option>
+
+                        <option value="year">
+                            This Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="reportType">
+                        Report Type
+                    </label>
+
+                    <select id="reportType">
+
+                        <option value="overview">
+                            Hospital Overview
+                        </option>
+
+                        <option value="patients">
+                            Patient Report
+                        </option>
+
+                        <option value="staff">
+                            Staff Report
+                        </option>
+
+                        <option value="appointments">
+                            Appointment Report
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    class="secondary-button"
+                    type="button"
+                    onclick="applyReport()"
+                >
+                    Apply Filter
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             STATISTICS
         ====================================== -->
 
         <div class="stats-grid">
@@ -300,19 +370,18 @@
                     ♙
                 </div>
 
-
                 <div class="stat-info">
 
                     <span>
                         Total Patients
                     </span>
 
-                    <strong id="totalPatients">
-                        0
+                    <strong id="patientCount">
+                        1,248
                     </strong>
 
                     <small>
-                        Registered accounts
+                        Registered patients
                     </small>
 
                 </div>
@@ -327,15 +396,14 @@
                     ⚕
                 </div>
 
-
                 <div class="stat-info">
 
                     <span>
                         Medical Staff
                     </span>
 
-                    <strong id="totalStaff">
-                        0
+                    <strong id="staffCount">
+                        128
                     </strong>
 
                     <small>
@@ -354,19 +422,18 @@
                     ◷
                 </div>
 
-
                 <div class="stat-info">
 
                     <span>
                         Appointments
                     </span>
 
-                    <strong id="totalAppointments">
-                        0
+                    <strong id="appointmentCount">
+                        156
                     </strong>
 
                     <small>
-                        All appointments
+                        Scheduled this period
                     </small>
 
                 </div>
@@ -377,23 +444,22 @@
 
             <div class="stat-card">
 
-                <div class="stat-icon active">
+                <div class="stat-icon completion">
                     ✓
                 </div>
-
 
                 <div class="stat-info">
 
                     <span>
-                        Confirmed
+                        Completion Rate
                     </span>
 
-                    <strong id="confirmedAppointments">
-                        0
+                    <strong id="completionRate">
+                        92%
                     </strong>
 
                     <small>
-                        Confirmed appointments
+                        Successful appointments
                     </small>
 
                 </div>
@@ -402,83 +468,6 @@
 
 
         </div>
-
-
-
-        <!-- =====================================
-             FILTER BAR
-        ====================================== -->
-
-        <section class="report-card">
-
-
-            <div class="card-header">
-
-
-                <div>
-
-                    <h2>
-                        Report Overview
-                    </h2>
-
-                    <p>
-                        Select the information you want to review.
-                    </p>
-
-                </div>
-
-
-                <div class="report-filters">
-
-
-                    <select id="reportType">
-
-                        <option value="overview">
-                            Hospital Overview
-                        </option>
-
-                        <option value="appointments">
-                            Appointment Report
-                        </option>
-
-                        <option value="patients">
-                            Patient Report
-                        </option>
-
-                        <option value="staff">
-                            Staff Report
-                        </option>
-
-                    </select>
-
-
-                    <select id="statusFilter">
-
-                        <option value="all">
-                            All status
-                        </option>
-
-                        <option value="confirmed">
-                            Confirmed
-                        </option>
-
-                        <option value="pending">
-                            Pending
-                        </option>
-
-                        <option value="cancelled">
-                            Cancelled
-                        </option>
-
-                    </select>
-
-
-                </div>
-
-            </div>
-
-
-        </section>
 
 
 
@@ -493,7 +482,6 @@
 
             <section class="report-card">
 
-
                 <div class="card-header">
 
                     <div>
@@ -503,7 +491,7 @@
                         </h2>
 
                         <p>
-                            Current appointment status.
+                            Current appointment status
                         </p>
 
                     </div>
@@ -516,18 +504,18 @@
 
                     <div class="summary-item">
 
-                        <div>
+                        <div class="summary-label">
 
                             <span class="summary-dot confirmed"></span>
 
-                            <strong>
+                            <span>
                                 Confirmed
-                            </strong>
+                            </span>
 
                         </div>
 
-                        <strong id="reportConfirmed">
-                            0
+                        <strong id="confirmedCount">
+                            118
                         </strong>
 
                     </div>
@@ -535,18 +523,18 @@
 
                     <div class="summary-item">
 
-                        <div>
+                        <div class="summary-label">
 
                             <span class="summary-dot pending"></span>
 
-                            <strong>
+                            <span>
                                 Pending
-                            </strong>
+                            </span>
 
                         </div>
 
-                        <strong id="reportPending">
-                            0
+                        <strong id="pendingCount">
+                            24
                         </strong>
 
                     </div>
@@ -554,45 +542,69 @@
 
                     <div class="summary-item">
 
-                        <div>
+                        <div class="summary-label">
 
                             <span class="summary-dot cancelled"></span>
 
-                            <strong>
+                            <span>
                                 Cancelled
-                            </strong>
+                            </span>
 
                         </div>
 
-                        <strong id="reportCancelled">
-                            0
+                        <strong id="cancelledCount">
+                            14
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-container">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Appointment completion
+                        </span>
+
+                        <strong>
+                            92%
                         </strong>
 
                     </div>
 
 
-                </div>
+                    <div class="progress-bar">
 
+                        <div
+                            class="progress-fill"
+                            style="width:92%;"
+                        ></div>
+
+                    </div>
+
+                </div>
 
             </section>
 
 
 
-            <!-- STAFF SUMMARY -->
+            <!-- DEPARTMENT ACTIVITY -->
 
             <section class="report-card">
-
 
                 <div class="card-header">
 
                     <div>
 
                         <h2>
-                            Staff Overview
+                            Department Activity
                         </h2>
 
                         <p>
-                            Registered medical staff.
+                            Appointments by department
                         </p>
 
                     </div>
@@ -600,190 +612,375 @@
                 </div>
 
 
-                <div class="summary-list">
+                <div class="department-list">
 
 
-                    <div class="summary-item">
+                    <div class="department-row">
 
                         <div>
 
-                            <span class="summary-dot doctor"></span>
-
                             <strong>
-                                Doctors
+                                Internal Medicine
                             </strong>
+
+                            <span>
+                                52 appointments
+                            </span>
 
                         </div>
 
-                        <strong id="reportDoctors">
-                            0
+                        <strong>
+                            34%
                         </strong>
 
                     </div>
 
 
-                    <div class="summary-item">
+                    <div class="department-progress">
+
+                        <div
+                            class="department-fill"
+                            style="width:34%;"
+                        ></div>
+
+                    </div>
+
+
+
+                    <div class="department-row">
 
                         <div>
 
-                            <span class="summary-dot nurse"></span>
-
                             <strong>
-                                Nurses
+                                Cardiology
                             </strong>
+
+                            <span>
+                                41 appointments
+                            </span>
 
                         </div>
 
-                        <strong id="reportNurses">
-                            0
+                        <strong>
+                            26%
                         </strong>
 
                     </div>
 
 
-                    <div class="summary-item">
+                    <div class="department-progress">
+
+                        <div
+                            class="department-fill"
+                            style="width:26%;"
+                        ></div>
+
+                    </div>
+
+
+
+                    <div class="department-row">
 
                         <div>
 
-                            <span class="summary-dot admin"></span>
-
                             <strong>
-                                Administrators
+                                Neurology
                             </strong>
+
+                            <span>
+                                35 appointments
+                            </span>
 
                         </div>
 
-                        <strong id="reportAdmins">
-                            0
+                        <strong>
+                            22%
                         </strong>
 
                     </div>
 
+
+                    <div class="department-progress">
+
+                        <div
+                            class="department-fill"
+                            style="width:22%;"
+                        ></div>
+
+                    </div>
+
+
+
+                    <div class="department-row">
+
+                        <div>
+
+                            <strong>
+                                Other
+                            </strong>
+
+                            <span>
+                                28 appointments
+                            </span>
+
+                        </div>
+
+                        <strong>
+                            18%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="department-progress">
+
+                        <div
+                            class="department-fill"
+                            style="width:18%;"
+                        ></div>
+
+                    </div>
 
                 </div>
 
-
             </section>
-
 
         </div>
 
 
 
         <!-- =====================================
-             APPOINTMENT TABLE
+             RECENT ACTIVITY
         ====================================== -->
 
-        <section class="report-card">
-
+        <section class="report-card activity-card">
 
             <div class="card-header">
-
 
                 <div>
 
                     <h2>
-                        Recent Appointments
+                        Recent Activity
                     </h2>
 
                     <p>
-                        Latest scheduled appointments.
+                        Latest administrative activity
                     </p>
 
                 </div>
 
 
-                <div class="search-box">
+                <button
+                    class="text-button"
+                    type="button"
+                    onclick="refreshActivity()"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <div class="activity-table">
+
+                <div class="activity-row activity-head">
 
                     <span>
-                        ⌕
+                        ACTIVITY
                     </span>
 
-                    <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="Search report..."
-                    >
+                    <span>
+                        USER
+                    </span>
+
+                    <span>
+                        DATE
+                    </span>
+
+                    <span>
+                        STATUS
+                    </span>
 
                 </div>
 
 
-            </div>
+                <div class="activity-row">
 
+                    <span>
 
+                        <strong>
+                            New patient registered
+                        </strong>
 
-            <div class="table-container">
+                        <small>
+                            Patient PT-001248
+                        </small>
 
+                    </span>
 
-                <table>
+                    <span>
+                        Admin
+                    </span>
 
+                    <span>
+                        Today, 09:42
+                    </span>
 
-                    <thead>
+                    <span class="status active">
+                        Completed
+                    </span>
 
-                        <tr>
-
-                            <th>
-                                ID
-                            </th>
-
-                            <th>
-                                PATIENT
-                            </th>
-
-                            <th>
-                                DOCTOR
-                            </th>
-
-                            <th>
-                                DEPARTMENT
-                            </th>
-
-                            <th>
-                                DATE
-                            </th>
-
-                            <th>
-                                STATUS
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="reportTableBody">
-                    </tbody>
-
-
-                </table>
-
-
-            </div>
-
-
-            <div
-                class="empty-state"
-                id="emptyState"
-                style="display:none;"
-            >
-
-                <div class="empty-icon">
-                    ▤
                 </div>
 
-                <h3>
-                    No report data found
-                </h3>
+
+                <div class="activity-row">
+
+                    <span>
+
+                        <strong>
+                            Appointment confirmed
+                        </strong>
+
+                        <small>
+                            APT-0008
+                        </small>
+
+                    </span>
+
+                    <span>
+                        Staff
+                    </span>
+
+                    <span>
+                        Today, 09:18
+                    </span>
+
+                    <span class="status active">
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <div class="activity-row">
+
+                    <span>
+
+                        <strong>
+                            Doctor account created
+                        </strong>
+
+                        <small>
+                            Dr. Maya Putri
+                        </small>
+
+                    </span>
+
+                    <span>
+                        Admin
+                    </span>
+
+                    <span>
+                        Today, 08:55
+                    </span>
+
+                    <span class="status active">
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <div class="activity-row">
+
+                    <span>
+
+                        <strong>
+                            Report generated
+                        </strong>
+
+                        <small>
+                            Monthly hospital report
+                        </small>
+
+                    </span>
+
+                    <span>
+                        Admin
+                    </span>
+
+                    <span>
+                        Yesterday
+                    </span>
+
+                    <span class="status active">
+                        Ready
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             REPORT ACTIONS
+        ====================================== -->
+
+        <section class="quick-report-card">
+
+            <div>
+
+                <p class="eyebrow">
+                    REPORT CENTER
+                </p>
+
+                <h2>
+                    Need a detailed report?
+                </h2>
 
                 <p>
-                    Try changing your filters.
+                    Generate a report based on patients,
+                    staff, appointments, or overall hospital
+                    activity.
                 </p>
 
             </div>
 
 
-        </section>
+            <div class="report-actions">
 
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="generateReport('patients')"
+                >
+                    Patient Report
+                </button>
+
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="generateReport('staff')"
+                >
+                    Staff Report
+                </button>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    onclick="generateReport('appointments')"
+                >
+                    Appointment Report
+                </button>
+
+            </div>
+
+        </section>
 
     </section>
 
@@ -793,434 +990,10 @@
 </div>
 
 <!-- =====================================
-     DATA FILES
-====================================== -->
-
-<script src="../../data/users.js"></script>
-
-<script src="../../data/appointments.js"></script>
-
-<!-- =====================================
      JAVASCRIPT
 ====================================== -->
 
 <script>
-
-
-/* ========================================
-   ELEMENTS
-======================================== */
-
-const reportTableBody =
-    document.getElementById(
-        "reportTableBody"
-    );
-
-
-const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-
-const statusFilter =
-    document.getElementById(
-        "statusFilter"
-    );
-
-
-
-/* ========================================
-   SAFE DATA
-======================================== */
-
-const reportUsers =
-    typeof users !== "undefined"
-        ? users
-        : [];
-
-
-const reportAppointments =
-    typeof appointments !== "undefined"
-        ? appointments
-        : [];
-
-
-
-/* ========================================
-   UPDATE SUMMARY
-======================================== */
-
-function updateReportSummary() {
-
-
-    const patients =
-        reportUsers.filter(
-            user =>
-                user.role === "patient"
-        );
-
-
-    const doctors =
-        reportUsers.filter(
-            user =>
-                user.role === "doctor"
-        );
-
-
-    const nurses =
-        reportUsers.filter(
-            user =>
-                user.role === "nurse"
-        );
-
-
-    const admins =
-        reportUsers.filter(
-            user =>
-                user.role === "admin"
-        );
-
-
-    const confirmed =
-        reportAppointments.filter(
-            appointment =>
-                appointment.status === "confirmed"
-        );
-
-
-    const pending =
-        reportAppointments.filter(
-            appointment =>
-                appointment.status === "pending"
-        );
-
-
-    const cancelled =
-        reportAppointments.filter(
-            appointment =>
-                appointment.status === "cancelled"
-        );
-
-
-    document.getElementById(
-        "totalPatients"
-    ).textContent =
-        patients.length;
-
-
-    document.getElementById(
-        "totalStaff"
-    ).textContent =
-        doctors.length + nurses.length;
-
-
-    document.getElementById(
-        "totalAppointments"
-    ).textContent =
-        reportAppointments.length;
-
-
-    document.getElementById(
-        "confirmedAppointments"
-    ).textContent =
-        confirmed.length;
-
-
-    document.getElementById(
-        "reportConfirmed"
-    ).textContent =
-        confirmed.length;
-
-
-    document.getElementById(
-        "reportPending"
-    ).textContent =
-        pending.length;
-
-
-    document.getElementById(
-        "reportCancelled"
-    ).textContent =
-        cancelled.length;
-
-
-    document.getElementById(
-        "reportDoctors"
-    ).textContent =
-        doctors.length;
-
-
-    document.getElementById(
-        "reportNurses"
-    ).textContent =
-        nurses.length;
-
-
-    document.getElementById(
-        "reportAdmins"
-    ).textContent =
-        admins.length;
-
-}
-
-
-
-/* ========================================
-   DISPLAY REPORT
-======================================== */
-
-function displayReport() {
-
-
-    const search =
-        searchInput.value
-            .toLowerCase()
-            .trim();
-
-
-    const selectedStatus =
-        statusFilter.value;
-
-
-    let data =
-        [...reportAppointments];
-
-
-    /* SEARCH */
-
-    if (search) {
-
-        data =
-            data.filter(
-                appointment => {
-
-                    const text =
-
-                        appointment.id
-                        + " "
-                        + appointment.patient
-                        + " "
-                        + appointment.patientId
-                        + " "
-                        + appointment.doctor
-                        + " "
-                        + appointment.department
-                        + " "
-                        + appointment.date;
-
-                    return text
-                        .toLowerCase()
-                        .includes(search);
-
-                }
-            );
-
-    }
-
-
-
-    /* STATUS FILTER */
-
-    if (
-        selectedStatus !== "all"
-    ) {
-
-        data =
-            data.filter(
-                appointment =>
-                    appointment.status ===
-                    selectedStatus
-            );
-
-    }
-
-
-
-    reportTableBody.innerHTML = "";
-
-
-    if (data.length === 0) {
-
-        document.getElementById(
-            "emptyState"
-        ).style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    document.getElementById(
-        "emptyState"
-    ).style.display =
-        "none";
-
-
-
-    data.forEach(
-        appointment => {
-
-
-            const row =
-                document.createElement(
-                    "tr"
-                );
-
-
-            const statusName =
-                appointment.status
-                    .charAt(0)
-                    .toUpperCase()
-                + appointment.status.slice(1);
-
-
-            row.innerHTML = `
-
-                <td>
-                    <strong>
-                        ${escapeHTML(
-                            appointment.id
-                        )}
-                    </strong>
-                </td>
-
-
-                <td>
-                    ${escapeHTML(
-                        appointment.patient
-                    )}
-                </td>
-
-
-                <td>
-                    ${escapeHTML(
-                        appointment.doctor
-                    )}
-                </td>
-
-
-                <td>
-                    ${escapeHTML(
-                        appointment.department
-                    )}
-                </td>
-
-
-                <td>
-                    ${escapeHTML(
-                        appointment.date
-                    )}
-                    <br>
-                    <small>
-                        ${escapeHTML(
-                            appointment.time
-                        )}
-                    </small>
-                </td>
-
-
-                <td>
-
-                    <span
-                        class="status ${appointment.status}"
-                    >
-                        ${statusName}
-                    </span>
-
-                </td>
-
-            `;
-
-
-            reportTableBody.appendChild(
-                row
-            );
-
-        }
-    );
-
-}
-
-
-
-/* ========================================
-   GENERATE REPORT
-======================================== */
-
-function generateReport() {
-
-
-    const reportType =
-        document.getElementById(
-            "reportType"
-        ).value;
-
-
-    let title =
-        "Hospital Overview";
-
-
-    if (
-        reportType ===
-        "appointments"
-    ) {
-
-        title =
-            "Appointment Report";
-
-    }
-
-
-    if (
-        reportType ===
-        "patients"
-    ) {
-
-        title =
-            "Patient Report";
-
-    }
-
-
-    if (
-        reportType ===
-        "staff"
-    ) {
-
-        title =
-            "Staff Report";
-
-    }
-
-
-    alert(
-
-        title
-        + "\n\n"
-        + "Report generated successfully."
-        + "\n\n"
-        + "Generated by: Admin"
-        + "\n"
-        + "Cendekia Medika"
-
-    );
-
-}
-
-
-
-/* ========================================
-   PRINT
-======================================== */
-
-function printReport() {
-
-    window.print();
-
-}
-
 
 
 /* ========================================
@@ -1237,51 +1010,121 @@ function logout() {
 
 
 /* ========================================
-   ESCAPE HTML
+   APPLY REPORT FILTER
 ======================================== */
 
-function escapeHTML(value) {
+function applyReport() {
 
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
+    const period =
+        document.getElementById(
+            "reportPeriod"
+        ).value;
+
+
+    const type =
+        document.getElementById(
+            "reportType"
+        ).value;
+
+
+    const periodName =
+        document.getElementById(
+            "reportPeriod"
         )
-        .replace(
-            /</g,
-            "&lt;"
+        .options[
+            document.getElementById(
+                "reportPeriod"
+            ).selectedIndex
+        ]
+        .text;
+
+
+    const typeName =
+        document.getElementById(
+            "reportType"
         )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .options[
+            document.getElementById(
+                "reportType"
+            ).selectedIndex
+        ]
+        .text;
+
+
+    alert(
+
+        "Report filter applied!\n\n"
+        + "Period: "
+        + periodName
+        + "\n"
+        + "Report Type: "
+        + typeName
+
+    );
 
 }
 
 
 
 /* ========================================
-   EVENTS
+   GENERATE REPORT
 ======================================== */
 
-searchInput.addEventListener(
-    "input",
-    displayReport
-);
+function generateReport(type) {
+
+    let reportName =
+        "Hospital Overview";
 
 
-statusFilter.addEventListener(
-    "change",
-    displayReport
-);
+    if (type === "patients") {
+
+        reportName =
+            "Patient Report";
+
+    }
+
+
+    if (type === "staff") {
+
+        reportName =
+            "Staff Report";
+
+    }
+
+
+    if (type === "appointments") {
+
+        reportName =
+            "Appointment Report";
+
+    }
+
+
+    alert(
+
+        reportName
+        + "\n\n"
+        + "Your report is being prepared.\n\n"
+        + "This demo version does not create a"
+        + " downloadable file yet."
+
+    );
+
+}
+
+
+
+/* ========================================
+   REFRESH ACTIVITY
+======================================== */
+
+function refreshActivity() {
+
+    alert(
+        "Activity data refreshed successfully."
+    );
+
+}
 
 
 
@@ -1289,9 +1132,16 @@ statusFilter.addEventListener(
    INITIALIZE
 ======================================== */
 
-updateReportSummary();
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-displayReport();
+        console.log(
+            "Reports page loaded successfully."
+        );
+
+    }
+);
 
 
 </script>
