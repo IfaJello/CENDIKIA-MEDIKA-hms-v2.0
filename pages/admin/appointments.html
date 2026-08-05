@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Appointments | Cendekia Medika</title>
+
+    <link
+        rel="stylesheet"
+        href="appointments.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                +
+            </div>
+
+            <div>
+
+                <strong>
+                    CENDEKIA
+                </strong>
+
+                <span>
+                    MEDIKA
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="patients.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Patients</span>
+            </a>
+
+
+            <a
+                href="doctors.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚕</span>
+                <span>Doctors</span>
+            </a>
+
+
+            <a
+                href="nurses.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">✚</span>
+                <span>Nurses</span>
+            </a>
+
+
+            <a
+                href="appointments.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Appointments</span>
+            </a>
+
+
+            <p class="nav-label secondary">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="users.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>User Management</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                type="button"
+                onclick="logout()"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Sign out
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
+                    ♧
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        SCHEDULING
+                    </p>
+
+
+                    <h1>
+                        Appointments
+                    </h1>
+
+
+                    <p>
+                        Manage patient appointments and
+                        schedules across Cendekia Medika.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    type="button"
+                    onclick="newAppointment()"
+                >
+                    + New Appointment
+                </button>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
+
+            <div class="stats-grid">
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Total Appointments
+                    </span>
+
+                    <strong id="totalAppointments">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Confirmed
+                    </span>
+
+                    <strong id="confirmedAppointments">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Pending
+                    </span>
+
+                    <strong id="pendingAppointments">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Cancelled
+                    </span>
+
+                    <strong id="cancelledAppointments">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 APPOINTMENTS CARD
+            ====================================== -->
+
+            <section class="appointments-card">
+
+
+                <!-- TOOLBAR -->
+
+                <div class="appointments-toolbar">
+
+
+                    <div>
+
+                        <h2>
+                            All Appointments
+                        </h2>
+
+                        <p>
+                            Scheduled patient appointments.
+                        </p>
+
+                    </div>
+
+
+                    <div class="toolbar-actions">
+
+
+                        <!-- SEARCH -->
+
+                        <div class="search-box">
+
+                            <span>
+                                ⌕
+                            </span>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search appointments..."
+                            >
+
+                        </div>
+
+
+
+                        <!-- STATUS FILTER -->
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All status
+                            </option>
+
+                            <option value="confirmed">
+                                Confirmed
+                            </option>
+
+                            <option value="pending">
+                                Pending
+                            </option>
+
+                            <option value="cancelled">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TABLE -->
+
+                <div class="table-container">
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    PATIENT
+                                </th>
+
+                                <th>
+                                    DOCTOR
+                                </th>
+
+                                <th>
+                                    DEPARTMENT
+                                </th>
+
+                                <th>
+                                    DATE
+                                </th>
+
+                                <th>
+                                    TIME
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="appointmentTableBody">
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    style="display:none;"
+                >
+
+                    <div class="empty-icon">
+                        ◷
+                    </div>
+
+                    <h3>
+                        No appointments found
+                    </h3>
+
+                    <p>
+                        Try changing your search or filter.
+                    </p>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================
+     APPOINTMENT DATA
+====================================== -->
+
+<script src="../../data/appointments.js"></script>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* ========================================
+   ELEMENTS
+======================================== */
+
+const appointmentTableBody =
+    document.getElementById(
+        "appointmentTableBody"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const statusFilter =
+    document.getElementById(
+        "statusFilter"
+    );
+
+
+const emptyState =
+    document.getElementById(
+        "emptyState"
+    );
+
+
+
+/* ========================================
+   UPDATE STATISTICS
+======================================== */
+
+function updateStatistics() {
+
+
+    const confirmed =
+        appointments.filter(
+            function(appointment) {
+
+                return appointment.status ===
+                    "confirmed";
+
+            }
+        );
+
+
+    const pending =
+        appointments.filter(
+            function(appointment) {
+
+                return appointment.status ===
+                    "pending";
+
+            }
+        );
+
+
+    const cancelled =
+        appointments.filter(
+            function(appointment) {
+
+                return appointment.status ===
+                    "cancelled";
+
+            }
+        );
+
+
+    document.getElementById(
+        "totalAppointments"
+    ).textContent =
+        appointments.length;
+
+
+    document.getElementById(
+        "confirmedAppointments"
+    ).textContent =
+        confirmed.length;
+
+
+    document.getElementById(
+        "pendingAppointments"
+    ).textContent =
+        pending.length;
+
+
+    document.getElementById(
+        "cancelledAppointments"
+    ).textContent =
+        cancelled.length;
+
+}
+
+
+
+/* ========================================
+   DISPLAY APPOINTMENTS
+======================================== */
+
+function displayAppointments() {
+
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const selectedStatus =
+        statusFilter.value;
+
+
+    let filteredAppointments =
+        appointments;
+
+
+
+    /* SEARCH */
+
+    if (search !== "") {
+
+        filteredAppointments =
+            filteredAppointments.filter(
+                function(appointment) {
+
+                    const searchableText =
+                        appointment.patient
+                        + " "
+                        + appointment.patientId
+                        + " "
+                        + appointment.doctor
+                        + " "
+                        + appointment.department
+                        + " "
+                        + appointment.date
+                        + " "
+                        + appointment.time;
+
+
+                    return searchableText
+                        .toLowerCase()
+                        .includes(search);
+
+                }
+            );
+
+    }
+
+
+
+    /* STATUS FILTER */
+
+    if (selectedStatus !== "all") {
+
+        filteredAppointments =
+            filteredAppointments.filter(
+                function(appointment) {
+
+                    return appointment.status ===
+                        selectedStatus;
+
+                }
+            );
+
+    }
+
+
+
+    /* CLEAR TABLE */
+
+    appointmentTableBody.innerHTML = "";
+
+
+
+    /* EMPTY STATE */
+
+    if (
+        filteredAppointments.length === 0
+    ) {
+
+        emptyState.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    emptyState.style.display =
+        "none";
+
+
+
+    /* CREATE ROWS */
+
+    filteredAppointments.forEach(
+        function(appointment) {
+
+
+            const row =
+                document.createElement("tr");
+
+
+            const initials =
+                appointment.patient
+                    .trim()
+                    .split(/\s+/)
+                    .map(
+                        function(word) {
+
+                            return word
+                                .charAt(0)
+                                .toUpperCase();
+
+                        }
+                    )
+                    .join("")
+                    .substring(0, 2);
+
+
+            const statusName =
+                capitalize(
+                    appointment.status
+                );
+
+
+
+            row.innerHTML = `
+
+                <td>
+
+                    <div class="patient-cell">
+
+
+                        <div class="patient-avatar">
+                            ${initials}
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHTML(
+                                    appointment.patient
+                                )}
+                            </strong>
+
+                            <span>
+                                ${escapeHTML(
+                                    appointment.patientId
+                                )}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    <div class="doctor-cell">
+
+                        <strong>
+                            ${escapeHTML(
+                                appointment.doctor
+                            )}
+                        </strong>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        appointment.department
+                    )}
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        appointment.date
+                    )}
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        appointment.time
+                    )}
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="status ${appointment.status}"
+                    >
+                        ${statusName}
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    <button
+                        class="action-button"
+                        type="button"
+                        onclick="viewAppointment('${escapeJS(appointment.id)}')"
+                    >
+                        •••
+                    </button>
+
+                </td>
+
+            `;
+
+
+            appointmentTableBody.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ========================================
+   VIEW APPOINTMENT
+======================================== */
+
+function viewAppointment(
+    appointmentId
+) {
+
+
+    const appointment =
+        appointments.find(
+            function(item) {
+
+                return item.id ===
+                    appointmentId;
+
+            }
+        );
+
+
+    if (!appointment) {
+
+        alert(
+            "Appointment could not be found."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        "APPOINTMENT DETAILS\n\n"
+
+        + "Appointment ID: "
+        + appointment.id
+
+        + "\n\n"
+
+        + "Patient: "
+        + appointment.patient
+
+        + "\n"
+
+        + "Patient ID: "
+        + appointment.patientId
+
+        + "\n\n"
+
+        + "Doctor: "
+        + appointment.doctor
+
+        + "\n\n"
+
+        + "Department: "
+        + appointment.department
+
+        + "\n\n"
+
+        + "Date: "
+        + appointment.date
+
+        + "\n"
+
+        + "Time: "
+        + appointment.time
+
+        + "\n\n"
+
+        + "Status: "
+        + capitalize(
+            appointment.status
+        )
+
+    );
+
+}
+
+
+
+/* ========================================
+   NEW APPOINTMENT
+======================================== */
+
+function newAppointment() {
+
+    alert(
+        "New Appointment form will be added next."
+    );
+
+}
+
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+function logout() {
+
+    window.location.href =
+        "../../index.html";
+
+}
+
+
+
+/* ========================================
+   CAPITALIZE
+======================================== */
+
+function capitalize(value) {
+
+    if (!value) {
+
+        return "";
+
+    }
+
+
+    return (
+        value.charAt(0).toUpperCase()
+        + value.slice(1)
+    );
+
+}
+
+
+
+/* ========================================
+   ESCAPE HTML
+======================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/* ========================================
+   ESCAPE JAVASCRIPT
+======================================== */
+
+function escapeJS(value) {
+
+    return String(value)
+
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+searchInput.addEventListener(
+    "input",
+    displayAppointments
+);
+
+
+
+/* ========================================
+   FILTER
+======================================== */
+
+statusFilter.addEventListener(
+    "change",
+    displayAppointments
+);
+
+
+
+/* ========================================
+   INITIALIZE
+======================================== */
+
+updateStatistics();
+
+displayAppointments();
+
+
+</script>
+
+</body>
+
+</html>
