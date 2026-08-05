@@ -1,4 +1,9 @@
 const users = [
+
+    // ========================================
+    // ADMIN
+    // ========================================
+
     {
         id: "ADM-0001",
         name: "Ahmad Rahman",
@@ -8,16 +13,51 @@ const users = [
         lastActive: "Just now"
     },
 
+
+    // ========================================
+    // DOCTORS
+    // ========================================
+
     {
-        
         id: "DOC-0024",
         name: "Dr. Dimas Santoso",
         email: "dimas@cendekiamedika.com",
         role: "doctor",
-        specialty: "Internal Medicine",
         status: "active",
         lastActive: "12 min ago"
     },
+
+    {
+        id: "DOC-0025",
+        name: "Dr. Amanda Putri",
+        email: "amanda@cendekiamedika.com",
+        role: "doctor",
+        status: "active",
+        lastActive: "25 min ago"
+    },
+
+    {
+        id: "DOC-0026",
+        name: "Dr. Rizky Pratama",
+        email: "rizky@cendekiamedika.com",
+        role: "doctor",
+        status: "inactive",
+        lastActive: "Yesterday"
+    },
+
+    {
+        id: "DOC-0027",
+        name: "Dr. Sarah Wijaya",
+        email: "sarah@cendekiamedika.com",
+        role: "doctor",
+        status: "active",
+        lastActive: "8 min ago"
+    },
+
+
+    // ========================================
+    // NURSES
+    // ========================================
 
     {
         id: "NUR-0041",
@@ -27,6 +67,11 @@ const users = [
         status: "active",
         lastActive: "35 min ago"
     },
+
+
+    // ========================================
+    // PATIENTS
+    // ========================================
 
     {
         id: "PT-001248",
@@ -45,4 +90,5 @@ const users = [
         status: "inactive",
         lastActive: "Yesterday"
     }
+
 ];
