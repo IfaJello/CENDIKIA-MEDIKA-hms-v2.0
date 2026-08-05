@@ -1,474 +1,499 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-```
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Nurses | Cendekia Medika</title>
+    <title>Nurses | Cendekia Medika</title>
 
-<link
-    rel="stylesheet"
-    href="nurses.css"
->
-```
+    <link
+        rel="stylesheet"
+        href="nurses.css"
+    >
 
 </head>
+
 
 <body>
 
 <div class="app-layout">
 
-```
-<!-- =====================================
-     SIDEBAR
-====================================== -->
 
-<aside class="sidebar">
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
 
-    <div class="sidebar-brand">
-
-        <div class="sidebar-logo">
-            +
-        </div>
-
-        <div>
-            <strong>CENDEKIA</strong>
-            <span>MEDIKA</span>
-        </div>
-
-    </div>
+    <aside class="sidebar">
 
 
-    <nav class="sidebar-nav">
+        <div class="sidebar-brand">
 
-        <p class="nav-label">
-            MAIN MENU
-        </p>
+            <div class="sidebar-logo">
+                +
+            </div>
 
+            <div>
 
-        <a
-            href="dashboard.html"
-            class="nav-item"
-        >
-            <span class="nav-icon">▦</span>
-            <span>Dashboard</span>
-        </a>
+                <strong>
+                    CENDEKIA
+                </strong>
 
-
-        <a
-            href="patients.html"
-            class="nav-item"
-        >
-            <span class="nav-icon">♙</span>
-            <span>Patients</span>
-        </a>
-
-
-        <a
-            href="doctors.html"
-            class="nav-item"
-        >
-            <span class="nav-icon">⚕</span>
-            <span>Doctors</span>
-        </a>
-
-
-        <a
-            href="nurses.html"
-            class="nav-item active"
-        >
-            <span class="nav-icon">✚</span>
-            <span>Nurses</span>
-        </a>
-
-
-        <a
-            href="appointments.html"
-            class="nav-item"
-        >
-            <span class="nav-icon">◷</span>
-            <span>Appointments</span>
-        </a>
-
-
-        <p class="nav-label secondary">
-            MANAGEMENT
-        </p>
-
-
-        <a
-            href="users.html"
-            class="nav-item"
-        >
-            <span class="nav-icon">♙</span>
-            <span>User Management</span>
-        </a>
-
-
-        <a
-            href="#"
-            class="nav-item"
-        >
-            <span class="nav-icon">▤</span>
-            <span>Reports</span>
-        </a>
-
-
-        <a
-            href="#"
-            class="nav-item"
-        >
-            <span class="nav-icon">⚙</span>
-            <span>Settings</span>
-        </a>
-
-    </nav>
-
-
-    <div class="sidebar-bottom">
-
-        <button
-            class="logout-button"
-            type="button"
-            onclick="logout()"
-        >
-
-            <span>↪</span>
-
-            Sign out
-
-        </button>
-
-    </div>
-
-</aside>
-
-
-
-<!-- =====================================
-     MAIN CONTENT
-====================================== -->
-
-<main class="main-content">
-
-
-    <!-- TOPBAR -->
-
-    <header class="topbar">
-
-        <div class="mobile-menu">
-            ☰
-        </div>
-
-
-        <div class="topbar-right">
-
-            <button
-                class="notification-button"
-                type="button"
-            >
-                ♧
-                <span class="notification-dot"></span>
-            </button>
-
-
-            <div class="profile">
-
-                <div class="profile-avatar">
-                    A
-                </div>
-
-
-                <div class="profile-info">
-
-                    <strong>
-                        Admin
-                    </strong>
-
-                    <span>
-                        Administrator
-                    </span>
-
-                </div>
-
-
-                <span class="profile-arrow">
-                    ▾
+                <span>
+                    MEDIKA
                 </span>
 
             </div>
 
         </div>
 
-    </header>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="patients.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Patients</span>
+            </a>
+
+
+            <a
+                href="doctors.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚕</span>
+                <span>Doctors</span>
+            </a>
+
+
+            <a
+                href="nurses.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">✚</span>
+                <span>Nurses</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Appointments</span>
+            </a>
+
+
+            <p class="nav-label secondary">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="users.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>User Management</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                type="button"
+                onclick="logout()"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Sign out
+
+            </button>
+
+        </div>
+
+    </aside>
 
 
 
     <!-- =====================================
-         PAGE CONTENT
+         MAIN CONTENT
     ====================================== -->
 
-    <section class="page-content">
+    <main class="main-content">
 
 
-        <!-- PAGE HEADER -->
+        <!-- TOPBAR -->
 
-        <div class="page-heading">
+        <header class="topbar">
 
-            <div>
 
-                <p class="eyebrow">
-                    STAFF MANAGEMENT
-                </p>
-
-                <h1>
-                    Nurses
-                </h1>
-
-                <p>
-                    View and manage nurses registered
-                    at Cendekia Medika.
-                </p>
-
+            <div class="mobile-menu">
+                ☰
             </div>
 
 
-            <button
-                class="primary-button"
-                type="button"
-                onclick="addNurse()"
-            >
-                + Add Nurse
-            </button>
+            <div class="topbar-right">
 
-        </div>
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
+                    ♧
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
 
 
 
         <!-- =====================================
-             STATISTICS
+             PAGE CONTENT
         ====================================== -->
 
-        <div class="stats-grid">
+        <section class="page-content">
 
 
-            <div class="mini-stat">
+            <!-- PAGE HEADER -->
 
-                <span>
-                    Total Nurses
-                </span>
-
-                <strong id="totalNurses">
-                    0
-                </strong>
-
-            </div>
-
-
-            <div class="mini-stat">
-
-                <span>
-                    Active
-                </span>
-
-                <strong id="activeNurses">
-                    0
-                </strong>
-
-            </div>
-
-
-            <div class="mini-stat">
-
-                <span>
-                    Inactive
-                </span>
-
-                <strong id="inactiveNurses">
-                    0
-                </strong>
-
-            </div>
-
-
-            <div class="mini-stat">
-
-                <span>
-                    Recently Active
-                </span>
-
-                <strong id="recentNurses">
-                    0
-                </strong>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             NURSES CARD
-        ====================================== -->
-
-        <section class="nurses-card">
-
-
-            <!-- TOOLBAR -->
-
-            <div class="nurses-toolbar">
+            <div class="page-heading">
 
                 <div>
 
-                    <h2>
-                        All Nurses
-                    </h2>
+                    <p class="eyebrow">
+                        STAFF MANAGEMENT
+                    </p>
+
+
+                    <h1>
+                        Nurses
+                    </h1>
+
 
                     <p>
-                        Registered nurse accounts.
+                        View and manage nurses registered
+                        at Cendekia Medika.
                     </p>
 
                 </div>
 
 
-                <div class="toolbar-actions">
+                <button
+                    class="primary-button"
+                    type="button"
+                    onclick="addNurse()"
+                >
+                    + Add Nurse
+                </button>
+
+            </div>
 
 
-                    <!-- SEARCH -->
 
-                    <div class="search-box">
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
 
-                        <span>
-                            ⌕
-                        </span>
+            <div class="stats-grid">
 
-                        <input
-                            type="text"
-                            id="searchInput"
-                            placeholder="Search nurses..."
-                        >
+
+                <div class="mini-stat">
+
+                    <span>
+                        Total Nurses
+                    </span>
+
+                    <strong id="totalNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Active
+                    </span>
+
+                    <strong id="activeNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Inactive
+                    </span>
+
+                    <strong id="inactiveNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Recently Active
+                    </span>
+
+                    <strong id="recentNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 NURSE CARD
+            ====================================== -->
+
+            <section class="nurses-card">
+
+
+                <!-- TOOLBAR -->
+
+                <div class="nurses-toolbar">
+
+
+                    <div>
+
+                        <h2>
+                            All Nurses
+                        </h2>
+
+                        <p>
+                            Registered nurse accounts.
+                        </p>
 
                     </div>
 
 
+                    <div class="toolbar-actions">
 
-                    <!-- STATUS FILTER -->
 
-                    <select id="statusFilter">
+                        <!-- SEARCH -->
 
-                        <option value="all">
-                            All status
-                        </option>
+                        <div class="search-box">
 
-                        <option value="active">
-                            Active
-                        </option>
+                            <span>
+                                ⌕
+                            </span>
 
-                        <option value="inactive">
-                            Inactive
-                        </option>
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search nurses..."
+                            >
 
-                    </select>
+                        </div>
+
+
+
+                        <!-- STATUS FILTER -->
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All status
+                            </option>
+
+                            <option value="active">
+                                Active
+                            </option>
+
+                            <option value="inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
 
                 </div>
 
-            </div>
 
 
+                <!-- TABLE -->
 
-            <!-- TABLE -->
+                <div class="table-container">
 
-            <div class="table-container">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                NURSE
-                            </th>
-
-                            <th>
-                                NURSE ID
-                            </th>
-
-                            <th>
-                                EMAIL
-                            </th>
-
-                            <th>
-                                STATUS
-                            </th>
-
-                            <th>
-                                LAST ACTIVE
-                            </th>
-
-                            <th>
-                                ACTION
-                            </th>
-
-                        </tr>
-
-                    </thead>
+                    <table>
 
 
-                    <tbody id="nurseTableBody">
-                    </tbody>
+                        <thead>
 
-                </table>
+                            <tr>
 
-            </div>
+                                <th>
+                                    NURSE
+                                </th>
+
+                                <th>
+                                    NURSE ID
+                                </th>
+
+                                <th>
+                                    EMAIL
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    LAST ACTIVE
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
 
 
+                        <tbody id="nurseTableBody">
+                        </tbody>
 
-            <!-- EMPTY STATE -->
 
-            <div
-                class="empty-state"
-                id="emptyState"
-                style="display:none;"
-            >
+                    </table>
 
-                <div class="empty-icon">
-                    ✚
                 </div>
 
-                <h3>
-                    No nurses found
-                </h3>
 
-                <p>
-                    Try changing your search or filter.
-                </p>
 
-            </div>
+                <!-- EMPTY STATE -->
 
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    style="display:none;"
+                >
+
+                    <div class="empty-icon">
+                        ✚
+                    </div>
+
+                    <h3>
+                        No nurses found
+                    </h3>
+
+                    <p>
+                        Try changing your search or filter.
+                    </p>
+
+                </div>
+
+
+            </section>
 
         </section>
 
-    </section>
-
-</main>
-```
+    </main>
 
 </div>
+
+
 
 <!-- =====================================
      USERS DATA
 ====================================== -->
 
 <script src="../../data/users.js"></script>
+
+
 
 <!-- =====================================
      JAVASCRIPT
@@ -513,8 +538,11 @@ const emptyState =
 function getNurses() {
 
     return users.filter(
-        user =>
-            user.role === "nurse"
+        function(user) {
+
+            return user.role === "nurse";
+
+        }
     );
 
 }
@@ -527,28 +555,39 @@ function getNurses() {
 
 function updateStatistics() {
 
+
     const nurses =
         getNurses();
 
 
     const active =
         nurses.filter(
-            nurse =>
-                nurse.status === "active"
+            function(nurse) {
+
+                return nurse.status === "active";
+
+            }
         );
 
 
     const inactive =
         nurses.filter(
-            nurse =>
-                nurse.status === "inactive"
+            function(nurse) {
+
+                return nurse.status === "inactive";
+
+            }
         );
 
 
     const recent =
         nurses.filter(
-            nurse =>
-                nurse.lastActive !== "Yesterday"
+            function(nurse) {
+
+                return nurse.lastActive !==
+                    "Yesterday";
+
+            }
         );
 
 
@@ -585,6 +624,7 @@ function updateStatistics() {
 
 function displayNurses() {
 
+
     const search =
         searchInput.value
             .toLowerCase()
@@ -599,13 +639,14 @@ function displayNurses() {
         getNurses();
 
 
+
     /* SEARCH */
 
-    if (search) {
+    if (search !== "") {
 
         nurses =
             nurses.filter(
-                nurse => {
+                function(nurse) {
 
                     const searchableText =
                         nurse.name
@@ -632,9 +673,12 @@ function displayNurses() {
 
         nurses =
             nurses.filter(
-                nurse =>
-                    nurse.status ===
-                    selectedStatus
+                function(nurse) {
+
+                    return nurse.status ===
+                        selectedStatus;
+
+                }
             );
 
     }
@@ -667,27 +711,41 @@ function displayNurses() {
     /* CREATE ROWS */
 
     nurses.forEach(
-        nurse => {
+        function(nurse) {
+
 
             const row =
-                document.createElement(
-                    "tr"
-                );
+                document.createElement("tr");
 
 
-            const initials =
+            /* INITIALS */
+
+            const nameParts =
                 nurse.name
                     .trim()
-                    .split(/\s+/)
-                    .map(
-                        word =>
-                            word
-                                .charAt(0)
-                                .toUpperCase()
-                    )
-                    .join("")
-                    .substring(0, 2);
+                    .split(/\s+/);
 
+
+            let initials =
+                nameParts[0]
+                    .charAt(0)
+                    .toUpperCase();
+
+
+            if (nameParts.length > 1) {
+
+                initials +=
+                    nameParts[
+                        nameParts.length - 1
+                    ]
+                    .charAt(0)
+                    .toUpperCase();
+
+            }
+
+
+
+            /* STATUS */
 
             const statusName =
                 nurse.status
@@ -697,11 +755,14 @@ function displayNurses() {
 
 
 
+            /* ROW HTML */
+
             row.innerHTML = `
 
                 <td>
 
                     <div class="nurse-cell">
+
 
                         <div class="nurse-avatar">
                             ${initials}
@@ -768,9 +829,7 @@ function displayNurses() {
                     <button
                         class="action-button"
                         type="button"
-                        onclick="viewNurse('${escapeJS(
-                            nurse.id
-                        )}')"
+                        onclick="viewNurse('${escapeJS(nurse.id)}')"
                     >
                         •••
                     </button>
@@ -797,10 +856,14 @@ function displayNurses() {
 
 function viewNurse(nurseId) {
 
+
     const nurse =
         users.find(
-            user =>
-                user.id === nurseId
+            function(user) {
+
+                return user.id === nurseId;
+
+            }
         );
 
 
@@ -818,18 +881,27 @@ function viewNurse(nurseId) {
     alert(
 
         "NURSE PROFILE\n\n"
+
         + "Name: "
         + nurse.name
+
         + "\n\n"
+
         + "Nurse ID: "
         + nurse.id
+
         + "\n\n"
+
         + "Email: "
         + nurse.email
+
         + "\n\n"
+
         + "Status: "
         + capitalize(nurse.status)
+
         + "\n\n"
+
         + "Last Active: "
         + nurse.lastActive
 
@@ -872,7 +944,9 @@ function logout() {
 function capitalize(value) {
 
     if (!value) {
+
         return "";
+
     }
 
 
@@ -892,11 +966,31 @@ function capitalize(value) {
 function escapeHTML(value) {
 
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -909,8 +1003,16 @@ function escapeHTML(value) {
 function escapeJS(value) {
 
     return String(value)
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
+
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+
+        .replace(
+            /'/g,
+            "\\'"
+        );
 
 }
 
@@ -928,7 +1030,7 @@ searchInput.addEventListener(
 
 
 /* ========================================
-   STATUS FILTER
+   FILTER
 ======================================== */
 
 statusFilter.addEventListener(
