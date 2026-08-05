@@ -492,8 +492,13 @@
 ====================================== -->
 
 <script src="../../data/users.js"></script>
-
-
+<script>
+    console.log("Users data:", users);
+    console.log(
+        "Doctors:",
+        users.filter(user => user.role === "doctor")
+    );
+</script>
 
 <!-- =====================================
      JAVASCRIPT
