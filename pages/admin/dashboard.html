@@ -14,7 +14,7 @@
 
     <link
         rel="stylesheet"
-        href="../../dashboard.css"
+        href="dashboard.css"
     >
 
 </head>
@@ -22,123 +22,171 @@
 
 <body>
 
-    <div class="app">
+    <!-- ========================================
+         SIDEBAR
+         ======================================== -->
 
+    <aside class="sidebar">
 
-        <!-- ==================================
-             SIDEBAR
-        =================================== -->
+        <div class="sidebar-brand">
 
-        <aside class="sidebar">
+            <div class="sidebar-logo">
+                +
+            </div>
 
-            <div class="sidebar-brand">
+            <div>
 
-                <div class="sidebar-logo">
-                    +
-                </div>
+                <strong>
+                    CENDEKIA
+                </strong>
 
-                <div>
-                    <strong>CENDEKIA</strong>
-                    <span>MEDIKA</span>
-                </div>
+                <span>
+                    MEDIKA
+                </span>
 
             </div>
 
+        </div>
 
-            <div class="sidebar-section">
 
-                <p class="sidebar-label">
-                    MAIN MENU
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN
+            </p>
+
+            <a
+                href="#"
+                class="nav-item active"
+            >
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+
+            <p class="nav-label">
+                MANAGEMENT
+            </p>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span>♙</span>
+                Users
+            </a>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span>♡</span>
+                Patients
+            </a>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span>⚕</span>
+                Doctors
+            </a>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span>✚</span>
+                Nurses
+            </a>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span>▣</span>
+                Appointments
+            </a>
+
+
+            <p class="nav-label">
+                SYSTEM
+            </p>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ========================================
+         MAIN CONTENT
+         ======================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="breadcrumb">
+                    Administration / Dashboard
                 </p>
 
-
-                <nav>
-
-                    <a
-                        href="#"
-                        class="nav-item active"
-                    >
-                        <span class="nav-icon">⌂</span>
-                        Dashboard
-                    </a>
-
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">♙</span>
-                        Users
-                    </a>
-
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">♡</span>
-                        Patients
-                    </a>
-
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">⚕</span>
-                        Doctors
-                    </a>
-
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">✚</span>
-                        Nurses
-                    </a>
-
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">▣</span>
-                        Appointments
-                    </a>
-
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">⌂</span>
-                        Departments
-                    </a>
-
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">▤</span>
-                        Reports
-                    </a>
-
-                </nav>
-
             </div>
 
 
-            <div class="sidebar-section">
+            <div class="topbar-right">
 
-                <p class="sidebar-label">
-                    SYSTEM
-                </p>
-
-
-                <nav>
-
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">⚙</span>
-                        Settings
-                    </a>
-
-                </nav>
-
-            </div>
+                <button class="notification-button">
+                    ♧
+                    <span class="notification-dot"></span>
+                </button>
 
 
-            <div class="sidebar-bottom">
+                <div class="admin-profile">
 
-                <div class="user-mini">
-
-                    <div class="user-avatar">
+                    <div class="profile-avatar">
                         A
                     </div>
 
-                    <div>
+                    <div class="profile-info">
 
-                        <strong>Administrator</strong>
+                        <strong>
+                            Administrator
+                        </strong>
 
                         <span>
                             System Admin
@@ -146,516 +194,380 @@
 
                     </div>
 
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
                 </div>
-
-
-                <button
-                    class="logout-button"
-                    onclick="logout()"
-                >
-                    Log out
-                </button>
 
             </div>
 
-        </aside>
+        </header>
 
 
-        <!-- ==================================
-             MAIN CONTENT
-        =================================== -->
 
-        <main class="main-content">
+        <!-- PAGE CONTENT -->
+
+        <section class="page-content">
 
 
-            <!-- TOP BAR -->
+            <!-- WELCOME -->
 
-            <header class="topbar">
+            <div class="welcome-section">
 
                 <div>
 
-                    <p class="breadcrumb">
-                        Home / Dashboard
+                    <p class="eyebrow">
+                        ADMINISTRATION
+                    </p>
+
+                    <h1>
+                        Good morning, Administrator
+                    </h1>
+
+                    <p>
+                        Here's what's happening across
+                        Cendekia Medika today.
                     </p>
 
                 </div>
 
-
-                <div class="topbar-actions">
-
-                    <button class="icon-button">
-                        🔔
-                        <span class="notification-dot"></span>
-                    </button>
-
-
-                    <div class="profile">
-
-                        <div class="profile-avatar">
-                            A
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Administrator
-                            </strong>
-
-                            <span>
-                                Admin
-                            </span>
-
-                        </div>
-
-                    </div>
-
+                <div class="date-display">
+                    Wednesday, August 5, 2026
                 </div>
 
-            </header>
+            </div>
 
 
-            <!-- PAGE CONTENT -->
 
-            <section class="content">
+            <!-- ========================================
+                 STATISTICS
+                 ======================================== -->
+
+            <section class="stats-grid">
 
 
-                <div class="page-heading">
+                <div class="stat-card">
 
-                    <div>
-
-                        <p class="eyebrow">
-                            ADMINISTRATION
-                        </p>
-
-                        <h1>
-                            Good morning, Administrator
-                        </h1>
-
-                        <p>
-                            Here's what's happening
-                            across Cendekia Medika today.
-                        </p>
-
+                    <div class="stat-icon patient-icon">
+                        ♡
                     </div>
 
+                    <div class="stat-content">
 
-                    <button class="primary-button">
-                        + Add User
-                    </button>
+                        <span>
+                            Total Patients
+                        </span>
 
-                </div>
-
-
-                <!-- STATISTICS -->
-
-                <div class="stats-grid">
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-top">
-
-                            <span class="stat-label">
-                                TOTAL PATIENTS
-                            </span>
-
-                            <span class="stat-icon">
-                                ♡
-                            </span>
-
-                        </div>
-
-                        <strong class="stat-number">
-                            1,248
+                        <strong>
+                            1,284
                         </strong>
 
-                        <p class="stat-change positive">
-                            ↑ 8.2% <span>this month</span>
-                        </p>
+                        <small>
+                            ↑ 8.2% this month
+                        </small>
 
                     </div>
 
+                </div>
 
-                    <div class="stat-card">
 
-                        <div class="stat-top">
+                <div class="stat-card">
 
-                            <span class="stat-label">
-                                DOCTORS
-                            </span>
+                    <div class="stat-icon doctor-icon">
+                        ⚕
+                    </div>
 
-                            <span class="stat-icon">
-                                ⚕
-                            </span>
+                    <div class="stat-content">
 
-                        </div>
+                        <span>
+                            Doctors
+                        </span>
 
-                        <strong class="stat-number">
+                        <strong>
                             86
                         </strong>
 
-                        <p class="stat-change positive">
-                            ↑ 3 new <span>this month</span>
-                        </p>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-top">
-
-                            <span class="stat-label">
-                                NURSES
-                            </span>
-
-                            <span class="stat-icon">
-                                ✚
-                            </span>
-
-                        </div>
-
-                        <strong class="stat-number">
-                            142
-                        </strong>
-
-                        <p class="stat-change positive">
-                            ↑ 5 new <span>this month</span>
-                        </p>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-top">
-
-                            <span class="stat-label">
-                                APPOINTMENTS
-                            </span>
-
-                            <span class="stat-icon">
-                                ▣
-                            </span>
-
-                        </div>
-
-                        <strong class="stat-number">
-                            64
-                        </strong>
-
-                        <p class="stat-change">
-                            Today
-                        </p>
+                        <small>
+                            4 departments
+                        </small>
 
                     </div>
 
                 </div>
 
 
-                <!-- LOWER GRID -->
+                <div class="stat-card">
 
-                <div class="dashboard-grid">
+                    <div class="stat-icon nurse-icon">
+                        ✚
+                    </div>
 
+                    <div class="stat-content">
 
-                    <!-- RECENT PATIENTS -->
+                        <span>
+                            Nurses
+                        </span>
 
-                    <section class="dashboard-card">
+                        <strong>
+                            142
+                        </strong>
 
-                        <div class="card-heading">
+                        <small>
+                            12 on duty today
+                        </small>
 
-                            <div>
+                    </div>
 
-                                <h2>
-                                    Recent Patients
-                                </h2>
+                </div>
 
-                                <p>
-                                    Recently registered patients
-                                </p>
 
-                            </div>
+                <div class="stat-card">
 
-                            <a href="#">
-                                View all
-                            </a>
+                    <div class="stat-icon appointment-icon">
+                        ▣
+                    </div>
 
-                        </div>
+                    <div class="stat-content">
 
+                        <span>
+                            Appointments
+                        </span>
 
-                        <div class="table-wrapper">
+                        <strong>
+                            64
+                        </strong>
 
-                            <table>
+                        <small>
+                            18 remaining today
+                        </small>
 
-                                <thead>
-
-                                    <tr>
-                                        <th>Patient</th>
-                                        <th>Patient ID</th>
-                                        <th>Status</th>
-                                        <th>Registered</th>
-                                    </tr>
-
-                                </thead>
-
-
-                                <tbody>
-
-                                    <tr>
-
-                                        <td>
-                                            <strong>
-                                                Aisyah Rahma
-                                            </strong>
-                                        </td>
-
-                                        <td>
-                                            CM-001248
-                                        </td>
-
-                                        <td>
-                                            <span class="status active">
-                                                Active
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            Today, 09:42
-                                        </td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-                                            <strong>
-                                                Bima Pratama
-                                            </strong>
-                                        </td>
-
-                                        <td>
-                                            CM-001247
-                                        </td>
-
-                                        <td>
-                                            <span class="status active">
-                                                Active
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            Today, 09:18
-                                        </td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-                                            <strong>
-                                                Citra Lestari
-                                            </strong>
-                                        </td>
-
-                                        <td>
-                                            CM-001246
-                                        </td>
-
-                                        <td>
-                                            <span class="status pending">
-                                                Pending
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            Yesterday
-                                        </td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-                                            <strong>
-                                                Dimas Saputra
-                                            </strong>
-                                        </td>
-
-                                        <td>
-                                            CM-001245
-                                        </td>
-
-                                        <td>
-                                            <span class="status active">
-                                                Active
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            Yesterday
-                                        </td>
-
-                                    </tr>
-
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- TODAY'S APPOINTMENTS -->
-
-                    <section class="dashboard-card appointments-card">
-
-                        <div class="card-heading">
-
-                            <div>
-
-                                <h2>
-                                    Today's Schedule
-                                </h2>
-
-                                <p>
-                                    Upcoming appointments
-                                </p>
-
-                            </div>
-
-                            <a href="#">
-                                View all
-                            </a>
-
-                        </div>
-
-
-                        <div class="appointment-list">
-
-
-                            <div class="appointment">
-
-                                <div class="appointment-time">
-                                    09:00
-                                </div>
-
-                                <div class="appointment-info">
-
-                                    <strong>
-                                        Dr. Andi Wijaya
-                                    </strong>
-
-                                    <span>
-                                        General Medicine
-                                    </span>
-
-                                </div>
-
-                                <span class="appointment-status">
-                                    12 patients
-                                </span>
-
-                            </div>
-
-
-                            <div class="appointment">
-
-                                <div class="appointment-time">
-                                    10:30
-                                </div>
-
-                                <div class="appointment-info">
-
-                                    <strong>
-                                        Dr. Maya Putri
-                                    </strong>
-
-                                    <span>
-                                        Pediatrics
-                                    </span>
-
-                                </div>
-
-                                <span class="appointment-status">
-                                    8 patients
-                                </span>
-
-                            </div>
-
-
-                            <div class="appointment">
-
-                                <div class="appointment-time">
-                                    13:00
-                                </div>
-
-                                <div class="appointment-info">
-
-                                    <strong>
-                                        Dr. Rizky Hasan
-                                    </strong>
-
-                                    <span>
-                                        Internal Medicine
-                                    </span>
-
-                                </div>
-
-                                <span class="appointment-status">
-                                    15 patients
-                                </span>
-
-                            </div>
-
-
-                            <div class="appointment">
-
-                                <div class="appointment-time">
-                                    14:30
-                                </div>
-
-                                <div class="appointment-info">
-
-                                    <strong>
-                                        Dr. Sarah Ananda
-                                    </strong>
-
-                                    <span>
-                                        Cardiology
-                                    </span>
-
-                                </div>
-
-                                <span class="appointment-status">
-                                    6 patients
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </section>
+                    </div>
 
                 </div>
 
 
             </section>
 
-        </main>
 
-    </div>
+
+            <!-- ========================================
+                 DASHBOARD GRID
+                 ======================================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- RECENT ACTIVITY -->
+
+                <div class="dashboard-card activity-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                Recent Activity
+                            </h2>
+
+                            <p>
+                                Latest system activities
+                            </p>
+
+                        </div>
+
+                        <button>
+                            View all
+                        </button>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-avatar">
+                                N
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    New patient registered
+                                </strong>
+
+                                <span>
+                                    Nadia Permata · 10 minutes ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-avatar">
+                                D
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Doctor account created
+                                </strong>
+
+                                <span>
+                                    Dr. Ahmad Fauzi · 32 minutes ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-avatar">
+                                R
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Patient record updated
+                                </strong>
+
+                                <span>
+                                    Rina Maharani · 1 hour ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-avatar">
+                                S
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Nurse account created
+                                </strong>
+
+                                <span>
+                                    Siti Rahma · 2 hours ago
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                Quick Actions
+                            </h2>
+
+                            <p>
+                                Common administrative tasks
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <button class="quick-action">
+                            <span>+</span>
+                            <div>
+                                <strong>
+                                    Add User
+                                </strong>
+                                <small>
+                                    Create a new account
+                                </small>
+                            </div>
+                        </button>
+
+
+                        <button class="quick-action">
+                            <span>+</span>
+                            <div>
+                                <strong>
+                                    Register Patient
+                                </strong>
+                                <small>
+                                    Add a new patient
+                                </small>
+                            </div>
+                        </button>
+
+
+                        <button class="quick-action">
+                            <span>▣</span>
+                            <div>
+                                <strong>
+                                    Schedule
+                                </strong>
+                                <small>
+                                    Manage appointments
+                                </small>
+                            </div>
+                        </button>
+
+
+                        <button class="quick-action">
+                            <span>▤</span>
+                            <div>
+                                <strong>
+                                    Generate Report
+                                </strong>
+                                <small>
+                                    View hospital reports
+                                </small>
+                            </div>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+    </main>
 
 
     <script>
 
         function logout() {
 
-            window.location.href =
-                "../../index.html";
+            window.location.href = "../../index.html";
 
         }
 

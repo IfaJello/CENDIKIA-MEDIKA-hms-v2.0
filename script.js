@@ -125,14 +125,13 @@ loginForm.addEventListener("submit", (event) => {
         );
 
 
-        // Temporary message
         setTimeout(() => {
 
-            alert(
-                `Welcome to Cendekia Medika!\n\nRole: ${selectedRole}`
-            );
+    if (selectedRole === "admin") {
+        window.location.href = "pages/admin/dashboard.html";
+    }
 
-        }, 300);
+}, 300);
 
     } else {
 
