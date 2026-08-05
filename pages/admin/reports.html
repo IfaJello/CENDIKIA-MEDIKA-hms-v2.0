@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -15,6 +16,7 @@
         rel="stylesheet"
         href="reports.css"
     >
+
 </head>
 
 
@@ -29,55 +31,120 @@
 
     <aside class="sidebar">
 
+
+        <!-- BRAND -->
+
         <div class="sidebar-brand">
 
             <div class="sidebar-logo">
                 +
             </div>
 
-            <div class="brand-text">
-                <strong>CENDEKIA</strong>
-                <span>MEDIKA</span>
+            <div>
+
+                <strong>
+                    CENDEKIA
+                </strong>
+
+                <span>
+                    MEDIKA
+                </span>
+
             </div>
 
         </div>
 
 
+
+        <!-- NAVIGATION -->
+
         <nav class="sidebar-nav">
+
 
             <p class="nav-label">
                 MAIN MENU
             </p>
 
 
-            <a href="dashboard.html" class="nav-item">
-                <span class="nav-icon">▦</span>
-                <span>Dashboard</span>
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ▦
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
             </a>
 
 
-            <a href="patients.html" class="nav-item">
-                <span class="nav-icon">♙</span>
-                <span>Patients</span>
+            <a
+                href="patients.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ♙
+                </span>
+
+                <span>
+                    Patients
+                </span>
+
             </a>
 
 
-            <a href="doctors.html" class="nav-item">
-                <span class="nav-icon">⚕</span>
-                <span>Doctors</span>
+            <a
+                href="doctors.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ⚕
+                </span>
+
+                <span>
+                    Doctors
+                </span>
+
             </a>
 
 
-            <a href="#" class="nav-item">
-                <span class="nav-icon">✚</span>
-                <span>Nurses</span>
+            <a
+                href="#"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ✚
+                </span>
+
+                <span>
+                    Nurses
+                </span>
+
             </a>
 
 
-            <a href="appointments.html" class="nav-item">
-                <span class="nav-icon">◷</span>
-                <span>Appointments</span>
+            <a
+                href="appointments.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ◷
+                </span>
+
+                <span>
+                    Appointments
+                </span>
+
             </a>
+
 
 
             <p class="nav-label secondary">
@@ -85,25 +152,59 @@
             </p>
 
 
-            <a href="users.html" class="nav-item">
-                <span class="nav-icon">♙</span>
-                <span>User Management</span>
+            <a
+                href="users.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ♙
+                </span>
+
+                <span>
+                    User Management
+                </span>
+
             </a>
 
 
-            <a href="reports.html" class="nav-item active">
-                <span class="nav-icon">▤</span>
-                <span>Reports</span>
+            <a
+                href="reports.html"
+                class="nav-item active"
+            >
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
             </a>
 
 
-            <a href="#" class="nav-item">
-                <span class="nav-icon">⚙</span>
-                <span>Settings</span>
+            <a
+                href="#"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
             </a>
+
 
         </nav>
 
+
+
+        <!-- SIDEBAR BOTTOM -->
 
         <div class="sidebar-bottom">
 
@@ -112,11 +213,17 @@
                 type="button"
                 onclick="logout()"
             >
-                <span>↪</span>
+
+                <span>
+                    ↪
+                </span>
+
                 Sign out
+
             </button>
 
         </div>
+
 
     </aside>
 
@@ -129,9 +236,12 @@
     <main class="main-content">
 
 
-        <!-- TOPBAR -->
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
 
         <header class="topbar">
+
 
             <div class="mobile-menu">
                 ☰
@@ -140,20 +250,27 @@
 
             <div class="topbar-right">
 
+
                 <button
                     class="notification-button"
                     type="button"
                 >
+
                     ♧
+
                     <span class="notification-dot"></span>
+
                 </button>
+
 
 
                 <div class="profile">
 
+
                     <div class="profile-avatar">
                         A
                     </div>
+
 
                     <div class="profile-info">
 
@@ -167,28 +284,35 @@
 
                     </div>
 
+
                     <span class="profile-arrow">
                         ▾
                     </span>
 
+
                 </div>
 
+
             </div>
+
 
         </header>
 
 
 
         <!-- =====================================
-             REPORT CONTENT
+             PAGE CONTENT
         ====================================== -->
 
         <section class="page-content">
 
 
-            <!-- PAGE HEADER -->
+            <!-- =====================================
+                 PAGE HEADER
+            ====================================== -->
 
             <div class="page-heading">
+
 
                 <div>
 
@@ -197,63 +321,73 @@
                     </p>
 
                     <h1>
-                        Reports
+                        Report Overview
                     </h1>
 
                     <p>
-                        View hospital statistics and performance
-                        across different reporting periods.
+                        Monitor hospital activity and performance.
                     </p>
 
                 </div>
+
 
             </div>
 
 
 
             <!-- =====================================
-                 REPORT FILTER
+                 FILTER BAR
             ====================================== -->
 
             <section class="filter-card">
 
-                <div class="filter-heading">
+
+                <div class="filter-title">
+
+                    <div class="filter-icon">
+                        ◷
+                    </div>
 
                     <div>
 
-                        <h2>
-                            Report Overview
-                        </h2>
+                        <strong>
+                            Report Period
+                        </strong>
 
-                        <p>
-                            Select a reporting period and report type.
-                        </p>
+                        <span>
+                            Select a period and report type.
+                        </span>
 
                     </div>
 
                 </div>
 
 
-                <div class="filter-row">
+
+                <div class="filters">
 
 
-                    <div class="form-group">
+                    <div class="filter-group">
 
-                        <label for="reportPeriod">
-                            Reporting Period
+                        <label for="period">
+                            Period
                         </label>
 
-                        <select id="reportPeriod">
+                        <select id="period">
 
-                            <option value="month">
+                            <option>
                                 This Month
                             </option>
 
-                            <option value="quarter">
+                            <option>
+                                Last Month
+                            </option>
+
+                            <option>
                                 This Quarter
                             </option>
 
-                            <option value="year">
+                            <option>
                                 This Year
                             </option>
 
@@ -263,7 +397,7 @@
 
 
 
-                    <div class="form-group">
+                    <div class="filter-group">
 
                         <label for="reportType">
                             Report Type
@@ -271,20 +405,20 @@
 
                         <select id="reportType">
 
-                            <option value="hospital">
+                            <option>
                                 Hospital Overview
                             </option>
 
-                            <option value="appointments">
-                                Appointment Report
-                            </option>
-
-                            <option value="patients">
+                            <option>
                                 Patient Report
                             </option>
 
-                            <option value="staff">
+                            <option>
                                 Staff Report
+                            </option>
+
+                            <option>
+                                Appointment Report
                             </option>
 
                         </select>
@@ -292,32 +426,39 @@
                     </div>
 
 
+
                     <button
                         class="primary-button"
                         type="button"
-                        onclick="applyReport()"
+                        onclick="applyFilter()"
                     >
                         Apply Filter
                     </button>
 
+
                 </div>
+
 
             </section>
 
 
 
             <!-- =====================================
-                 KEY STATISTICS
+                 OVERVIEW STATISTICS
             ====================================== -->
 
-            <section class="stats-grid">
+            <div class="stats-grid">
 
+
+                <!-- PATIENTS -->
 
                 <div class="stat-card">
+
 
                     <div class="stat-icon patient">
                         ♙
                     </div>
+
 
                     <div class="stat-content">
 
@@ -335,15 +476,20 @@
 
                     </div>
 
+
                 </div>
 
 
 
+                <!-- STAFF -->
+
                 <div class="stat-card">
+
 
                     <div class="stat-icon staff">
                         ⚕
                     </div>
+
 
                     <div class="stat-content">
 
@@ -361,15 +507,20 @@
 
                     </div>
 
+
                 </div>
 
 
 
+                <!-- APPOINTMENTS -->
+
                 <div class="stat-card">
+
 
                     <div class="stat-icon appointment">
                         ◷
                     </div>
+
 
                     <div class="stat-content">
 
@@ -387,15 +538,20 @@
 
                     </div>
 
+
                 </div>
 
 
 
+                <!-- COMPLETION -->
+
                 <div class="stat-card">
+
 
                     <div class="stat-icon completion">
                         ✓
                     </div>
+
 
                     <div class="stat-content">
 
@@ -413,9 +569,11 @@
 
                     </div>
 
+
                 </div>
 
-            </section>
+
+            </div>
 
 
 
@@ -426,11 +584,15 @@
             <div class="report-grid">
 
 
-                <!-- APPOINTMENT SUMMARY -->
+                <!-- =================================
+                     APPOINTMENT SUMMARY
+                ================================== -->
 
-                <section class="report-card">
+                <section class="report-card appointment-summary">
 
-                    <div class="card-header">
+
+                    <div class="card-heading">
+
 
                         <div>
 
@@ -444,74 +606,140 @@
 
                         </div>
 
+
+                        <div class="card-icon">
+                            ◷
+                        </div>
+
+
                     </div>
 
 
-                    <div class="summary-list">
+
+                    <div class="appointment-status-grid">
 
 
-                        <div class="summary-item">
+                        <!-- CONFIRMED -->
 
-                            <div class="summary-label">
+                        <div class="status-card confirmed">
 
-                                <span class="summary-dot confirmed"></span>
+                            <div class="status-top">
 
                                 <span>
                                     Confirmed
                                 </span>
 
+                                <span class="status-dot"></span>
+
                             </div>
+
 
                             <strong>
                                 118
                             </strong>
 
+
+                            <div class="status-progress">
+
+                                <div
+                                    class="progress-fill"
+                                    style="width: 75.6%;"
+                                ></div>
+
+                            </div>
+
+
+                            <small>
+                                75.6% of appointments
+                            </small>
+
                         </div>
 
 
 
-                        <div class="summary-item">
+                        <!-- PENDING -->
 
-                            <div class="summary-label">
+                        <div class="status-card pending">
 
-                                <span class="summary-dot pending"></span>
+                            <div class="status-top">
 
                                 <span>
                                     Pending
                                 </span>
 
+                                <span class="status-dot"></span>
+
                             </div>
+
 
                             <strong>
                                 24
                             </strong>
 
+
+                            <div class="status-progress">
+
+                                <div
+                                    class="progress-fill"
+                                    style="width: 15.4%;"
+                                ></div>
+
+                            </div>
+
+
+                            <small>
+                                15.4% of appointments
+                            </small>
+
                         </div>
 
 
 
-                        <div class="summary-item">
+                        <!-- CANCELLED -->
 
-                            <div class="summary-label">
+                        <div class="status-card cancelled">
 
-                                <span class="summary-dot cancelled"></span>
+                            <div class="status-top">
 
                                 <span>
                                     Cancelled
                                 </span>
 
+                                <span class="status-dot"></span>
+
                             </div>
+
 
                             <strong>
                                 14
                             </strong>
 
+
+                            <div class="status-progress">
+
+                                <div
+                                    class="progress-fill"
+                                    style="width: 9%;"
+                                ></div>
+
+                            </div>
+
+
+                            <small>
+                                9.0% of appointments
+                            </small>
+
                         </div>
+
 
                     </div>
 
 
+
+                    <!-- COMPLETION -->
+
                     <div class="completion-box">
+
 
                         <div>
 
@@ -525,26 +753,33 @@
 
                         </div>
 
-                        <div class="progress-bar">
+
+                        <div class="large-progress">
 
                             <div
-                                class="progress-fill"
-                                style="width:92%;"
+                                class="large-progress-fill"
+                                style="width: 92%;"
                             ></div>
 
                         </div>
 
+
                     </div>
+
 
                 </section>
 
 
 
-                <!-- DEPARTMENT ACTIVITY -->
+                <!-- =================================
+                     DEPARTMENT ACTIVITY
+                ================================== -->
 
-                <section class="report-card">
+                <section class="report-card department-card">
 
-                    <div class="card-header">
+
+                    <div class="card-heading">
+
 
                         <div>
 
@@ -558,13 +793,23 @@
 
                         </div>
 
+
+                        <div class="card-icon">
+                            ▤
+                        </div>
+
+
                     </div>
+
 
 
                     <div class="department-list">
 
 
-                        <div class="department-item">
+                        <!-- INTERNAL MEDICINE -->
+
+                        <div class="department-row">
+
 
                             <div class="department-info">
 
@@ -578,25 +823,30 @@
 
                             </div>
 
-                            <strong>
+
+                            <strong class="percentage">
                                 34%
                             </strong>
 
+
+                            <div class="department-progress">
+
+                                <div
+                                    class="department-fill"
+                                    style="width: 34%;"
+                                ></div>
+
+                            </div>
+
+
                         </div>
 
 
-                        <div class="department-progress">
 
-                            <div
-                                class="department-fill"
-                                style="width:34%;"
-                            ></div>
+                        <!-- CARDIOLOGY -->
 
-                        </div>
+                        <div class="department-row">
 
-
-
-                        <div class="department-item">
 
                             <div class="department-info">
 
@@ -610,25 +860,30 @@
 
                             </div>
 
-                            <strong>
+
+                            <strong class="percentage">
                                 26%
                             </strong>
 
+
+                            <div class="department-progress">
+
+                                <div
+                                    class="department-fill"
+                                    style="width: 26%;"
+                                ></div>
+
+                            </div>
+
+
                         </div>
 
 
-                        <div class="department-progress">
 
-                            <div
-                                class="department-fill"
-                                style="width:26%;"
-                            ></div>
+                        <!-- NEUROLOGY -->
 
-                        </div>
+                        <div class="department-row">
 
-
-
-                        <div class="department-item">
 
                             <div class="department-info">
 
@@ -642,30 +897,35 @@
 
                             </div>
 
-                            <strong>
+
+                            <strong class="percentage">
                                 22%
                             </strong>
 
+
+                            <div class="department-progress">
+
+                                <div
+                                    class="department-fill"
+                                    style="width: 22%;"
+                                ></div>
+
+                            </div>
+
+
                         </div>
 
 
-                        <div class="department-progress">
 
-                            <div
-                                class="department-fill"
-                                style="width:22%;"
-                            ></div>
+                        <!-- OTHER -->
 
-                        </div>
+                        <div class="department-row">
 
-
-
-                        <div class="department-item">
 
                             <div class="department-info">
 
                                 <strong>
-                                    Other
+                                    Other Departments
                                 </strong>
 
                                 <span>
@@ -674,244 +934,155 @@
 
                             </div>
 
-                            <strong>
+
+                            <strong class="percentage">
                                 18%
                             </strong>
 
+
+                            <div class="department-progress">
+
+                                <div
+                                    class="department-fill"
+                                    style="width: 18%;"
+                                ></div>
+
+                            </div>
+
+
                         </div>
 
-
-                        <div class="department-progress">
-
-                            <div
-                                class="department-fill"
-                                style="width:18%;"
-                            ></div>
-
-                        </div>
 
                     </div>
+
 
                 </section>
 
-
-
-                <!-- PATIENT OVERVIEW -->
-
-                <section class="report-card">
-
-                    <div class="card-header">
-
-                        <div>
-
-                            <h2>
-                                Patient Overview
-                            </h2>
-
-                            <p>
-                                Current patient statistics
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="patient-overview">
-
-
-                        <div class="overview-row">
-
-                            <span>
-                                New patients
-                            </span>
-
-                            <strong>
-                                86
-                            </strong>
-
-                        </div>
-
-
-                        <div class="overview-row">
-
-                            <span>
-                                Returning patients
-                            </span>
-
-                            <strong>
-                                1,162
-                            </strong>
-
-                        </div>
-
-
-                        <div class="overview-row">
-
-                            <span>
-                                Active patients
-                            </span>
-
-                            <strong>
-                                1,198
-                            </strong>
-
-                        </div>
-
-
-                        <div class="overview-row">
-
-                            <span>
-                                Inactive patients
-                            </span>
-
-                            <strong>
-                                50
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- STAFF OVERVIEW -->
-
-                <section class="report-card">
-
-                    <div class="card-header">
-
-                        <div>
-
-                            <h2>
-                                Staff Overview
-                            </h2>
-
-                            <p>
-                                Medical staff distribution
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="staff-overview">
-
-
-                        <div class="staff-box">
-
-                            <div class="staff-box-icon">
-                                ⚕
-                            </div>
-
-                            <div>
-
-                                <span>
-                                    Doctors
-                                </span>
-
-                                <strong>
-                                    42
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="staff-box">
-
-                            <div class="staff-box-icon">
-                                ✚
-                            </div>
-
-                            <div>
-
-                                <span>
-                                    Nurses
-                                </span>
-
-                                <strong>
-                                    86
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
 
             </div>
 
 
 
             <!-- =====================================
-                 REPORT FOOTER
+                 ADDITIONAL INSIGHTS
             ====================================== -->
 
-            <div class="report-footer">
+            <div class="insights-grid">
 
-                <span>
-                    Last updated: Today, 09:37 AM
-                </span>
 
-                <button
-                    type="button"
-                    class="secondary-button"
-                    onclick="printReport()"
-                >
-                    Print Report
-                </button>
+                <!-- PATIENT ACTIVITY -->
+
+                <section class="insight-card">
+
+
+                    <div class="insight-icon">
+                        ♙
+                    </div>
+
+
+                    <div class="insight-content">
+
+                        <span>
+                            Patient Activity
+                        </span>
+
+                        <strong>
+                            +8.2%
+                        </strong>
+
+                        <p>
+                            Patient registrations increased
+                            compared with the previous period.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- STAFF ACTIVITY -->
+
+                <section class="insight-card">
+
+
+                    <div class="insight-icon">
+                        ⚕
+                    </div>
+
+
+                    <div class="insight-content">
+
+                        <span>
+                            Staff Activity
+                        </span>
+
+                        <strong>
+                            128
+                        </strong>
+
+                        <p>
+                            Active medical staff currently
+                            registered in the system.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- APPOINTMENT PERFORMANCE -->
+
+                <section class="insight-card">
+
+
+                    <div class="insight-icon">
+                        ✓
+                    </div>
+
+
+                    <div class="insight-content">
+
+                        <span>
+                            Appointment Performance
+                        </span>
+
+                        <strong>
+                            92%
+                        </strong>
+
+                        <p>
+                            Overall appointment completion
+                            rate for this reporting period.
+                        </p>
+
+                    </div>
+
+
+                </section>
+
 
             </div>
 
 
         </section>
 
+
     </main>
+
 
 </div>
 
 
 
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
 <script>
-
-function applyReport() {
-
-    const period =
-        document.getElementById(
-            "reportPeriod"
-        ).value;
-
-    const type =
-        document.getElementById(
-            "reportType"
-        ).value;
-
-    console.log(
-        "Report filter:",
-        period,
-        type
-    );
-
-    alert(
-        "Report updated successfully."
-    );
-
-}
-
-
-function printReport() {
-
-    window.print();
-
-}
 
 
 function logout() {
@@ -920,6 +1091,34 @@ function logout() {
         "../../index.html";
 
 }
+
+
+
+function applyFilter() {
+
+    const period =
+        document.getElementById(
+            "period"
+        ).value;
+
+
+    const reportType =
+        document.getElementById(
+            "reportType"
+        ).value;
+
+
+    alert(
+        "Report updated!\n\n"
+        + "Period: "
+        + period
+        + "\n"
+        + "Report Type: "
+        + reportType
+    );
+
+}
+
 
 </script>
 
