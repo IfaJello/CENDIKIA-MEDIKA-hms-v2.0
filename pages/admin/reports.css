@@ -1,6 +1,6 @@
-/* ========================================
+/* =====================================
    RESET
-======================================== */
+===================================== */
 
 * {
     margin: 0;
@@ -16,14 +16,14 @@ body {
         "Segoe UI",
         sans-serif;
 
-    background: #f5f7fb;
-    color: #1f2937;
+    background: #f6f8fb;
+    color: #172033;
 }
 
 
-/* ========================================
+/* =====================================
    APP LAYOUT
-======================================== */
+===================================== */
 
 .app-layout {
     display: flex;
@@ -31,9 +31,9 @@ body {
 }
 
 
-/* ========================================
+/* =====================================
    SIDEBAR
-======================================== */
+===================================== */
 
 .sidebar {
     width: 250px;
@@ -67,13 +67,14 @@ body {
     border-bottom: 1px solid #eef0f4;
 }
 
+
 .sidebar-logo {
     width: 38px;
     height: 38px;
 
     border-radius: 10px;
 
-    background: #1f8f72;
+    background: #1677ff;
     color: white;
 
     display: flex;
@@ -83,8 +84,9 @@ body {
     font-size: 25px;
     font-weight: 600;
 
-    margin-right: 11px;
+    margin-right: 12px;
 }
+
 
 .sidebar-brand strong {
     display: block;
@@ -92,8 +94,9 @@ body {
     font-size: 14px;
     letter-spacing: 1.5px;
 
-    color: #172033;
+    color: #182235;
 }
+
 
 .sidebar-brand span {
     display: block;
@@ -101,7 +104,7 @@ body {
     font-size: 10px;
     letter-spacing: 3px;
 
-    color: #8b95a5;
+    color: #8c96a8;
 
     margin-top: 2px;
 }
@@ -111,21 +114,24 @@ body {
 
 .sidebar-nav {
     padding: 25px 14px;
+
     flex: 1;
 }
+
 
 .nav-label {
     font-size: 10px;
     font-weight: 700;
 
-    letter-spacing: 1.4px;
+    color: #9aa3b2;
 
-    color: #9ba3b1;
+    letter-spacing: 1.3px;
 
-    padding: 0 13px;
+    padding: 0 12px;
 
-    margin-bottom: 9px;
+    margin-bottom: 10px;
 }
+
 
 .nav-label.secondary {
     margin-top: 27px;
@@ -133,12 +139,10 @@ body {
 
 
 .nav-item {
+    height: 44px;
+
     display: flex;
     align-items: center;
-
-    gap: 12px;
-
-    height: 45px;
 
     padding: 0 13px;
 
@@ -146,35 +150,40 @@ body {
 
     border-radius: 9px;
 
+    color: #6d7788;
+
     text-decoration: none;
 
-    color: #697386;
-
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
 
     transition: 0.2s ease;
 }
 
+
 .nav-item:hover {
-    background: #f3f8f6;
-    color: #1f8f72;
+    background: #f2f6fc;
+    color: #1677ff;
 }
 
-.nav-item.active {
-    background: #eaf6f1;
-    color: #1f8f72;
 
+.nav-item.active {
+    background: #eaf3ff;
+    color: #1677ff;
     font-weight: 600;
 }
 
-.nav-icon {
-    width: 20px;
 
-    display: inline-flex;
-    justify-content: center;
+.nav-icon {
+    width: 28px;
 
     font-size: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 7px;
 }
 
 
@@ -186,39 +195,43 @@ body {
     border-top: 1px solid #eef0f4;
 }
 
+
 .logout-button {
     width: 100%;
 
     border: none;
     background: transparent;
 
-    display: flex;
-    align-items: center;
+    color: #727c8d;
 
-    gap: 12px;
-
-    padding: 12px 13px;
+    height: 43px;
 
     border-radius: 9px;
 
-    color: #7c8492;
-
-    font-size: 13px;
-
     cursor: pointer;
 
+    font-size: 14px;
+
     text-align: left;
+
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
 }
+
 
 .logout-button:hover {
-    background: #fff3f3;
-    color: #d9534f;
+    background: #fff1f1;
+    color: #e05252;
 }
 
 
-/* ========================================
+/* =====================================
    MAIN CONTENT
-======================================== */
+===================================== */
 
 .main-content {
     margin-left: 250px;
@@ -229,9 +242,9 @@ body {
 }
 
 
-/* ========================================
+/* =====================================
    TOPBAR
-======================================== */
+===================================== */
 
 .topbar {
     height: 82px;
@@ -244,53 +257,55 @@ body {
     align-items: center;
     justify-content: flex-end;
 
-    padding: 0 35px;
+    padding: 0 32px;
 }
+
 
 .topbar-right {
     display: flex;
     align-items: center;
-
-    gap: 24px;
+    gap: 22px;
 }
 
 
-/* NOTIFICATION */
-
 .notification-button {
-    width: 38px;
-    height: 38px;
+    position: relative;
+
+    width: 40px;
+    height: 40px;
 
     border: none;
     background: transparent;
 
-    border-radius: 8px;
+    border-radius: 50%;
 
     font-size: 20px;
 
-    color: #667085;
-
     cursor: pointer;
 
-    position: relative;
+    color: #697386;
 }
+
 
 .notification-button:hover {
-    background: #f5f7fa;
+    background: #f4f6f9;
 }
 
+
 .notification-dot {
+    position: absolute;
+
     width: 7px;
     height: 7px;
 
-    background: #e45858;
-
     border-radius: 50%;
 
-    position: absolute;
+    background: #1677ff;
 
-    top: 7px;
-    right: 7px;
+    top: 8px;
+    right: 8px;
+
+    border: 2px solid white;
 }
 
 
@@ -305,108 +320,116 @@ body {
     cursor: pointer;
 }
 
+
 .profile-avatar {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
 
     border-radius: 50%;
 
-    background: #dff1ea;
-
-    color: #1f8f72;
+    background: #eaf3ff;
+    color: #1677ff;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 14px;
     font-weight: 700;
 }
+
 
 .profile-info strong {
     display: block;
 
     font-size: 13px;
-    color: #263143;
+
+    color: #1b2537;
 }
+
 
 .profile-info span {
     display: block;
 
     font-size: 11px;
 
-    color: #9aa2af;
+    color: #8b94a4;
 
     margin-top: 2px;
 }
 
+
 .profile-arrow {
-    color: #9aa2af;
+    color: #9ba3b0;
     font-size: 13px;
 }
 
 
-/* ========================================
+/* =====================================
    PAGE CONTENT
-======================================== */
+===================================== */
 
 .page-content {
-    padding: 35px;
+    padding: 34px 36px 50px;
 }
 
 
-/* ========================================
+/* =====================================
    PAGE HEADING
-======================================== */
+===================================== */
 
 .page-heading {
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 25px;
 
     margin-bottom: 30px;
 }
 
+
 .eyebrow {
     font-size: 10px;
+
     font-weight: 700;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 1.4px;
 
-    color: #1f8f72;
+    color: #1677ff;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
+
 .page-heading h1 {
-    font-size: 28px;
+    font-size: 29px;
 
     line-height: 1.2;
 
-    color: #182233;
+    color: #182235;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
+
 
 .page-heading > div > p:last-child {
-    color: #8992a1;
-
     font-size: 13px;
+
+    color: #7e8797;
 }
 
 
-/* ========================================
-   BUTTONS
-======================================== */
+/* =====================================
+   PRIMARY BUTTON
+===================================== */
 
 .primary-button {
     border: none;
 
-    background: #1f8f72;
-
+    background: #1677ff;
     color: white;
 
-    height: 42px;
+    min-height: 43px;
 
     padding: 0 18px;
 
@@ -418,18 +441,22 @@ body {
     cursor: pointer;
 
     transition: 0.2s ease;
+
+    box-shadow:
+        0 4px 10px rgba(22, 119, 255, 0.16);
 }
 
+
 .primary-button:hover {
-    background: #17775e;
+    background: #0869ed;
 
     transform: translateY(-1px);
 }
 
 
-/* ========================================
-   REPORT STATISTICS
-======================================== */
+/* =====================================
+   REPORT STATS
+===================================== */
 
 .stats-grid {
     display: grid;
@@ -437,10 +464,11 @@ body {
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 18px;
+    gap: 16px;
 
     margin-bottom: 22px;
 }
+
 
 .mini-stat {
     background: white;
@@ -449,34 +477,38 @@ body {
 
     border-radius: 12px;
 
-    padding: 20px 22px;
+    padding: 20px 21px;
+
+    min-height: 105px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     box-shadow:
-        0 2px 8px rgba(20, 30, 50, 0.025);
+        0 2px 8px rgba(30, 45, 70, 0.025);
 }
+
 
 .mini-stat span {
-    display: block;
+    font-size: 12px;
 
-    font-size: 11px;
+    color: #858e9e;
 
-    color: #8b94a3;
-
-    margin-bottom: 9px;
+    margin-bottom: 7px;
 }
+
 
 .mini-stat strong {
-    display: block;
-
     font-size: 25px;
 
-    color: #202b3c;
+    color: #1b2537;
 }
 
 
-/* ========================================
+/* =====================================
    REPORT CARD
-======================================== */
+===================================== */
 
 .reports-card {
     background: white;
@@ -488,106 +520,119 @@ body {
     overflow: hidden;
 
     box-shadow:
-        0 2px 8px rgba(20, 30, 50, 0.025);
-
-    margin-bottom: 22px;
+        0 2px 8px rgba(30, 45, 70, 0.025);
 }
 
 
-/* ========================================
+/* =====================================
    TOOLBAR
-======================================== */
+===================================== */
 
 .reports-toolbar {
     min-height: 82px;
 
-    padding: 18px 22px;
+    padding: 20px 23px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
+    gap: 20px;
 
     border-bottom: 1px solid #edf0f4;
 }
 
-.reports-toolbar h2 {
-    font-size: 16px;
 
-    color: #263143;
+.reports-toolbar h2 {
+    font-size: 17px;
+
+    color: #202b3d;
 
     margin-bottom: 4px;
 }
 
+
 .reports-toolbar p {
     font-size: 12px;
 
-    color: #9299a6;
+    color: #8a93a2;
 }
 
 
-/* ========================================
+/* =====================================
    TOOLBAR ACTIONS
-======================================== */
+===================================== */
 
 .toolbar-actions {
     display: flex;
+
     align-items: center;
 
     gap: 10px;
 }
 
+
 .search-box {
-    height: 38px;
+    height: 39px;
 
-    width: 210px;
+    min-width: 220px;
 
-    border: 1px solid #dfe3e9;
+    border: 1px solid #dfe4eb;
 
-    border-radius: 7px;
+    border-radius: 8px;
 
     display: flex;
     align-items: center;
 
     padding: 0 11px;
 
-    background: white;
+    background: #ffffff;
 }
+
 
 .search-box span {
     font-size: 18px;
 
-    color: #a1a8b3;
+    color: #9aa3b0;
 
     margin-right: 7px;
 }
 
+
 .search-box input {
     border: none;
+
     outline: none;
 
     width: 100%;
 
     font-size: 12px;
 
-    color: #374151;
+    color: #263247;
+
+    background: transparent;
 }
+
 
 .search-box input::placeholder {
-    color: #adb3bd;
+    color: #a4acb8;
 }
 
-.toolbar-actions select {
-    height: 38px;
 
-    border: 1px solid #dfe3e9;
+select {
+    height: 39px;
 
-    border-radius: 7px;
+    border: 1px solid #dfe4eb;
 
-    padding: 0 30px 0 11px;
+    border-radius: 8px;
 
     background: white;
 
-    color: #5d6675;
+    padding: 0 32px 0 11px;
+
+    color: #626d7e;
 
     font-size: 12px;
 
@@ -597,146 +642,15 @@ body {
 }
 
 
-/* ========================================
-   REPORT GRID
-======================================== */
-
-.report-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 18px;
-
-    padding: 22px;
+select:focus,
+.search-box:focus-within {
+    border-color: #1677ff;
 }
 
 
-/* ========================================
-   REPORT ITEM
-======================================== */
-
-.report-item {
-    border: 1px solid #e8ebf0;
-
-    border-radius: 11px;
-
-    padding: 20px;
-
-    background: #ffffff;
-
-    transition: 0.2s ease;
-}
-
-.report-item:hover {
-    border-color: #cddfd9;
-
-    box-shadow:
-        0 5px 18px rgba(20, 40, 35, 0.06);
-
-    transform: translateY(-2px);
-}
-
-.report-item-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    margin-bottom: 17px;
-}
-
-.report-icon {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 10px;
-
-    background: #eaf6f1;
-
-    color: #1f8f72;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 19px;
-}
-
-.report-item h3 {
-    font-size: 14px;
-
-    color: #263143;
-
-    margin-bottom: 6px;
-}
-
-.report-item p {
-    font-size: 11px;
-
-    line-height: 1.6;
-
-    color: #8d96a5;
-}
-
-
-/* ========================================
-   REPORT ACTIONS
-======================================== */
-
-.report-actions {
-    display: flex;
-
-    gap: 8px;
-
-    margin-top: 18px;
-}
-
-.report-button {
-    height: 34px;
-
-    padding: 0 13px;
-
-    border-radius: 7px;
-
-    border: 1px solid #dfe4e9;
-
-    background: white;
-
-    color: #657080;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-.report-button:hover {
-    background: #f3f8f6;
-
-    border-color: #c8ddd5;
-
-    color: #1f8f72;
-}
-
-.report-button.primary {
-    background: #1f8f72;
-
-    border-color: #1f8f72;
-
-    color: white;
-}
-
-.report-button.primary:hover {
-    background: #17775e;
-}
-
-
-/* ========================================
+/* =====================================
    TABLE
-======================================== */
+===================================== */
 
 .table-container {
     width: 100%;
@@ -744,112 +658,132 @@ body {
     overflow-x: auto;
 }
 
+
 table {
     width: 100%;
 
     border-collapse: collapse;
 
-    min-width: 700px;
+    min-width: 800px;
 }
+
 
 thead {
     background: #fafbfc;
 }
 
+
 th {
-    padding: 13px 20px;
+    padding: 14px 20px;
 
     text-align: left;
 
-    font-size: 9px;
-
-    font-weight: 700;
+    font-size: 10px;
 
     letter-spacing: 0.8px;
 
-    color: #929aa7;
+    color: #929baa;
 
-    border-bottom: 1px solid #edf0f3;
+    font-weight: 700;
 
-    white-space: nowrap;
+    border-bottom: 1px solid #edf0f4;
 }
 
+
 td {
-    padding: 15px 20px;
+    padding: 16px 20px;
 
     font-size: 12px;
 
-    color: #626c7c;
+    color: #687385;
 
     border-bottom: 1px solid #f0f2f5;
+
+    vertical-align: middle;
 }
+
+
+tbody tr {
+    transition: 0.15s ease;
+}
+
+
+tbody tr:hover {
+    background: #fafcff;
+}
+
 
 tbody tr:last-child td {
     border-bottom: none;
 }
 
-tbody tr:hover {
-    background: #fafcfb;
-}
 
+/* =====================================
+   REPORT NAME / USER CELLS
+===================================== */
 
-/* ========================================
-   REPORT NAME CELL
-======================================== */
-
-.report-name {
+.report-cell {
     display: flex;
+
     align-items: center;
 
     gap: 11px;
 }
 
+
 .report-avatar {
-    width: 34px;
-    height: 34px;
+    width: 37px;
+    height: 37px;
 
-    border-radius: 8px;
+    border-radius: 9px;
 
-    background: #edf6f3;
+    background: #eaf3ff;
 
-    color: #1f8f72;
+    color: #1677ff;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-size: 15px;
+    font-weight: 700;
+
+    flex-shrink: 0;
 }
 
-.report-name strong {
+
+.report-cell strong {
     display: block;
+
+    color: #263145;
 
     font-size: 12px;
 
-    color: #344054;
+    margin-bottom: 3px;
 }
 
-.report-name span {
+
+.report-cell span {
     display: block;
 
+    color: #99a1ae;
+
     font-size: 10px;
-
-    color: #9aa2ae;
-
-    margin-top: 3px;
 }
 
 
-/* ========================================
+/* =====================================
    STATUS
-======================================== */
+===================================== */
 
 .status {
     display: inline-flex;
 
     align-items: center;
 
-    padding: 5px 9px;
+    min-height: 25px;
+
+    padding: 0 9px;
 
     border-radius: 20px;
 
@@ -858,106 +792,288 @@ tbody tr:hover {
     font-weight: 600;
 }
 
-.status.completed {
-    background: #eaf6f1;
 
-    color: #218467;
+.status.completed {
+    background: #eaf8f0;
+
+    color: #25965c;
 }
+
 
 .status.pending {
     background: #fff6df;
 
-    color: #a97919;
+    color: #bd8316;
 }
+
 
 .status.processing {
-    background: #edf3ff;
+    background: #eaf3ff;
 
-    color: #4d73b8;
+    color: #1677ff;
 }
 
-.status.failed {
+
+.status.cancelled {
     background: #fff0f0;
 
-    color: #c55353;
+    color: #d45151;
 }
 
 
-/* ========================================
+/* =====================================
    ACTION BUTTON
-======================================== */
+===================================== */
 
 .action-button {
-    width: 31px;
-    height: 31px;
+    width: 32px;
+    height: 32px;
 
     border: none;
 
     background: transparent;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
-    color: #8993a1;
+    color: #8d96a5;
 
     font-size: 15px;
 
     cursor: pointer;
 }
 
-.action-button:hover {
-    background: #f1f4f6;
 
-    color: #1f8f72;
+.action-button:hover {
+    background: #f0f4f9;
+
+    color: #1677ff;
 }
 
 
-/* ========================================
+/* =====================================
    EMPTY STATE
-======================================== */
+===================================== */
 
 .empty-state {
     text-align: center;
 
-    padding: 55px 20px;
+    padding: 60px 20px;
+
+    color: #8c95a3;
 }
+
 
 .empty-icon {
     width: 52px;
     height: 52px;
 
-    margin: 0 auto 15px;
-
     border-radius: 50%;
 
-    background: #edf6f3;
+    margin: 0 auto 15px;
 
-    color: #1f8f72;
+    background: #f0f4f9;
+
+    color: #8b96a7;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 22px;
+    font-size: 23px;
 }
+
 
 .empty-state h3 {
+    color: #4f5a6b;
+
     font-size: 15px;
 
-    color: #374151;
-
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
+
 
 .empty-state p {
     font-size: 12px;
-
-    color: #929aa6;
 }
 
 
-/* ========================================
+/* =====================================
+   REPORT SUMMARY / EXTRA CARDS
+===================================== */
+
+.report-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-top: 20px;
+}
+
+
+.summary-card {
+    background: white;
+
+    border: 1px solid #e8ebf0;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 2px 8px rgba(30, 45, 70, 0.025);
+}
+
+
+.summary-card h3 {
+    font-size: 15px;
+
+    color: #273246;
+
+    margin-bottom: 5px;
+}
+
+
+.summary-card p {
+    color: #8b94a2;
+
+    font-size: 12px;
+}
+
+
+/* =====================================
+   PROGRESS BAR
+===================================== */
+
+.progress-container {
+    margin-top: 17px;
+}
+
+
+.progress-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+
+    color: #6f7989;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 7px;
+
+    background: #edf0f4;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress-fill {
+    height: 100%;
+
+    background: #1677ff;
+
+    border-radius: inherit;
+
+    transition: width 0.3s ease;
+}
+
+
+/* =====================================
+   PAGINATION
+===================================== */
+
+.pagination {
+    min-height: 64px;
+
+    padding: 13px 20px;
+
+    border-top: 1px solid #edf0f4;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: #8b94a2;
+
+    font-size: 11px;
+}
+
+
+.pagination > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.pagination button {
+    min-width: 31px;
+    height: 31px;
+
+    border: 1px solid #e1e5eb;
+
+    background: white;
+
+    border-radius: 6px;
+
+    color: #7c8695;
+
+    cursor: pointer;
+
+    font-size: 11px;
+}
+
+
+.pagination button:hover {
+    border-color: #1677ff;
+
+    color: #1677ff;
+}
+
+
+.pagination button.current {
+    background: #1677ff;
+
+    border-color: #1677ff;
+
+    color: white;
+}
+
+
+.pagination button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================
+   MOBILE MENU
+===================================== */
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* =====================================
    RESPONSIVE
-======================================== */
+===================================== */
 
 @media (max-width: 1100px) {
 
@@ -966,41 +1082,29 @@ tbody tr:hover {
             repeat(2, 1fr);
     }
 
-    .report-grid {
-        grid-template-columns: 1fr;
-    }
-
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
     .sidebar {
-        width: 220px;
+        width: 215px;
     }
 
     .main-content {
-        margin-left: 220px;
+        margin-left: 215px;
 
-        width: calc(100% - 220px);
+        width: calc(100% - 215px);
     }
 
     .page-content {
-        padding: 25px;
-    }
-
-    .page-heading {
-        align-items: flex-start;
-
-        gap: 20px;
+        padding: 28px 22px;
     }
 
     .reports-toolbar {
         align-items: flex-start;
 
         flex-direction: column;
-
-        gap: 15px;
     }
 
     .toolbar-actions {
@@ -1014,7 +1118,7 @@ tbody tr:hover {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     .sidebar {
         display: none;
@@ -1027,17 +1131,38 @@ tbody tr:hover {
     }
 
     .topbar {
+        height: 70px;
+
         padding: 0 18px;
+
+        justify-content: space-between;
+    }
+
+    .mobile-menu {
+        display: block;
+
+        font-size: 21px;
+
+        color: #657083;
+
+        cursor: pointer;
+    }
+
+    .profile-info,
+    .profile-arrow {
+        display: none;
     }
 
     .page-content {
-        padding: 20px 16px;
+        padding: 23px 15px 35px;
     }
 
     .page-heading {
         flex-direction: column;
 
-        align-items: stretch;
+        align-items: flex-start;
+
+        margin-bottom: 22px;
     }
 
     .page-heading h1 {
@@ -1045,7 +1170,23 @@ tbody tr:hover {
     }
 
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .mini-stat {
+        padding: 15px;
+
+        min-height: 90px;
+    }
+
+    .mini-stat strong {
+        font-size: 21px;
+    }
+
+    .reports-toolbar {
+        padding: 18px;
     }
 
     .toolbar-actions {
@@ -1058,16 +1199,16 @@ tbody tr:hover {
         width: 100%;
     }
 
-    .toolbar-actions select {
+    select {
         width: 100%;
     }
 
-    .report-grid {
-        padding: 15px;
-    }
+    .pagination {
+        flex-direction: column;
 
-    .reports-toolbar {
-        padding: 18px;
+        gap: 10px;
+
+        align-items: flex-start;
     }
 
 }
