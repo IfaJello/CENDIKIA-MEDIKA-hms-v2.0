@@ -31,7 +31,6 @@
 
     <aside class="sidebar">
 
-
         <div class="sidebar-brand">
 
             <div class="sidebar-logo">
@@ -39,19 +38,11 @@
             </div>
 
             <div>
-
-                <strong>
-                    CENDEKIA
-                </strong>
-
-                <span>
-                    MEDIKA
-                </span>
-
+                <strong>CENDEKIA</strong>
+                <span>MEDIKA</span>
             </div>
 
         </div>
-
 
 
         <nav class="sidebar-nav">
@@ -89,7 +80,7 @@
 
 
             <a
-                href="nurses.html"
+                href="#"
                 class="nav-item"
             >
                 <span class="nav-icon">✚</span>
@@ -140,7 +131,6 @@
         </nav>
 
 
-
         <div class="sidebar-bottom">
 
             <button
@@ -149,9 +139,7 @@
                 onclick="logout()"
             >
 
-                <span>
-                    ↪
-                </span>
+                <span>↪</span>
 
                 Sign out
 
@@ -174,7 +162,6 @@
 
         <header class="topbar">
 
-
             <div class="mobile-menu">
                 ☰
             </div>
@@ -182,18 +169,13 @@
 
             <div class="topbar-right">
 
-
                 <button
                     class="notification-button"
                     type="button"
                 >
-
                     ♧
-
                     <span class="notification-dot"></span>
-
                 </button>
-
 
 
                 <div class="profile">
@@ -245,15 +227,13 @@
                         SCHEDULING
                     </p>
 
-
                     <h1>
                         Appointments
                     </h1>
 
-
                     <p>
-                        Manage patient appointments and
-                        schedules across Cendekia Medika.
+                        Manage and monitor patient appointments
+                        across Cendekia Medika.
                     </p>
 
                 </div>
@@ -262,9 +242,9 @@
                 <button
                     class="primary-button"
                     type="button"
-                    onclick="newAppointment()"
+                    onclick="addAppointment()"
                 >
-                    + New Appointment
+                    + Add Appointment
                 </button>
 
             </div>
@@ -329,7 +309,6 @@
 
                 </div>
 
-
             </div>
 
 
@@ -345,7 +324,6 @@
 
                 <div class="appointments-toolbar">
 
-
                     <div>
 
                         <h2>
@@ -353,7 +331,7 @@
                         </h2>
 
                         <p>
-                            Scheduled patient appointments.
+                            View and manage scheduled appointments.
                         </p>
 
                     </div>
@@ -402,6 +380,7 @@
 
                         </select>
 
+
                     </div>
 
                 </div>
@@ -414,10 +393,13 @@
 
                     <table>
 
-
                         <thead>
 
                             <tr>
+
+                                <th>
+                                    APPOINTMENT
+                                </th>
 
                                 <th>
                                     PATIENT
@@ -432,11 +414,7 @@
                                 </th>
 
                                 <th>
-                                    DATE
-                                </th>
-
-                                <th>
-                                    TIME
+                                    DATE & TIME
                                 </th>
 
                                 <th>
@@ -454,7 +432,6 @@
 
                         <tbody id="appointmentTableBody">
                         </tbody>
-
 
                     </table>
 
@@ -545,62 +522,56 @@ const emptyState =
 
 function updateStatistics() {
 
+    const total =
+        appointments.length;
+
 
     const confirmed =
         appointments.filter(
-            function(appointment) {
-
-                return appointment.status ===
-                    "confirmed";
-
-            }
-        );
+            appointment =>
+                appointment.status ===
+                "confirmed"
+        ).length;
 
 
     const pending =
         appointments.filter(
-            function(appointment) {
-
-                return appointment.status ===
-                    "pending";
-
-            }
-        );
+            appointment =>
+                appointment.status ===
+                "pending"
+        ).length;
 
 
     const cancelled =
         appointments.filter(
-            function(appointment) {
-
-                return appointment.status ===
-                    "cancelled";
-
-            }
-        );
+            appointment =>
+                appointment.status ===
+                "cancelled"
+        ).length;
 
 
     document.getElementById(
         "totalAppointments"
     ).textContent =
-        appointments.length;
+        total;
 
 
     document.getElementById(
         "confirmedAppointments"
     ).textContent =
-        confirmed.length;
+        confirmed;
 
 
     document.getElementById(
         "pendingAppointments"
     ).textContent =
-        pending.length;
+        pending;
 
 
     document.getElementById(
         "cancelledAppointments"
     ).textContent =
-        cancelled.length;
+        cancelled;
 
 }
 
@@ -630,25 +601,23 @@ function displayAppointments() {
 
     /* SEARCH */
 
-    if (search !== "") {
+    if (search) {
 
         filteredAppointments =
             filteredAppointments.filter(
-                function(appointment) {
+                appointment => {
 
                     const searchableText =
-                        appointment.patient
+
+                        appointment.id
+                        + " "
+                        + appointment.patient
                         + " "
                         + appointment.patientId
                         + " "
                         + appointment.doctor
                         + " "
-                        + appointment.department
-                        + " "
-                        + appointment.date
-                        + " "
-                        + appointment.time;
-
+                        + appointment.department;
 
                     return searchableText
                         .toLowerCase()
@@ -667,12 +636,9 @@ function displayAppointments() {
 
         filteredAppointments =
             filteredAppointments.filter(
-                function(appointment) {
-
-                    return appointment.status ===
-                        selectedStatus;
-
-                }
+                appointment =>
+                    appointment.status ===
+                    selectedStatus
             );
 
     }
@@ -704,37 +670,23 @@ function displayAppointments() {
 
 
 
-    /* CREATE ROWS */
+    /* CREATE TABLE ROWS */
 
     filteredAppointments.forEach(
-        function(appointment) {
+        appointment => {
 
 
             const row =
-                document.createElement("tr");
-
-
-            const initials =
-                appointment.patient
-                    .trim()
-                    .split(/\s+/)
-                    .map(
-                        function(word) {
-
-                            return word
-                                .charAt(0)
-                                .toUpperCase();
-
-                        }
-                    )
-                    .join("")
-                    .substring(0, 2);
+                document.createElement(
+                    "tr"
+                );
 
 
             const statusName =
-                capitalize(
-                    appointment.status
-                );
+                appointment.status
+                    .charAt(0)
+                    .toUpperCase()
+                + appointment.status.slice(1);
 
 
 
@@ -742,13 +694,24 @@ function displayAppointments() {
 
                 <td>
 
+                    <strong>
+                        ${escapeHTML(
+                            appointment.id
+                        )}
+                    </strong>
+
+                </td>
+
+
+                <td>
+
                     <div class="patient-cell">
 
-
                         <div class="patient-avatar">
-                            ${initials}
+                            ${getInitials(
+                                appointment.patient
+                            )}
                         </div>
-
 
                         <div>
 
@@ -787,23 +750,32 @@ function displayAppointments() {
 
 
                 <td>
+
                     ${escapeHTML(
                         appointment.department
                     )}
+
                 </td>
 
 
                 <td>
-                    ${escapeHTML(
-                        appointment.date
-                    )}
-                </td>
 
+                    <div class="appointment-time">
 
-                <td>
-                    ${escapeHTML(
-                        appointment.time
-                    )}
+                        <strong>
+                            ${escapeHTML(
+                                appointment.date
+                            )}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(
+                                appointment.time
+                            )}
+                        </span>
+
+                    </div>
+
                 </td>
 
 
@@ -823,7 +795,9 @@ function displayAppointments() {
                     <button
                         class="action-button"
                         type="button"
-                        onclick="viewAppointment('${escapeJS(appointment.id)}')"
+                        onclick="viewAppointment('${escapeJS(
+                            appointment.id
+                        )}')"
                     >
                         •••
                     </button>
@@ -855,12 +829,8 @@ function viewAppointment(
 
     const appointment =
         appointments.find(
-            function(item) {
-
-                return item.id ===
-                    appointmentId;
-
-            }
+            item =>
+                item.id === appointmentId
         );
 
 
@@ -878,42 +848,27 @@ function viewAppointment(
     alert(
 
         "APPOINTMENT DETAILS\n\n"
-
         + "Appointment ID: "
         + appointment.id
-
         + "\n\n"
-
         + "Patient: "
         + appointment.patient
-
-        + "\n"
-
+        + "\n\n"
         + "Patient ID: "
         + appointment.patientId
-
         + "\n\n"
-
         + "Doctor: "
         + appointment.doctor
-
         + "\n\n"
-
         + "Department: "
         + appointment.department
-
         + "\n\n"
-
         + "Date: "
         + appointment.date
-
-        + "\n"
-
+        + "\n\n"
         + "Time: "
         + appointment.time
-
         + "\n\n"
-
         + "Status: "
         + capitalize(
             appointment.status
@@ -926,13 +881,13 @@ function viewAppointment(
 
 
 /* ========================================
-   NEW APPOINTMENT
+   ADD APPOINTMENT
 ======================================== */
 
-function newAppointment() {
+function addAppointment() {
 
     alert(
-        "New Appointment form will be added next."
+        "Add Appointment feature coming next!"
     );
 
 }
@@ -953,15 +908,35 @@ function logout() {
 
 
 /* ========================================
+   GET INITIALS
+======================================== */
+
+function getInitials(name) {
+
+    return name
+        .trim()
+        .split(/\s+/)
+        .map(
+            word =>
+                word
+                    .charAt(0)
+                    .toUpperCase()
+        )
+        .join("")
+        .substring(0, 2);
+
+}
+
+
+
+/* ========================================
    CAPITALIZE
 ======================================== */
 
 function capitalize(value) {
 
     if (!value) {
-
         return "";
-
     }
 
 
@@ -981,27 +956,22 @@ function capitalize(value) {
 function escapeHTML(value) {
 
     return String(value)
-
         .replace(
             /&/g,
             "&amp;"
         )
-
         .replace(
             /</g,
             "&lt;"
         )
-
         .replace(
             />/g,
             "&gt;"
         )
-
         .replace(
             /"/g,
             "&quot;"
         )
-
         .replace(
             /'/g,
             "&#039;"
@@ -1018,12 +988,10 @@ function escapeHTML(value) {
 function escapeJS(value) {
 
     return String(value)
-
         .replace(
             /\\/g,
             "\\\\"
         )
-
         .replace(
             /'/g,
             "\\'"
@@ -1045,7 +1013,7 @@ searchInput.addEventListener(
 
 
 /* ========================================
-   FILTER
+   STATUS FILTER
 ======================================== */
 
 statusFilter.addEventListener(
