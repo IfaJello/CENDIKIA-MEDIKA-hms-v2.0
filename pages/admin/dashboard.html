@@ -22,672 +22,986 @@
 
 <body>
 
-    <div class="app-layout">
+<div class="app-layout">
 
 
-        <!-- =====================================
-             SIDEBAR
-        ====================================== -->
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
 
-        <aside class="sidebar">
+    <aside class="sidebar">
 
-            <!-- Logo -->
 
-            <div class="sidebar-brand">
+        <!-- BRAND -->
 
-                <div class="sidebar-logo">
-                    +
-                </div>
+        <div class="sidebar-brand">
 
-                <div>
+            <div class="sidebar-logo">
+                +
+            </div>
 
-                    <strong>
-                        CENDEKIA
-                    </strong>
+            <div>
 
-                    <span>
-                        MEDIKA
+                <strong>
+                    CENDEKIA
+                </strong>
+
+                <span>
+                    MEDIKA
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Patients</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚕</span>
+                <span>Doctors</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">✚</span>
+                <span>Nurses</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Appointments</span>
+            </a>
+
+
+            <p class="nav-label secondary">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="users.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>User Management</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+                type="button"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Sign out
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
+                    ♧
+
+                    <span
+                        class="notification-dot"
+                    ></span>
+
+                </button>
+
+
+
+                <div class="profile">
+
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+
+                    <span class="profile-arrow">
+                        ▾
                     </span>
 
                 </div>
 
             </div>
 
-
-            <!-- Navigation -->
-
-            <nav class="sidebar-nav">
-
-                <p class="nav-label">
-                    MAIN MENU
-                </p>
-
-
-                <a
-                    href="#"
-                    class="nav-item active"
-                >
-                    <span class="nav-icon">▦</span>
-                    <span>Dashboard</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">♙</span>
-                    <span>Patients</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">⚕</span>
-                    <span>Doctors</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">✚</span>
-                    <span>Nurses</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">◷</span>
-                    <span>Appointments</span>
-                </a>
-
-
-                <p class="nav-label secondary">
-                    MANAGEMENT
-                </p>
-
-
-                <a
-                    href="users.html" class="nav-item">
-                    <span class="nav-icon">♙</span>
-                    <span>User Management</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">▤</span>
-                    <span>Reports</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">⚙</span>
-                    <span>Settings</span>
-                </a>
-
-            </nav>
-
-
-            <!-- Sidebar bottom -->
-
-            <div class="sidebar-bottom">
-
-                <button
-                    class="logout-button"
-                    onclick="logout()"
-                >
-                    <span>↪</span>
-                    Sign out
-                </button>
-
-            </div>
-
-        </aside>
+        </header>
 
 
 
         <!-- =====================================
-             MAIN CONTENT
+             DASHBOARD CONTENT
         ====================================== -->
 
-        <main class="main-content">
+        <section class="dashboard-content">
 
 
-            <!-- TOP BAR -->
+            <!-- PAGE HEADING -->
 
-            <header class="topbar">
+            <div class="page-heading">
 
-                <div class="mobile-menu">
-                    ☰
+                <div>
+
+                    <p class="eyebrow">
+                        ADMINISTRATION
+                    </p>
+
+
+                    <h1>
+                        Good morning, Admin
+                    </h1>
+
+
+                    <p>
+                        Here's what's happening at
+                        Cendekia Medika today.
+                    </p>
+
                 </div>
 
 
-                <div class="topbar-right">
+                <button
+                    class="primary-button"
+                    type="button"
+                    onclick="goToUsers()"
+                >
+                    + Add User
+                </button>
 
-                    <button class="notification-button">
-                        ♧
-                        <span class="notification-dot"></span>
-                    </button>
+            </div>
 
 
-                    <div class="profile">
 
-                        <div class="profile-avatar">
-                            A
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
+
+            <div class="stats-grid">
+
+
+                <!-- PATIENTS -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon patient">
+                        ♙
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <span>
+                            Total Patients
+                        </span>
+
+
+                        <strong id="patientCount">
+                            0
+                        </strong>
+
+
+                        <small>
+                            Registered users
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DOCTORS -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon doctor">
+                        ⚕
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <span>
+                            Doctors
+                        </span>
+
+
+                        <strong id="doctorCount">
+                            0
+                        </strong>
+
+
+                        <small>
+                            Registered staff
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NURSES -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon nurse">
+                        ✚
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <span>
+                            Nurses
+                        </span>
+
+
+                        <strong id="nurseCount">
+                            0
+                        </strong>
+
+
+                        <small>
+                            Registered staff
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TOTAL USERS -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon appointment">
+                        ♙
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <span>
+                            Total Users
+                        </span>
+
+
+                        <strong id="totalUserCount">
+                            0
+                        </strong>
+
+
+                        <small>
+                            All system accounts
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 LOWER DASHBOARD GRID
+            ====================================== -->
+
+            <div class="dashboard-grid">
+
+
+
+                <!-- =================================
+                     RECENT PATIENTS
+                ================================== -->
+
+                <section class="dashboard-card patients-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                Recent Patients
+                            </h2>
+
+                            <p>
+                                Recently registered patients
+                            </p>
+
                         </div>
 
-                        <div class="profile-info">
 
-                            <strong>
-                                Admin
-                            </strong>
+                        <a href="#">
+                            View all
+                        </a>
 
-                            <span>
-                                Administrator
+                    </div>
+
+
+
+                    <div class="table-container">
+
+                        <table>
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Patient
+                                    </th>
+
+                                    <th>
+                                        ID
+                                    </th>
+
+                                    <th>
+                                        Email
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody
+                                id="recentPatients"
+                            >
+                            </tbody>
+
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     QUICK ACTIONS
+                ================================== -->
+
+                <section class="dashboard-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                Quick Actions
+                            </h2>
+
+                            <p>
+                                Common administrative tasks
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="quick-actions">
+
+
+                        <!-- ADD PATIENT -->
+
+                        <button
+                            class="quick-action"
+                            type="button"
+                            onclick="addPatient()"
+                        >
+
+                            <span class="quick-icon">
+                                +
                             </span>
 
-                        </div>
 
-                        <span class="profile-arrow">
-                            ▾
+                            <div>
+
+                                <strong>
+                                    Add Patient
+                                </strong>
+
+                                <span>
+                                    Register a new patient
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+
+                        <!-- ADD STAFF -->
+
+                        <button
+                            class="quick-action"
+                            type="button"
+                            onclick="addStaff()"
+                        >
+
+                            <span class="quick-icon">
+                                ♙
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Add Staff
+                                </strong>
+
+                                <span>
+                                    Add doctor or nurse
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+
+                        <!-- SCHEDULE -->
+
+                        <button
+                            class="quick-action"
+                            type="button"
+                            onclick="scheduleAppointment()"
+                        >
+
+                            <span class="quick-icon">
+                                ◷
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Schedule
+                                </strong>
+
+                                <span>
+                                    Manage appointments
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+
+                        <!-- REPORT -->
+
+                        <button
+                            class="quick-action"
+                            type="button"
+                            onclick="generateReport()"
+                        >
+
+                            <span class="quick-icon">
+                                ▤
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Generate Report
+                                </strong>
+
+                                <span>
+                                    View hospital reports
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================
+     USERS DATA
+====================================== -->
+
+<script src="../../data/users.js"></script>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* ========================================
+   DASHBOARD STATISTICS
+======================================== */
+
+function updateDashboardStats() {
+
+
+    const patients =
+        users.filter(
+            user => user.role === "patient"
+        );
+
+
+    const doctors =
+        users.filter(
+            user => user.role === "doctor"
+        );
+
+
+    const nurses =
+        users.filter(
+            user => user.role === "nurse"
+        );
+
+
+    document.getElementById(
+        "patientCount"
+    ).textContent =
+        patients.length;
+
+
+    document.getElementById(
+        "doctorCount"
+    ).textContent =
+        doctors.length;
+
+
+    document.getElementById(
+        "nurseCount"
+    ).textContent =
+        nurses.length;
+
+
+    document.getElementById(
+        "totalUserCount"
+    ).textContent =
+        users.length;
+
+}
+
+
+
+/* ========================================
+   RECENT PATIENTS
+======================================== */
+
+function displayRecentPatients() {
+
+
+    const container =
+        document.getElementById(
+            "recentPatients"
+        );
+
+
+    container.innerHTML = "";
+
+
+    const patients =
+        users.filter(
+            user =>
+                user.role === "patient"
+        )
+        .slice(0, 5);
+
+
+
+    if (patients.length === 0) {
+
+        container.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="4"
+                    style="
+                        text-align:center;
+                        padding:30px;
+                    "
+                >
+                    No patients registered yet.
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    patients.forEach(patient => {
+
+
+        const initials =
+            patient.name
+                .trim()
+                .split(/\s+/)
+                .map(
+                    word =>
+                        word
+                            .charAt(0)
+                            .toUpperCase()
+                )
+                .join("")
+                .substring(0, 2);
+
+
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+
+                <div class="patient-name">
+
+                    <div class="table-avatar">
+                        ${initials}
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            ${escapeHTML(
+                                patient.name
+                            )}
+                        </strong>
+
+                        <span>
+                            Patient
                         </span>
 
                     </div>
 
                 </div>
 
-            </header>
+            </td>
 
 
+            <td>
+                ${escapeHTML(patient.id)}
+            </td>
 
-            <!-- DASHBOARD CONTENT -->
 
-            <section class="dashboard-content">
+            <td>
+                ${escapeHTML(patient.email)}
+            </td>
 
 
-                <!-- PAGE HEADING -->
+            <td>
 
-                <div class="page-heading">
+                <span
+                    class="status ${patient.status}"
+                >
+                    ${capitalize(
+                        patient.status
+                    )}
+                </span>
 
-                    <div>
+            </td>
 
-                        <p class="eyebrow">
-                            ADMINISTRATION
-                        </p>
+        `;
 
-                        <h1>
-                            Good morning, Admin
-                        </h1>
 
-                        <p>
-                            Here's what's happening at
-                            Cendekia Medika today.
-                        </p>
+        container.appendChild(row);
 
-                    </div>
+    });
 
+}
 
-                    <button class="primary-button">
-                        + Add User
-                    </button>
 
-                </div>
 
+/* ========================================
+   HELPER — CAPITALIZE
+======================================== */
 
+function capitalize(value) {
 
-                <!-- STATISTICS -->
+    if (!value) {
+        return "";
+    }
 
-                <div class="stats-grid">
 
+    return (
+        value.charAt(0).toUpperCase()
+        + value.slice(1)
+    );
 
-                    <div class="stat-card">
+}
 
-                        <div class="stat-icon patient">
-                            ♙
-                        </div>
 
-                        <div class="stat-info">
 
-                            <span>
-                                Total Patients
-                            </span>
+/* ========================================
+   HELPER — ESCAPE HTML
+======================================== */
 
-                            <strong>
-                                1,248
-                            </strong>
+function escapeHTML(value) {
 
-                            <small>
-                                +8.2% this month
-                            </small>
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
-                        </div>
+}
 
-                    </div>
 
 
+/* ========================================
+   NAVIGATION
+======================================== */
 
-                    <div class="stat-card">
+function goToUsers() {
 
-                        <div class="stat-icon doctor">
-                            ⚕
-                        </div>
+    window.location.href =
+        "users.html";
 
-                        <div class="stat-info">
+}
 
-                            <span>
-                                Doctors
-                            </span>
 
-                            <strong>
-                                42
-                            </strong>
 
-                            <small>
-                                3 new this month
-                            </small>
+/* ========================================
+   ADD PATIENT
+======================================== */
 
-                        </div>
+function addPatient() {
 
-                    </div>
+    window.location.href =
+        "users.html";
 
+}
 
 
-                    <div class="stat-card">
 
-                        <div class="stat-icon nurse">
-                            ✚
-                        </div>
+/* ========================================
+   ADD STAFF
+======================================== */
 
-                        <div class="stat-info">
+function addStaff() {
 
-                            <span>
-                                Nurses
-                            </span>
+    window.location.href =
+        "users.html";
 
-                            <strong>
-                                86
-                            </strong>
+}
 
-                            <small>
-                                4 new this month
-                            </small>
 
-                        </div>
 
-                    </div>
+/* ========================================
+   SCHEDULE APPOINTMENT
+======================================== */
 
+function scheduleAppointment() {
 
+    alert(
+        "Appointment Management is coming next."
+    );
 
-                    <div class="stat-card">
+}
 
-                        <div class="stat-icon appointment">
-                            ◷
-                        </div>
 
-                        <div class="stat-info">
 
-                            <span>
-                                Appointments
-                            </span>
+/* ========================================
+   GENERATE REPORT
+======================================== */
 
-                            <strong>
-                                156
-                            </strong>
+function generateReport() {
 
-                            <small>
-                                Today
-                            </small>
+    alert(
+        "Reports module is coming next."
+    );
 
-                        </div>
+}
 
-                    </div>
 
 
-                </div>
+/* ========================================
+   LOGOUT
+======================================== */
 
+function logout() {
 
+    window.location.href =
+        "../../index.html";
 
-                <!-- LOWER GRID -->
+}
 
-                <div class="dashboard-grid">
 
 
-                    <!-- RECENT PATIENTS -->
+/* ========================================
+   INITIALIZE DASHBOARD
+======================================== */
 
-                    <section class="dashboard-card patients-card">
+updateDashboardStats();
 
-                        <div class="card-header">
+displayRecentPatients();
 
-                            <div>
-
-                                <h2>
-                                    Recent Patients
-                                </h2>
-
-                                <p>
-                                    Recently registered patients
-                                </p>
-
-                            </div>
-
-                            <a href="#">
-                                View all
-                            </a>
-
-                        </div>
-
-
-                        <div class="table-container">
-
-                            <table>
-
-                                <thead>
-
-                                    <tr>
-
-                                        <th>
-                                            Patient
-                                        </th>
-
-                                        <th>
-                                            ID
-                                        </th>
-
-                                        <th>
-                                            Department
-                                        </th>
-
-                                        <th>
-                                            Status
-                                        </th>
-
-                                    </tr>
-
-                                </thead>
-
-
-                                <tbody>
-
-                                    <tr>
-
-                                        <td>
-
-                                            <div class="patient-name">
-
-                                                <div class="table-avatar">
-                                                    AS
-                                                </div>
-
-                                                <div>
-                                                    <strong>
-                                                        Amanda Sari
-                                                    </strong>
-
-                                                    <span>
-                                                        Female, 28
-                                                    </span>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td>
-                                            PT-001248
-                                        </td>
-
-                                        <td>
-                                            Internal Medicine
-                                        </td>
-
-                                        <td>
-                                            <span class="status active">
-                                                Active
-                                            </span>
-                                        </td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-
-                                            <div class="patient-name">
-
-                                                <div class="table-avatar">
-                                                    RM
-                                                </div>
-
-                                                <div>
-                                                    <strong>
-                                                        Rizky Maulana
-                                                    </strong>
-
-                                                    <span>
-                                                        Male, 35
-                                                    </span>
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td>
-                                            PT-001247
-                                        </td>
-
-                                        <td>
-                                            Cardiology
-                                        </td>
-
-                                        <td>
-                                            <span class="status active">
-                                                Active
-                                            </span>
-                                        </td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-
-                                            <div class="patient-name">
-
-                                                <div class="table-avatar">
-                                                    DN
-                                                </div>
-
-                                                <div>
-                                                    <strong>
-                                                        Dinda Nuraini
-                                                    </strong>
-
-                                                    <span>
-                                                        Female, 41
-                                                    </span>
-
-                                                </div>
-
-                                            </div>
-
-                                        </td>
-
-                                        <td>
-                                            PT-001246
-                                        </td>
-
-                                        <td>
-                                            Neurology
-                                        </td>
-
-                                        <td>
-                                            <span class="status pending">
-                                                Pending
-                                            </span>
-                                        </td>
-
-                                    </tr>
-
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-                    </section>
-
-
-
-                    <!-- QUICK ACTIONS -->
-
-                    <section class="dashboard-card">
-
-                        <div class="card-header">
-
-                            <div>
-
-                                <h2>
-                                    Quick Actions
-                                </h2>
-
-                                <p>
-                                    Common administrative tasks
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="quick-actions">
-
-
-                            <button class="quick-action">
-
-                                <span class="quick-icon">
-                                    +
-                                </span>
-
-                                <div>
-
-                                    <strong>
-                                        Add Patient
-                                    </strong>
-
-                                    <span>
-                                        Register a new patient
-                                    </span>
-
-                                </div>
-
-                            </button>
-
-
-                            <button class="quick-action">
-
-                                <span class="quick-icon">
-                                    ♙
-                                </span>
-
-                                <div>
-
-                                    <strong>
-                                        Add Staff
-                                    </strong>
-
-                                    <span>
-                                        Add doctor or nurse
-                                    </span>
-
-                                </div>
-
-                            </button>
-
-
-                            <button class="quick-action">
-
-                                <span class="quick-icon">
-                                    ◷
-                                </span>
-
-                                <div>
-
-                                    <strong>
-                                        Schedule
-                                    </strong>
-
-                                    <span>
-                                        Manage appointments
-                                    </span>
-
-                                </div>
-
-                            </button>
-
-
-                            <button class="quick-action">
-
-                                <span class="quick-icon">
-                                    ▤
-                                </span>
-
-                                <div>
-
-                                    <strong>
-                                        Generate Report
-                                    </strong>
-
-                                    <span>
-                                        View hospital reports
-                                    </span>
-
-                                </div>
-
-                            </button>
-
-
-                        </div>
-
-                    </section>
-
-
-                </div>
-
-            </section>
-
-        </main>
-
-    </div>
-
-
-    <!-- =====================================
-         JAVASCRIPT
-    ====================================== -->
-
-    <script>
-
-        function logout() {
-
-            window.location.href = "../../index.html";
-
-        }
-
-    </script>
+</script>
 
 </body>
 
