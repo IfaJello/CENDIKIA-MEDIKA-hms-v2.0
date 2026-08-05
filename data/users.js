@@ -9,7 +9,7 @@ const users = [
     },
 
     {
-        {
+        
         id: "DOC-0024",
         name: "Dr. Dimas Santoso",
         email: "dimas@cendekiamedika.com",
@@ -17,7 +17,6 @@ const users = [
         specialty: "Internal Medicine",
         status: "active",
         lastActive: "12 min ago"
-},
     },
 
     {
