@@ -764,6 +764,247 @@
     </div>
 
 
+<!-- =====================================
+     ADD USER MODAL
+====================================== -->
+
+<div
+    class="modal-overlay"
+    id="userModal"
+>
+
+    <div class="modal">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    USER MANAGEMENT
+                </p>
+
+                <h2>
+                    Add New User
+                </h2>
+
+                <p>
+                    Create a new account for the hospital system.
+                </p>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="closeModal"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form id="addUserForm">
+
+
+            <div class="form-grid">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group full">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="userEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="userEmail"
+                        placeholder="name@example.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+62 xxx xxxx xxxx"
+                    >
+
+                </div>
+
+
+
+                <!-- ROLE -->
+
+                <div class="form-group">
+
+                    <label for="userRole">
+                        Role
+                    </label>
+
+                    <select
+                        id="userRole"
+                        required
+                    >
+
+                        <option value="">
+                            Select role
+                        </option>
+
+                        <option value="admin">
+                            Admin
+                        </option>
+
+                        <option value="doctor">
+                            Doctor
+                        </option>
+
+                        <option value="nurse">
+                            Nurse
+                        </option>
+
+                        <option value="patient">
+                            Patient
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label for="userStatus">
+                        Status
+                    </label>
+
+                    <select id="userStatus">
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="userPassword">
+                        Temporary Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="userPassword"
+                        placeholder="Create temporary password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FORM ACTIONS -->
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelModal"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Create User
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
 
     <script>
 
@@ -849,21 +1090,244 @@
         );
 
 
-        // ADD USER
+// ========================================
+// ADD USER MODAL
+// ========================================
 
-        document
-            .getElementById("addUserButton")
-            .addEventListener(
-                "click",
-                function () {
+const userModal =
+    document.getElementById("userModal");
 
-                    alert(
-                        "Add User feature coming next!"
-                    );
+const addUserButton =
+    document.getElementById("addUserButton");
 
-                }
+const closeModal =
+    document.getElementById("closeModal");
+
+const cancelModal =
+    document.getElementById("cancelModal");
+
+const addUserForm =
+    document.getElementById("addUserForm");
+
+
+// OPEN MODAL
+
+addUserButton.addEventListener(
+    "click",
+    function () {
+
+        userModal.classList.add("show");
+
+    }
+);
+
+
+// CLOSE MODAL
+
+function closeUserModal() {
+
+    userModal.classList.remove("show");
+
+    addUserForm.reset();
+
+}
+
+
+closeModal.addEventListener(
+    "click",
+    closeUserModal
+);
+
+
+cancelModal.addEventListener(
+    "click",
+    closeUserModal
+);
+
+
+// CLOSE WHEN CLICKING OUTSIDE
+
+userModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === userModal) {
+
+            closeUserModal();
+
+        }
+
+    }
+);
+
+
+// ========================================
+// CREATE USER
+// ========================================
+
+addUserForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+
+        const fullName =
+            document.getElementById("fullName").value;
+
+        const email =
+            document.getElementById("userEmail").value;
+
+        const role =
+            document.getElementById("userRole").value;
+
+        const password =
+            document.getElementById("userPassword").value;
+
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+
+        // CHECK PASSWORD
+
+        if (password !== confirmPassword) {
+
+            alert(
+                "Passwords do not match."
             );
 
+            return;
+
+        }
+
+
+        // GET INITIALS
+
+        const nameParts =
+            fullName.trim().split(" ");
+
+        let initials =
+            nameParts[0].charAt(0).toUpperCase();
+
+
+        if (nameParts.length > 1) {
+
+            initials +=
+                nameParts[
+                    nameParts.length - 1
+                ]
+                .charAt(0)
+                .toUpperCase();
+
+        }
+
+
+        // GENERATE ID
+
+        const userId =
+            role.toUpperCase().substring(0, 3)
+            + "-"
+            + Math.floor(
+                1000 + Math.random() * 9000
+            );
+
+
+        // CREATE ROW
+
+        const newRow =
+            document.createElement("tr");
+
+        newRow.dataset.role = role;
+
+
+        newRow.innerHTML = `
+
+            <td>
+
+                <div class="user-cell">
+
+                    <div class="user-avatar ${role}">
+                        ${initials}
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            ${fullName}
+                        </strong>
+
+                        <span>
+                            ${userId}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </td>
+
+
+            <td>
+
+                <span class="role-badge ${role}">
+                    ${role.charAt(0).toUpperCase() + role.slice(1)}
+                </span>
+
+            </td>
+
+
+            <td>
+                ${email}
+            </td>
+
+
+            <td>
+
+                <span class="status active">
+                    Active
+                </span>
+
+            </td>
+
+
+            <td>
+                Just now
+            </td>
+
+
+            <td>
+
+                <button
+                    class="action-button"
+                >
+                    •••
+                </button>
+
+            </td>
+
+        `;
+
+
+        // ADD TO TABLE
+
+        document
+            .getElementById("userTableBody")
+            .prepend(newRow);
+
+
+        // CLOSE MODAL
+
+        closeUserModal();
+
+
+        // SUCCESS MESSAGE
+
+        alert(
+            `${fullName} has been added successfully!`
+        );
+
+    }
+);
     </script>
 
 </body>

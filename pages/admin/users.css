@@ -1044,3 +1044,353 @@ td {
     }
 
 }
+/* ========================================
+   ADD USER MODAL
+======================================== */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(23, 49, 59, 0.45);
+
+    backdrop-filter:
+        blur(4px);
+
+}
+
+
+.modal-overlay.show {
+
+    display: flex;
+
+}
+
+
+/* ========================================
+   MODAL
+======================================== */
+
+.modal {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    border-radius: 14px;
+
+    background: white;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.18);
+
+    animation:
+        modalAppear 0.2s ease;
+
+}
+
+
+@keyframes modalAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px)
+            scale(0.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ========================================
+   MODAL HEADER
+======================================== */
+
+.modal-header {
+
+    position: relative;
+
+    padding: 25px 28px 20px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.modal-header h2 {
+
+    margin-bottom: 6px;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+}
+
+
+.modal-header > div > p:last-child {
+
+    font-size: 11px;
+
+    color: var(--text-light);
+
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    top: 20px;
+    right: 22px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-light);
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+}
+
+
+.modal-close:hover {
+
+    background: var(--background);
+
+    color: var(--text-dark);
+
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+#addUserForm {
+
+    padding: 25px 28px;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 19px 16px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.form-group.full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.form-group label {
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: var(--text-dark);
+
+}
+
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 42px;
+
+    padding:
+        0 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: white;
+
+    color: var(--text-dark);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+}
+
+
+.form-group input::placeholder {
+
+    color: #a9b5b9;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(23, 107, 135, 0.08);
+
+}
+
+
+/* ========================================
+   MODAL ACTIONS
+======================================== */
+
+.modal-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 27px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.cancel-button {
+
+    height: 42px;
+
+    padding:
+        0 17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.cancel-button:hover {
+
+    background:
+        var(--background);
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .modal {
+
+        max-height: 95vh;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-group.full {
+
+        grid-column: auto;
+
+    }
+
+    .modal-header,
+    #addUserForm {
+
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+
+}
