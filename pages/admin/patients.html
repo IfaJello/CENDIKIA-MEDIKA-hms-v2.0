@@ -80,7 +80,7 @@
 
 
             <a
-                href="#"
+                href="doctors.html"
                 class="nav-item"
             >
                 <span class="nav-icon">⚕</span>
@@ -252,7 +252,7 @@
 
 
                     <p>
-                        View and manage registered patients
+                        View and manage patients registered
                         at Cendekia Medika.
                     </p>
 
@@ -507,28 +507,16 @@
 ======================================== */
 
 const patientTableBody =
-    document.getElementById(
-        "patientTableBody"
-    );
-
+    document.getElementById("patientTableBody");
 
 const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
+    document.getElementById("searchInput");
 
 const statusFilter =
-    document.getElementById(
-        "statusFilter"
-    );
-
+    document.getElementById("statusFilter");
 
 const emptyState =
-    document.getElementById(
-        "emptyState"
-    );
-
+    document.getElementById("emptyState");
 
 
 /* ========================================
@@ -537,13 +525,13 @@ const emptyState =
 
 function getPatients() {
 
-    return users.filter(
-        user =>
-            user.role === "patient"
-    );
+    return users.filter(function(user) {
+
+        return user.role === "patient";
+
+    });
 
 }
-
 
 
 /* ========================================
@@ -552,37 +540,32 @@ function getPatients() {
 
 function updateStatistics() {
 
-
     const patients =
         getPatients();
 
 
-    const active =
-        patients.filter(
-            patient =>
-                patient.status === "active"
-        );
+    const activePatients =
+        patients.filter(function(patient) {
+
+            return patient.status === "active";
+
+        });
 
 
-    const inactive =
-        patients.filter(
-            patient =>
-                patient.status === "inactive"
-        );
+    const inactivePatients =
+        patients.filter(function(patient) {
+
+            return patient.status === "inactive";
+
+        });
 
 
-    /*
-       For now, "Recently Active"
-       means patients whose lastActive
-       is not Yesterday.
-    */
+    const recentPatients =
+        patients.filter(function(patient) {
 
-    const recent =
-        patients.filter(
-            patient =>
-                patient.lastActive !==
-                "Yesterday"
-        );
+            return patient.lastActive !== "Yesterday";
+
+        });
 
 
     document.getElementById(
@@ -594,22 +577,21 @@ function updateStatistics() {
     document.getElementById(
         "activePatients"
     ).textContent =
-        active.length;
+        activePatients.length;
 
 
     document.getElementById(
         "inactivePatients"
     ).textContent =
-        inactive.length;
+        inactivePatients.length;
 
 
     document.getElementById(
         "recentPatients"
     ).textContent =
-        recent.length;
+        recentPatients.length;
 
 }
-
 
 
 /* ========================================
@@ -635,31 +617,26 @@ function displayPatients() {
 
     /* SEARCH */
 
-    if (search) {
+    if (search !== "") {
 
         patients =
-            patients.filter(
-                patient => {
+            patients.filter(function(patient) {
 
-                    const searchableText =
-                        (
-                            patient.name
-                            + " "
-                            + patient.id
-                            + " "
-                            + patient.email
-                        )
-                        .toLowerCase();
+                const text =
+                    patient.name
+                    + " "
+                    + patient.id
+                    + " "
+                    + patient.email;
 
 
-                    return searchableText
-                        .includes(search);
+                return text
+                    .toLowerCase()
+                    .includes(search);
 
-                }
-            );
+            });
 
     }
-
 
 
     /* STATUS FILTER */
@@ -667,20 +644,19 @@ function displayPatients() {
     if (selectedStatus !== "all") {
 
         patients =
-            patients.filter(
-                patient =>
-                    patient.status ===
-                    selectedStatus
-            );
+            patients.filter(function(patient) {
+
+                return patient.status ===
+                    selectedStatus;
+
+            });
 
     }
-
 
 
     /* CLEAR TABLE */
 
     patientTableBody.innerHTML = "";
-
 
 
     /* EMPTY STATE */
@@ -699,131 +675,131 @@ function displayPatients() {
         "none";
 
 
-
     /* CREATE ROWS */
 
-    patients.forEach(
-        patient => {
-
-            const row =
-                document.createElement(
-                    "tr"
-                );
+    patients.forEach(function(patient) {
 
 
-            const initials =
-                patient.name
-                    .trim()
-                    .split(/\s+/)
-                    .map(
-                        word =>
-                            word
-                                .charAt(0)
-                                .toUpperCase()
-                    )
-                    .join("")
-                    .substring(0, 2);
+        const row =
+            document.createElement("tr");
 
 
-            const statusName =
-                patient.status
-                    .charAt(0)
-                    .toUpperCase()
-                + patient.status.slice(1);
+        /* INITIALS */
+
+        const nameParts =
+            patient.name
+                .trim()
+                .split(/\s+/);
 
 
-
-            row.innerHTML = `
-
-                <td>
-
-                    <div class="patient-cell">
+        let initials =
+            nameParts[0]
+                .charAt(0)
+                .toUpperCase();
 
 
-                        <div class="patient-avatar">
-                            ${initials}
-                        </div>
+        if (nameParts.length > 1) {
+
+            initials +=
+                nameParts[
+                    nameParts.length - 1
+                ]
+                .charAt(0)
+                .toUpperCase();
+
+        }
 
 
-                        <div>
+        /* STATUS */
 
-                            <strong>
-                                ${escapeHTML(
-                                    patient.name
-                                )}
-                            </strong>
+        const statusName =
+            patient.status
+                .charAt(0)
+                .toUpperCase()
+            + patient.status.slice(1);
 
-                            <span>
-                                Patient
-                            </span>
 
-                        </div>
+        /* ROW */
+
+        row.innerHTML = `
+
+            <td>
+
+                <div class="patient-cell">
+
+
+                    <div class="patient-avatar">
+                        ${initials}
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            ${patient.name}
+                        </strong>
+
+                        <span>
+                            Patient
+                        </span>
 
                     </div>
 
-                </td>
+                </div>
+
+            </td>
 
 
-                <td>
+            <td>
 
-                    <strong>
-                        ${escapeHTML(
-                            patient.id
-                        )}
-                    </strong>
+                <strong>
+                    ${patient.id}
+                </strong>
 
-                </td>
+            </td>
 
 
-                <td>
-                    ${escapeHTML(
-                        patient.email
-                    )}
-                </td>
+            <td>
+                ${patient.email}
+            </td>
 
 
-                <td>
+            <td>
 
-                    <span
-                        class="status ${patient.status}"
-                    >
-                        ${statusName}
-                    </span>
+                <span
+                    class="status ${patient.status}"
+                >
+                    ${statusName}
+                </span>
 
-                </td>
-
-
-                <td>
-                    ${escapeHTML(
-                        patient.lastActive
-                    )}
-                </td>
+            </td>
 
 
-                <td>
-
-                    <button
-                        class="action-button"
-                        type="button"
-                        onclick="viewPatient('${escapeJS(patient.id)}')"
-                    >
-                        •••
-                    </button>
-
-                </td>
-
-            `;
+            <td>
+                ${patient.lastActive}
+            </td>
 
 
-            patientTableBody.appendChild(
-                row
-            );
+            <td>
 
-        }
-    );
+                <button
+                    class="action-button"
+                    type="button"
+                    onclick="viewPatient('${patient.id}')"
+                >
+                    •••
+                </button>
+
+            </td>
+
+        `;
+
+
+        patientTableBody.appendChild(row);
+
+    });
 
 }
-
 
 
 /* ========================================
@@ -834,10 +810,11 @@ function viewPatient(patientId) {
 
 
     const patient =
-        users.find(
-            user =>
-                user.id === patientId
-        );
+        users.find(function(user) {
+
+            return user.id === patientId;
+
+        });
 
 
     if (!patient) {
@@ -854,25 +831,33 @@ function viewPatient(patientId) {
     alert(
 
         "PATIENT PROFILE\n\n"
+
         + "Name: "
         + patient.name
+
         + "\n\n"
+
         + "Patient ID: "
         + patient.id
+
         + "\n\n"
+
         + "Email: "
         + patient.email
+
         + "\n\n"
+
         + "Status: "
         + capitalize(patient.status)
+
         + "\n\n"
+
         + "Last Active: "
         + patient.lastActive
 
     );
 
 }
-
 
 
 /* ========================================
@@ -887,7 +872,6 @@ function addPatient() {
 }
 
 
-
 /* ========================================
    LOGOUT
 ======================================== */
@@ -900,7 +884,6 @@ function logout() {
 }
 
 
-
 /* ========================================
    CAPITALIZE
 ======================================== */
@@ -908,7 +891,9 @@ function logout() {
 function capitalize(value) {
 
     if (!value) {
+
         return "";
+
     }
 
 
@@ -918,59 +903,6 @@ function capitalize(value) {
     );
 
 }
-
-
-
-/* ========================================
-   ESCAPE HTML
-======================================== */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-
-/* ========================================
-   ESCAPE JAVASCRIPT
-======================================== */
-
-function escapeJS(value) {
-
-    return String(value)
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-        .replace(
-            /'/g,
-            "\\'"
-        );
-
-}
-
 
 
 /* ========================================
@@ -983,7 +915,6 @@ searchInput.addEventListener(
 );
 
 
-
 /* ========================================
    FILTER
 ======================================== */
@@ -992,7 +923,6 @@ statusFilter.addEventListener(
     "change",
     displayPatients
 );
-
 
 
 /* ========================================
