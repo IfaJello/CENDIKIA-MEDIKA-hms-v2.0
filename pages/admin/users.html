@@ -25,9 +25,7 @@
     <div class="app-layout">
 
 
-        <!-- =====================================
-             SIDEBAR
-        ====================================== -->
+        <!-- SIDEBAR -->
 
         <aside class="sidebar">
 
@@ -38,8 +36,10 @@
                 </div>
 
                 <div>
+
                     <strong>CENDEKIA</strong>
                     <span>MEDIKA</span>
+
                 </div>
 
             </div>
@@ -147,9 +147,7 @@
 
 
 
-        <!-- =====================================
-             MAIN CONTENT
-        ====================================== -->
+        <!-- MAIN CONTENT -->
 
         <main class="main-content">
 
@@ -201,7 +199,7 @@
             <section class="page-content">
 
 
-                <!-- PAGE HEADING -->
+                <!-- PAGE HEADER -->
 
                 <div class="page-heading">
 
@@ -234,106 +232,72 @@
 
 
 
-                <!-- USER STATISTICS -->
+                <!-- STATISTICS -->
 
-                <div class="user-stats">
+                <div class="stats-grid">
 
+                    <div class="mini-stat">
 
-                    <div class="user-stat">
+                        <span>
+                            Total Users
+                        </span>
 
-                        <div class="stat-icon total">
-                            ♙
-                        </div>
-
-                        <div>
-
-                            <span>
-                                Total Users
-                            </span>
-
-                            <strong>
-                                1,376
-                            </strong>
-
-                        </div>
+                        <strong>
+                            1,376
+                        </strong>
 
                     </div>
 
 
-                    <div class="user-stat">
+                    <div class="mini-stat">
 
-                        <div class="stat-icon doctors">
-                            ⚕
-                        </div>
+                        <span>
+                            Administrators
+                        </span>
 
-                        <div>
-
-                            <span>
-                                Doctors
-                            </span>
-
-                            <strong>
-                                42
-                            </strong>
-
-                        </div>
+                        <strong>
+                            8
+                        </strong>
 
                     </div>
 
 
-                    <div class="user-stat">
+                    <div class="mini-stat">
 
-                        <div class="stat-icon nurses">
-                            ✚
-                        </div>
+                        <span>
+                            Doctors
+                        </span>
 
-                        <div>
-
-                            <span>
-                                Nurses
-                            </span>
-
-                            <strong>
-                                86
-                            </strong>
-
-                        </div>
+                        <strong>
+                            42
+                        </strong>
 
                     </div>
 
 
-                    <div class="user-stat">
+                    <div class="mini-stat">
 
-                        <div class="stat-icon patients">
-                            ♡
-                        </div>
+                        <span>
+                            Nurses
+                        </span>
 
-                        <div>
-
-                            <span>
-                                Patients
-                            </span>
-
-                            <strong>
-                                1,248
-                            </strong>
-
-                        </div>
+                        <strong>
+                            86
+                        </strong>
 
                     </div>
+
 
                 </div>
 
 
 
-                <!-- USER TABLE CARD -->
+                <!-- USER LIST -->
 
                 <section class="users-card">
 
 
-                    <!-- TABLE HEADER -->
-
-                    <div class="table-toolbar">
+                    <div class="users-toolbar">
 
                         <div>
 
@@ -342,8 +306,7 @@
                             </h2>
 
                             <p>
-                                View and manage registered
-                                system users.
+                                View and manage registered users.
                             </p>
 
                         </div>
@@ -400,34 +363,34 @@
 
                     <div class="table-container">
 
-                        <table id="usersTable">
+                        <table>
 
                             <thead>
 
                                 <tr>
 
                                     <th>
-                                        User
+                                        USER
                                     </th>
 
                                     <th>
-                                        ID
+                                        ROLE
                                     </th>
 
                                     <th>
-                                        Role
+                                        EMAIL
                                     </th>
 
                                     <th>
-                                        Email
+                                        STATUS
                                     </th>
 
                                     <th>
-                                        Status
+                                        LAST ACTIVE
                                     </th>
 
                                     <th>
-                                        Action
+                                        ACTION
                                     </th>
 
                                 </tr>
@@ -435,28 +398,27 @@
                             </thead>
 
 
-                            <tbody>
+                            <tbody id="userTableBody">
 
 
-                                <tr>
+                                <tr data-role="admin">
 
                                     <td>
 
-                                        <div class="user-name">
+                                        <div class="user-cell">
 
                                             <div class="user-avatar">
-                                                AS
+                                                AR
                                             </div>
 
                                             <div>
 
                                                 <strong>
-                                                    Aulia Sari
+                                                    Ahmad Rahman
                                                 </strong>
 
                                                 <span>
-                                                    Registered
-                                                    02 Aug 2026
+                                                    ADM-0001
                                                 </span>
 
                                             </div>
@@ -465,9 +427,6 @@
 
                                     </td>
 
-                                    <td>
-                                        ADM-001
-                                    </td>
 
                                     <td>
                                         <span class="role-badge admin">
@@ -475,9 +434,11 @@
                                         </span>
                                     </td>
 
+
                                     <td>
-                                        admin@cendekiamedika.com
+                                        ahmad@cendekiamedika.com
                                     </td>
+
 
                                     <td>
                                         <span class="status active">
@@ -485,9 +446,15 @@
                                         </span>
                                     </td>
 
+
+                                    <td>
+                                        Just now
+                                    </td>
+
+
                                     <td>
                                         <button class="action-button">
-                                            ⋮
+                                            •••
                                         </button>
                                     </td>
 
@@ -495,25 +462,24 @@
 
 
 
-                                <tr>
+                                <tr data-role="doctor">
 
                                     <td>
 
-                                        <div class="user-name">
+                                        <div class="user-cell">
 
                                             <div class="user-avatar doctor">
-                                                DR
+                                                DS
                                             </div>
 
                                             <div>
 
                                                 <strong>
-                                                    Dr. Raka Pratama
+                                                    Dr. Dimas Santoso
                                                 </strong>
 
                                                 <span>
-                                                    Registered
-                                                    28 Jul 2026
+                                                    DOC-0024
                                                 </span>
 
                                             </div>
@@ -522,9 +488,6 @@
 
                                     </td>
 
-                                    <td>
-                                        DOC-014
-                                    </td>
 
                                     <td>
                                         <span class="role-badge doctor">
@@ -532,9 +495,11 @@
                                         </span>
                                     </td>
 
+
                                     <td>
-                                        raka@cendekiamedika.com
+                                        dimas@cendekiamedika.com
                                     </td>
+
 
                                     <td>
                                         <span class="status active">
@@ -542,9 +507,15 @@
                                         </span>
                                     </td>
 
+
+                                    <td>
+                                        12 min ago
+                                    </td>
+
+
                                     <td>
                                         <button class="action-button">
-                                            ⋮
+                                            •••
                                         </button>
                                     </td>
 
@@ -552,25 +523,24 @@
 
 
 
-                                <tr>
+                                <tr data-role="nurse">
 
                                     <td>
 
-                                        <div class="user-name">
+                                        <div class="user-cell">
 
                                             <div class="user-avatar nurse">
-                                                NS
+                                                SA
                                             </div>
 
                                             <div>
 
                                                 <strong>
-                                                    Nisa Rahmawati
+                                                    Siti Amelia
                                                 </strong>
 
                                                 <span>
-                                                    Registered
-                                                    25 Jul 2026
+                                                    NUR-0041
                                                 </span>
 
                                             </div>
@@ -579,9 +549,6 @@
 
                                     </td>
 
-                                    <td>
-                                        NUR-032
-                                    </td>
 
                                     <td>
                                         <span class="role-badge nurse">
@@ -589,9 +556,11 @@
                                         </span>
                                     </td>
 
+
                                     <td>
-                                        nisa@cendekiamedika.com
+                                        siti@cendekiamedika.com
                                     </td>
+
 
                                     <td>
                                         <span class="status active">
@@ -599,9 +568,15 @@
                                         </span>
                                     </td>
 
+
+                                    <td>
+                                        35 min ago
+                                    </td>
+
+
                                     <td>
                                         <button class="action-button">
-                                            ⋮
+                                            •••
                                         </button>
                                     </td>
 
@@ -609,25 +584,24 @@
 
 
 
-                                <tr>
+                                <tr data-role="patient">
 
                                     <td>
 
-                                        <div class="user-name">
+                                        <div class="user-cell">
 
                                             <div class="user-avatar patient">
-                                                RA
+                                                AP
                                             </div>
 
                                             <div>
 
                                                 <strong>
-                                                    Rizky Aditya
+                                                    Andi Pratama
                                                 </strong>
 
                                                 <span>
-                                                    Registered
-                                                    05 Aug 2026
+                                                    PT-001248
                                                 </span>
 
                                             </div>
@@ -636,9 +610,6 @@
 
                                     </td>
 
-                                    <td>
-                                        PT-001248
-                                    </td>
 
                                     <td>
                                         <span class="role-badge patient">
@@ -646,19 +617,88 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        rizky@example.com
-                                    </td>
 
                                     <td>
-                                        <span class="status pending">
-                                            Pending
+                                        andi@example.com
+                                    </td>
+
+
+                                    <td>
+                                        <span class="status active">
+                                            Active
                                         </span>
                                     </td>
 
+
+                                    <td>
+                                        1 hour ago
+                                    </td>
+
+
                                     <td>
                                         <button class="action-button">
-                                            ⋮
+                                            •••
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+
+                                <tr data-role="patient">
+
+                                    <td>
+
+                                        <div class="user-cell">
+
+                                            <div class="user-avatar patient">
+                                                FN
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Fajar Nugraha
+                                                </strong>
+
+                                                <span>
+                                                    PT-001247
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+                                        <span class="role-badge patient">
+                                            Patient
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        fajar@example.com
+                                    </td>
+
+
+                                    <td>
+                                        <span class="status inactive">
+                                            Inactive
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        Yesterday
+                                    </td>
+
+
+                                    <td>
+                                        <button class="action-button">
+                                            •••
                                         </button>
                                     </td>
 
@@ -672,8 +712,50 @@
                     </div>
 
 
-                </section>
+                    <!-- PAGINATION -->
 
+                    <div class="pagination">
+
+                        <span>
+                            Showing 1–5 of 1,376 users
+                        </span>
+
+                        <div>
+
+                            <button disabled>
+                                ‹
+                            </button>
+
+                            <button class="current">
+                                1
+                            </button>
+
+                            <button>
+                                2
+                            </button>
+
+                            <button>
+                                3
+                            </button>
+
+                            <button>
+                                ...
+                            </button>
+
+                            <button>
+                                276
+                            </button>
+
+                            <button>
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
 
             </section>
 
@@ -687,86 +769,100 @@
 
         function logout() {
 
-            window.location.href =
-                "../../index.html";
+            window.location.href = "../../index.html";
 
         }
 
 
-        // Search
+        // SEARCH
 
         const searchInput =
             document.getElementById("searchInput");
 
-        const roleFilter =
-            document.getElementById("roleFilter");
-
-        const rows =
+        const userRows =
             document.querySelectorAll(
-                "#usersTable tbody tr"
+                "#userTableBody tr"
             );
-
-
-        function filterUsers() {
-
-            const search =
-                searchInput.value.toLowerCase();
-
-            const role =
-                roleFilter.value.toLowerCase();
-
-
-            rows.forEach(row => {
-
-                const text =
-                    row.textContent.toLowerCase();
-
-                const roleText =
-                    row.querySelector(
-                        ".role-badge"
-                    ).textContent.toLowerCase();
-
-
-                const matchesSearch =
-                    text.includes(search);
-
-                const matchesRole =
-                    role === "all" ||
-                    roleText === role;
-
-
-                row.style.display =
-                    matchesSearch && matchesRole
-                        ? ""
-                        : "none";
-
-            });
-
-        }
 
 
         searchInput.addEventListener(
             "input",
-            filterUsers
+            function () {
+
+                const search =
+                    this.value.toLowerCase();
+
+
+                userRows.forEach(row => {
+
+                    const text =
+                        row.textContent.toLowerCase();
+
+
+                    row.style.display =
+                        text.includes(search)
+                            ? ""
+                            : "none";
+
+                });
+
+            }
         );
+
+
+        // ROLE FILTER
+
+        const roleFilter =
+            document.getElementById("roleFilter");
+
 
         roleFilter.addEventListener(
             "change",
-            filterUsers
+            function () {
+
+                const selected =
+                    this.value;
+
+
+                userRows.forEach(row => {
+
+                    const role =
+                        row.dataset.role;
+
+
+                    if (
+                        selected === "all" ||
+                        role === selected
+                    ) {
+
+                        row.style.display = "";
+
+                    } else {
+
+                        row.style.display = "none";
+
+                    }
+
+                });
+
+            }
         );
 
 
-        // Add user button
+        // ADD USER
 
         document
             .getElementById("addUserButton")
-            .addEventListener("click", () => {
+            .addEventListener(
+                "click",
+                function () {
 
-                alert(
-                    "Add User feature will be built next."
-                );
+                    alert(
+                        "Add User feature coming next!"
+                    );
 
-            });
+                }
+            );
 
     </script>
 
