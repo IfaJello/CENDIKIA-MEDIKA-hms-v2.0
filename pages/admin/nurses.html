@@ -25,12 +25,9 @@
 <div class="app-layout">
 
 
-    <!-- =====================================
-         SIDEBAR
-    ====================================== -->
+    <!-- SIDEBAR -->
 
     <aside class="sidebar">
-
 
         <div class="sidebar-brand">
 
@@ -39,19 +36,11 @@
             </div>
 
             <div>
-
-                <strong>
-                    CENDEKIA
-                </strong>
-
-                <span>
-                    MEDIKA
-                </span>
-
+                <strong>CENDEKIA</strong>
+                <span>MEDIKA</span>
             </div>
 
         </div>
-
 
 
         <nav class="sidebar-nav">
@@ -140,7 +129,6 @@
         </nav>
 
 
-
         <div class="sidebar-bottom">
 
             <button
@@ -148,13 +136,8 @@
                 type="button"
                 onclick="logout()"
             >
-
-                <span>
-                    ↪
-                </span>
-
+                <span>↪</span>
                 Sign out
-
             </button>
 
         </div>
@@ -163,9 +146,7 @@
 
 
 
-    <!-- =====================================
-         MAIN CONTENT
-    ====================================== -->
+    <!-- MAIN CONTENT -->
 
     <main class="main-content">
 
@@ -174,7 +155,6 @@
 
         <header class="topbar">
 
-
             <div class="mobile-menu">
                 ☰
             </div>
@@ -182,18 +162,13 @@
 
             <div class="topbar-right">
 
-
                 <button
                     class="notification-button"
                     type="button"
                 >
-
                     ♧
-
                     <span class="notification-dot"></span>
-
                 </button>
-
 
 
                 <div class="profile">
@@ -201,7 +176,6 @@
                     <div class="profile-avatar">
                         A
                     </div>
-
 
                     <div class="profile-info">
 
@@ -215,7 +189,6 @@
 
                     </div>
 
-
                     <span class="profile-arrow">
                         ▾
                     </span>
@@ -228,14 +201,12 @@
 
 
 
-        <!-- =====================================
-             PAGE CONTENT
-        ====================================== -->
+        <!-- PAGE CONTENT -->
 
         <section class="page-content">
 
 
-            <!-- PAGE HEADER -->
+            <!-- HEADER -->
 
             <div class="page-heading">
 
@@ -245,11 +216,9 @@
                         STAFF MANAGEMENT
                     </p>
 
-
                     <h1>
                         Nurses
                     </h1>
-
 
                     <p>
                         View and manage nurses registered
@@ -271,9 +240,7 @@
 
 
 
-            <!-- =====================================
-                 STATISTICS
-            ====================================== -->
+            <!-- STATISTICS -->
 
             <div class="stats-grid">
 
@@ -329,22 +296,16 @@
 
                 </div>
 
-
             </div>
 
 
 
-            <!-- =====================================
-                 NURSE CARD
-            ====================================== -->
+            <!-- NURSES TABLE -->
 
             <section class="nurses-card">
 
 
-                <!-- TOOLBAR -->
-
                 <div class="nurses-toolbar">
-
 
                     <div>
 
@@ -361,9 +322,6 @@
 
                     <div class="toolbar-actions">
 
-
-                        <!-- SEARCH -->
-
                         <div class="search-box">
 
                             <span>
@@ -378,9 +336,6 @@
 
                         </div>
 
-
-
-                        <!-- STATUS FILTER -->
 
                         <select id="statusFilter">
 
@@ -404,12 +359,9 @@
 
 
 
-                <!-- TABLE -->
-
                 <div class="table-container">
 
                     <table>
-
 
                         <thead>
 
@@ -447,19 +399,15 @@
                         <tbody id="nurseTableBody">
                         </tbody>
 
-
                     </table>
 
                 </div>
 
 
 
-                <!-- EMPTY STATE -->
-
                 <div
                     class="empty-state"
                     id="emptyState"
-                    style="display:none;"
                 >
 
                     <div class="empty-icon">
@@ -487,26 +435,30 @@
 
 
 
-<!-- =====================================
-     USERS DATA
-====================================== -->
+<!-- USERS DATA -->
 
 <script src="../../data/users.js"></script>
 
-<script>
-    console.log("Users data:", users);
-    console.log(
-        "Nurses:",
-        users.filter(user => user.role === "nurse")
-    );
-</script>
 
-
-<!-- =====================================
-     JAVASCRIPT
-====================================== -->
+<!-- NURSES JAVASCRIPT -->
 
 <script>
+
+
+console.log("✅ users.js loaded");
+
+console.log(
+    "Total users:",
+    users.length
+);
+
+console.log(
+    "Nurses:",
+    users.filter(
+        user => user.role === "nurse"
+    )
+);
+
 
 
 /* ========================================
@@ -554,11 +506,10 @@ function getNurses() {
 
 
 /* ========================================
-   UPDATE STATISTICS
+   STATISTICS
 ======================================== */
 
 function updateStatistics() {
-
 
     const nurses =
         getNurses();
@@ -620,6 +571,10 @@ function updateStatistics() {
 function displayNurses() {
 
 
+    let nurses =
+        getNurses();
+
+
     const search =
         searchInput.value
             .toLowerCase()
@@ -630,19 +585,16 @@ function displayNurses() {
         statusFilter.value;
 
 
-    let nurses =
-        getNurses();
-
 
     /* SEARCH */
 
-    if (search) {
+    if (search !== "") {
 
         nurses =
             nurses.filter(
                 nurse => {
 
-                    const searchableText =
+                    const text =
                         (
                             nurse.name
                             + " "
@@ -653,8 +605,9 @@ function displayNurses() {
                         .toLowerCase();
 
 
-                    return searchableText
-                        .includes(search);
+                    return text.includes(
+                        search
+                    );
 
                 }
             );
@@ -663,9 +616,12 @@ function displayNurses() {
 
 
 
-    /* STATUS FILTER */
+    /* STATUS */
 
-    if (selectedStatus !== "all") {
+    if (
+        selectedStatus !==
+        "all"
+    ) {
 
         nurses =
             nurses.filter(
@@ -678,15 +634,17 @@ function displayNurses() {
 
 
 
-    /* CLEAR TABLE */
+    /* CLEAR */
 
     nurseTableBody.innerHTML = "";
 
 
 
-    /* EMPTY STATE */
+    /* EMPTY */
 
-    if (nurses.length === 0) {
+    if (
+        nurses.length === 0
+    ) {
 
         emptyState.style.display =
             "block";
@@ -706,6 +664,7 @@ function displayNurses() {
     nurses.forEach(
         nurse => {
 
+
             const row =
                 document.createElement(
                     "tr"
@@ -714,7 +673,6 @@ function displayNurses() {
 
             const initials =
                 nurse.name
-                    .trim()
                     .split(/\s+/)
                     .map(
                         word =>
@@ -723,14 +681,18 @@ function displayNurses() {
                                 .toUpperCase()
                     )
                     .join("")
-                    .substring(0, 2);
+                    .substring(
+                        0,
+                        2
+                    );
 
 
-            const statusName =
+            const status =
                 nurse.status
                     .charAt(0)
                     .toUpperCase()
-                + nurse.status.slice(1);
+                +
+                nurse.status.slice(1);
 
 
 
@@ -740,18 +702,17 @@ function displayNurses() {
 
                     <div class="nurse-cell">
 
-
                         <div class="nurse-avatar">
+
                             ${initials}
+
                         </div>
 
 
                         <div>
 
                             <strong>
-                                ${escapeHTML(
-                                    nurse.name
-                                )}
+                                ${nurse.name}
                             </strong>
 
                             <span>
@@ -768,18 +729,14 @@ function displayNurses() {
                 <td>
 
                     <strong>
-                        ${escapeHTML(
-                            nurse.id
-                        )}
+                        ${nurse.id}
                     </strong>
 
                 </td>
 
 
                 <td>
-                    ${escapeHTML(
-                        nurse.email
-                    )}
+                    ${nurse.email}
                 </td>
 
 
@@ -788,16 +745,16 @@ function displayNurses() {
                     <span
                         class="status ${nurse.status}"
                     >
-                        ${statusName}
+
+                        ${status}
+
                     </span>
 
                 </td>
 
 
                 <td>
-                    ${escapeHTML(
-                        nurse.lastActive
-                    )}
+                    ${nurse.lastActive}
                 </td>
 
 
@@ -806,7 +763,7 @@ function displayNurses() {
                     <button
                         class="action-button"
                         type="button"
-                        onclick="viewNurse('${escapeJS(nurse.id)}')"
+                        onclick="viewNurse('${nurse.id}')"
                     >
                         •••
                     </button>
@@ -831,20 +788,23 @@ function displayNurses() {
    VIEW NURSE
 ======================================== */
 
-function viewNurse(nurseId) {
+function viewNurse(
+    nurseId
+) {
 
 
     const nurse =
         users.find(
             user =>
-                user.id === nurseId
+                user.id ===
+                nurseId
         );
 
 
     if (!nurse) {
 
         alert(
-            "Nurse could not be found."
+            "Nurse not found."
         );
 
         return;
@@ -855,19 +815,22 @@ function viewNurse(nurseId) {
     alert(
 
         "NURSE PROFILE\n\n"
+
         + "Name: "
         + nurse.name
-        + "\n\n"
-        + "Nurse ID: "
+
+        + "\n\nNurse ID: "
         + nurse.id
-        + "\n\n"
-        + "Email: "
+
+        + "\n\nEmail: "
         + nurse.email
-        + "\n\n"
-        + "Status: "
-        + capitalize(nurse.status)
-        + "\n\n"
-        + "Last Active: "
+
+        + "\n\nStatus: "
+        + capitalize(
+            nurse.status
+        )
+
+        + "\n\nLast Active: "
         + nurse.lastActive
 
     );
@@ -906,7 +869,9 @@ function logout() {
    CAPITALIZE
 ======================================== */
 
-function capitalize(value) {
+function capitalize(
+    value
+) {
 
     if (!value) {
         return "";
@@ -914,40 +879,12 @@ function capitalize(value) {
 
 
     return (
-        value.charAt(0).toUpperCase()
-        + value.slice(1)
+        value
+            .charAt(0)
+            .toUpperCase()
+        +
+        value.slice(1)
     );
-
-}
-
-
-
-/* ========================================
-   ESCAPE HTML
-======================================== */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-
-/* ========================================
-   ESCAPE JAVASCRIPT
-======================================== */
-
-function escapeJS(value) {
-
-    return String(value)
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
 
 }
 
@@ -976,7 +913,7 @@ statusFilter.addEventListener(
 
 
 /* ========================================
-   INITIALIZE
+   START
 ======================================== */
 
 updateStatistics();
@@ -985,6 +922,7 @@ displayNurses();
 
 
 </script>
+
 
 </body>
 
