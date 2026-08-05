@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Hospital Information System</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: #f4f7fb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        min-height: 600px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* LEFT SIDE */
+
+    .welcome-section {
+        width: 50%;
+        background: #1769aa;
+        color: white;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .logo {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .welcome-section h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .welcome-section p {
+        font-size: 16px;
+        line-height: 1.7;
+        opacity: 0.9;
+        max-width: 450px;
+    }
+
+    .system-info {
+        margin-top: 40px;
+    }
+
+    .system-info p {
+        margin-bottom: 10px;
+    }
+
+    /* RIGHT SIDE */
+
+    .login-section {
+        width: 50%;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .login-section h2 {
+        font-size: 30px;
+        color: #1f2937;
+        margin-bottom: 10px;
+    }
+
+    .login-section .subtitle {
+        color: #6b7280;
+        margin-bottom: 35px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #374151;
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        font-size: 15px;
+        outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+        border-color: #1769aa;
+    }
+
+    .login-button {
+        width: 100%;
+        padding: 15px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 10px;
+        background: #1769aa;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .login-button:hover {
+        background: #12558a;
+    }
+
+    .forgot-password {
+        text-align: right;
+        margin-top: 15px;
+    }
+
+    .forgot-password a {
+        color: #1769aa;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .footer {
+        margin-top: 40px;
+        text-align: center;
+        color: #9ca3af;
+        font-size: 13px;
+    }
+
+    /* TABLET / MOBILE */
+
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+            min-height: auto;
+            flex-direction: column;
+        }
+
+        .welcome-section,
+        .login-section {
+            width: 100%;
+            padding: 40px;
+        }
+
+        .welcome-section {
+            text-align: center;
+        }
+
+        .welcome-section h1 {
+            font-size: 30px;
+        }
+
+        .system-info {
+            display: none;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<main class="container">
+
+    <!-- Welcome Section -->
+
+    <section class="welcome-section">
+
+        <div class="logo">🏥</div>
+
+        <h1>Hospital Information System</h1>
+
+        <p>
+            An integrated digital platform for managing
+            hospital information, patient care, medical records,
+            and healthcare services.
+        </p>
+
+        <div class="system-info">
+            <p>✓ Patient Management</p>
+            <p>✓ Medical Records</p>
+            <p>✓ Nursing Documentation</p>
+            <p>✓ Appointment Management</p>
+        </div>
+
+    </section>
+
+
+    <!-- Login Section -->
+
+    <section class="login-section">
+
+        <h2>Welcome Back</h2>
+
+        <p class="subtitle">
+            Please sign in to access the system.
+        </p>
+
+        <form>
+
+            <div class="form-group">
+                <label for="username">
+                    Username / ID
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username or ID"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="role">
+                    Login As
+                </label>
+
+                <select id="role">
+
+                    <option value="">
+                        Select your role
+                    </option>
+
+                    <option value="admin">
+                        Administrator
+                    </option>
+
+                    <option value="doctor">
+                        Doctor
+                    </option>
+
+                    <option value="nurse">
+                        Nurse
+                    </option>
+
+                    <option value="patient">
+                        Patient
+                    </option>
+
+                </select>
+            </div>
+
+
+            <button
+                type="button"
+                class="login-button"
+                onclick="login()"
+            >
+                Sign In
+            </button>
+
+        </form>
+
+
+        <div class="forgot-password">
+            <a href="#">
+                Forgot Password?
+            </a>
+        </div>
+
+
+        <div class="footer">
+            © 2026 Hospital Information System
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+    function login() {
+
+        const username =
+            document.getElementById("username").value;
+
+        const password =
+            document.getElementById("password").value;
+
+        const role =
+            document.getElementById("role").value;
+
+
+        if (username === "" || password === "" || role === "") {
+
+            alert("Please complete all fields.");
+
+            return;
+        }
+
+
+        alert(
+            "Login system is currently under development."
+        );
+
+    }
+
+</script>
+```
+
+</body>
+</html>
