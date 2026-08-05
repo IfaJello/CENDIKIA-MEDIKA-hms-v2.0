@@ -1005,6 +1005,21 @@ displayDoctors();
 
 </script>
 
+<script>
+    alert("Doctors page JavaScript is running");
+
+    if (typeof users === "undefined") {
+        alert("❌ users.js is NOT loaded");
+    } else {
+        alert(
+            "✅ users.js loaded!\n\n" +
+            "Total users: " + users.length + "\n" +
+            "Doctors: " +
+            users.filter(user => user.role === "doctor").length
+        );
+    }
+</script>
+
 </body>
 
 </html>
