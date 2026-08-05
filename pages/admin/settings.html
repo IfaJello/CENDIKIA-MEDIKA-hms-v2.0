@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Settings | Cendekia Medika</title>
+
+    <link
+        rel="stylesheet"
+        href="settings.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                +
+            </div>
+
+            <div class="brand-text">
+                <strong>CENDEKIA</strong>
+                <span>MEDIKA</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="patients.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Patients</span>
+            </a>
+
+
+            <a
+                href="doctors.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚕</span>
+                <span>Doctors</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">✚</span>
+                <span>Nurses</span>
+            </a>
+
+
+            <a
+                href="appointments.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Appointments</span>
+            </a>
+
+
+            <p class="nav-label secondary">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="users.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>User Management</span>
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                type="button"
+                onclick="logout()"
+            >
+
+                <span>↪</span>
+
+                Sign out
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-button"
+                    type="button"
+                    onclick="showNotification()"
+                >
+                    ♧
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             SETTINGS CONTENT
+        ====================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        SYSTEM MANAGEMENT
+                    </p>
+
+                    <h1>
+                        Settings
+                    </h1>
+
+                    <p>
+                        Manage your account and hospital system preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 SETTINGS LAYOUT
+            ====================================== -->
+
+            <div class="settings-layout">
+
+
+                <!-- SETTINGS MENU -->
+
+                <aside class="settings-menu">
+
+                    <button
+                        class="settings-menu-item active"
+                        type="button"
+                        data-section="account"
+                    >
+                        <span class="settings-menu-icon">
+                            ♙
+                        </span>
+
+                        <span>
+                            <strong>Account</strong>
+                            <small>Profile information</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-section="hospital"
+                    >
+                        <span class="settings-menu-icon">
+                            +
+                        </span>
+
+                        <span>
+                            <strong>Hospital</strong>
+                            <small>Hospital information</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-section="notifications"
+                    >
+                        <span class="settings-menu-icon">
+                            ♧
+                        </span>
+
+                        <span>
+                            <strong>Notifications</strong>
+                            <small>Notification preferences</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-section="security"
+                    >
+                        <span class="settings-menu-icon">
+                            ◉
+                        </span>
+
+                        <span>
+                            <strong>Security</strong>
+                            <small>Password and access</small>
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="settings-menu-item"
+                        type="button"
+                        data-section="appearance"
+                    >
+                        <span class="settings-menu-icon">
+                            ◐
+                        </span>
+
+                        <span>
+                            <strong>Appearance</strong>
+                            <small>Display preferences</small>
+                        </span>
+                    </button>
+
+                </aside>
+
+
+
+                <!-- =====================================
+                     SETTINGS PANELS
+                ====================================== -->
+
+                <div class="settings-content">
+
+
+                    <!-- ACCOUNT -->
+
+                    <section
+                        class="settings-panel active"
+                        id="account"
+                    >
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h2>
+                                    Account Information
+                                </h2>
+
+                                <p>
+                                    Update your administrator profile information.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-preview">
+
+                            <div class="large-avatar">
+                                A
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Admin
+                                </strong>
+
+                                <span>
+                                    Administrator
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="text-button"
+                                    onclick="changeAvatar()"
+                                >
+                                    Change avatar
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="firstName">
+                                    First Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    value="Admin"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="lastName">
+                                    Last Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    value="Administrator"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value="admin@cendekiamedika.com"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="phone">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    value="+62 812 3456 7890"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- HOSPITAL -->
+
+                    <section
+                        class="settings-panel"
+                        id="hospital"
+                    >
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h2>
+                                    Hospital Information
+                                </h2>
+
+                                <p>
+                                    Manage the basic information displayed throughout the system.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group full">
+
+                                <label for="hospitalName">
+                                    Hospital Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="hospitalName"
+                                    value="Cendekia Medika"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="hospitalEmail">
+                                    Contact Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="hospitalEmail"
+                                    value="info@cendekiamedika.com"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="hospitalPhone">
+                                    Contact Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="hospitalPhone"
+                                    value="+62 22 1234 5678"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="hospitalAddress">
+                                    Address
+                                </label>
+
+                                <textarea
+                                    id="hospitalAddress"
+                                    rows="4"
+                                >Jl. Cendekia Medika No. 10, Bandung, Jawa Barat</textarea>
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- NOTIFICATIONS -->
+
+                    <section
+                        class="settings-panel"
+                        id="notifications"
+                    >
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h2>
+                                    Notifications
+                                </h2>
+
+                                <p>
+                                    Choose which notifications you want to receive.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="toggle-list">
+
+
+                            <div class="toggle-item">
+
+                                <div>
+
+                                    <strong>
+                                        Appointment Notifications
+                                    </strong>
+
+                                    <span>
+                                        Receive notifications when appointments are created or updated.
+                                    </span>
+
+                                </div>
+
+                                <label class="switch">
+
+                                    <input
+                                        type="checkbox"
+                                        checked
+                                    >
+
+                                    <span class="slider"></span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="toggle-item">
+
+                                <div>
+
+                                    <strong>
+                                        New Patient Registration
+                                    </strong>
+
+                                    <span>
+                                        Get notified when a new patient is registered.
+                                    </span>
+
+                                </div>
+
+                                <label class="switch">
+
+                                    <input
+                                        type="checkbox"
+                                        checked
+                                    >
+
+                                    <span class="slider"></span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="toggle-item">
+
+                                <div>
+
+                                    <strong>
+                                        Staff Updates
+                                    </strong>
+
+                                    <span>
+                                        Receive updates about doctors and nurses.
+                                    </span>
+
+                                </div>
+
+                                <label class="switch">
+
+                                    <input
+                                        type="checkbox"
+                                        checked
+                                    >
+
+                                    <span class="slider"></span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="toggle-item">
+
+                                <div>
+
+                                    <strong>
+                                        System Alerts
+                                    </strong>
+
+                                    <span>
+                                        Receive important system and security alerts.
+                                    </span>
+
+                                </div>
+
+                                <label class="switch">
+
+                                    <input
+                                        type="checkbox"
+                                        checked
+                                    >
+
+                                    <span class="slider"></span>
+
+                                </label>
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- SECURITY -->
+
+                    <section
+                        class="settings-panel"
+                        id="security"
+                    >
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h2>
+                                    Security
+                                </h2>
+
+                                <p>
+                                    Manage your password and account security.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="security-box">
+
+                            <div>
+
+                                <strong>
+                                    Password
+                                </strong>
+
+                                <span>
+                                    Last changed more than 30 days ago.
+                                </span>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                onclick="changePassword()"
+                            >
+                                Change Password
+                            </button>
+
+                        </div>
+
+
+                        <div class="security-box">
+
+                            <div>
+
+                                <strong>
+                                    Active Sessions
+                                </strong>
+
+                                <span>
+                                    You are currently signed in on this device.
+                                </span>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                onclick="viewSessions()"
+                            >
+                                View Sessions
+                            </button>
+
+                        </div>
+
+
+                        <div class="danger-box">
+
+                            <div>
+
+                                <strong>
+                                    Sign out of all devices
+                                </strong>
+
+                                <span>
+                                    End all other active sessions for this account.
+                                </span>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="danger-button"
+                                onclick="logoutAll()"
+                            >
+                                Sign Out All
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- APPEARANCE -->
+
+                    <section
+                        class="settings-panel"
+                        id="appearance"
+                    >
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h2>
+                                    Appearance
+                                </h2>
+
+                                <p>
+                                    Customize how the administration system looks.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="appearance-options">
+
+
+                            <label class="appearance-option">
+
+                                <input
+                                    type="radio"
+                                    name="theme"
+                                    value="light"
+                                    checked
+                                >
+
+                                <div class="appearance-preview light-preview">
+
+                                    <div class="preview-sidebar"></div>
+
+                                    <div class="preview-content">
+
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+
+                                    </div>
+
+                                </div>
+
+                                <strong>
+                                    Light
+                                </strong>
+
+                                <span>
+                                    Recommended
+                                </span>
+
+                            </label>
+
+
+                            <label class="appearance-option">
+
+                                <input
+                                    type="radio"
+                                    name="theme"
+                                    value="dark"
+                                >
+
+                                <div class="appearance-preview dark-preview">
+
+                                    <div class="preview-sidebar"></div>
+
+                                    <div class="preview-content">
+
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+
+                                    </div>
+
+                                </div>
+
+                                <strong>
+                                    Dark
+                                </strong>
+
+                                <span>
+                                    Coming soon
+                                </span>
+
+                            </label>
+
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- SAVE BAR -->
+
+                    <div class="save-bar">
+
+                        <span id="saveMessage">
+                            Changes are saved locally on this device.
+                        </span>
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            onclick="saveSettings()"
+                        >
+                            Save Changes
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* ========================================
+   SETTINGS NAVIGATION
+======================================== */
+
+const menuItems =
+    document.querySelectorAll(
+        ".settings-menu-item"
+    );
+
+
+const panels =
+    document.querySelectorAll(
+        ".settings-panel"
+    );
+
+
+menuItems.forEach(
+    item => {
+
+        item.addEventListener(
+            "click",
+            function() {
+
+                const section =
+                    this.dataset.section;
+
+
+                menuItems.forEach(
+                    menuItem => {
+
+                        menuItem.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                panels.forEach(
+                    panel => {
+
+                        panel.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                this.classList.add(
+                    "active"
+                );
+
+
+                document
+                    .getElementById(section)
+                    .classList.add("active");
+
+            }
+        );
+
+    }
+);
+
+
+
+/* ========================================
+   SAVE SETTINGS
+======================================== */
+
+function saveSettings() {
+
+    const message =
+        document.getElementById(
+            "saveMessage"
+        );
+
+
+    message.textContent =
+        "✓ Settings saved successfully.";
+
+
+    message.classList.add(
+        "success"
+    );
+
+
+    setTimeout(
+        function() {
+
+            message.textContent =
+                "Changes are saved locally on this device.";
+
+            message.classList.remove(
+                "success"
+            );
+
+        },
+        3000
+    );
+
+}
+
+
+
+/* ========================================
+   CHANGE AVATAR
+======================================== */
+
+function changeAvatar() {
+
+    alert(
+        "Avatar upload will be available soon."
+    );
+
+}
+
+
+
+/* ========================================
+   CHANGE PASSWORD
+======================================== */
+
+function changePassword() {
+
+    alert(
+        "Password change functionality will be available soon."
+    );
+
+}
+
+
+
+/* ========================================
+   VIEW SESSIONS
+======================================== */
+
+function viewSessions() {
+
+    alert(
+        "You are currently signed in on this device."
+    );
+
+}
+
+
+
+/* ========================================
+   SIGN OUT ALL
+======================================== */
+
+function logoutAll() {
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to sign out of all other devices?"
+        );
+
+
+    if (confirmed) {
+
+        alert(
+            "All other sessions have been signed out."
+        );
+
+    }
+
+}
+
+
+
+/* ========================================
+   NOTIFICATION
+======================================== */
+
+function showNotification() {
+
+    alert(
+        "You have 3 new notifications."
+    );
+
+}
+
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+function logout() {
+
+    window.location.href =
+        "../../index.html";
+
+}
+
+
+</script>
+
+</body>
+
+</html>
