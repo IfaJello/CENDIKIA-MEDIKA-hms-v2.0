@@ -25,7 +25,9 @@
 <div class="app-layout">
 
 
-    <!-- SIDEBAR -->
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
 
     <aside class="sidebar">
 
@@ -36,8 +38,10 @@
             </div>
 
             <div>
+
                 <strong>CENDEKIA</strong>
                 <span>MEDIKA</span>
+
             </div>
 
         </div>
@@ -146,7 +150,9 @@
 
 
 
-    <!-- MAIN CONTENT -->
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
 
     <main class="main-content">
 
@@ -177,6 +183,7 @@
                         A
                     </div>
 
+
                     <div class="profile-info">
 
                         <strong>
@@ -188,6 +195,7 @@
                         </span>
 
                     </div>
+
 
                     <span class="profile-arrow">
                         ▾
@@ -201,12 +209,14 @@
 
 
 
-        <!-- PAGE CONTENT -->
+        <!-- =====================================
+             PAGE CONTENT
+        ====================================== -->
 
         <section class="page-content">
 
 
-            <!-- HEADER -->
+            <!-- PAGE HEADER -->
 
             <div class="page-heading">
 
@@ -240,7 +250,9 @@
 
 
 
-            <!-- STATISTICS -->
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
 
             <div class="stats-grid">
 
@@ -300,7 +312,9 @@
 
 
 
-            <!-- NURSES TABLE -->
+            <!-- =====================================
+                 NURSE TABLE
+            ====================================== -->
 
             <section class="nurses-card">
 
@@ -404,10 +418,12 @@
                 </div>
 
 
+                <!-- EMPTY STATE -->
 
                 <div
                     class="empty-state"
                     id="emptyState"
+                    style="display:none;"
                 >
 
                     <div class="empty-icon">
@@ -435,42 +451,60 @@
 
 
 
-<!-- USERS DATA -->
+<!-- =====================================
+     LOAD USERS DATA
+====================================== -->
 
 <script src="../../data/users.js"></script>
-<script>
-    document.body.innerHTML = `
-        <div style="
-            padding:40px;
-            font-family:Arial;
-            font-size:24px;
-        ">
-            <h1>NURSES TEST</h1>
-            <p>Total users: ${users.length}</p>
-            <p>Nurses: ${users.filter(user => user.role === "nurse").length}</p>
-            <p>${users.filter(user => user.role === "nurse")[0].name}</p>
-        </div>
-    `;
-</script>
 
-<!-- NURSES JAVASCRIPT -->
+
+
+<!-- =====================================
+     DEBUG + NURSES JAVASCRIPT
+====================================== -->
 
 <script>
 
 
-console.log("✅ users.js loaded");
+/* ========================================
+   DEBUG
+======================================== */
 
-console.log(
-    "Total users:",
-    users.length
+alert(
+    "Nurses page JavaScript is running"
 );
 
-console.log(
-    "Nurses:",
-    users.filter(
-        user => user.role === "nurse"
-    )
-);
+
+if (
+    typeof users === "undefined"
+) {
+
+    alert(
+        "❌ users.js is NOT loaded"
+    );
+
+} else {
+
+    alert(
+
+        "✅ users.js loaded!\n\n"
+        +
+        "Total users: "
+        +
+        users.length
+        +
+        "\n\n"
+        +
+        "Nurses: "
+        +
+        users.filter(
+            user =>
+                user.role === "nurse"
+        ).length
+
+    );
+
+}
 
 
 
@@ -519,7 +553,7 @@ function getNurses() {
 
 
 /* ========================================
-   STATISTICS
+   UPDATE STATISTICS
 ======================================== */
 
 function updateStatistics() {
@@ -583,7 +617,6 @@ function updateStatistics() {
 
 function displayNurses() {
 
-
     let nurses =
         getNurses();
 
@@ -610,10 +643,14 @@ function displayNurses() {
                     const text =
                         (
                             nurse.name
-                            + " "
-                            + nurse.id
-                            + " "
-                            + nurse.email
+                            +
+                            " "
+                            +
+                            nurse.id
+                            +
+                            " "
+                            +
+                            nurse.email
                         )
                         .toLowerCase();
 
@@ -629,7 +666,7 @@ function displayNurses() {
 
 
 
-    /* STATUS */
+    /* STATUS FILTER */
 
     if (
         selectedStatus !==
@@ -647,7 +684,7 @@ function displayNurses() {
 
 
 
-    /* CLEAR */
+    /* CLEAR TABLE */
 
     nurseTableBody.innerHTML = "";
 
@@ -672,11 +709,10 @@ function displayNurses() {
 
 
 
-    /* CREATE ROWS */
+    /* CREATE TABLE ROWS */
 
     nurses.forEach(
         nurse => {
-
 
             const row =
                 document.createElement(
@@ -686,6 +722,7 @@ function displayNurses() {
 
             const initials =
                 nurse.name
+                    .trim()
                     .split(/\s+/)
                     .map(
                         word =>
@@ -700,7 +737,7 @@ function displayNurses() {
                     );
 
 
-            const status =
+            const statusName =
                 nurse.status
                     .charAt(0)
                     .toUpperCase()
@@ -758,9 +795,7 @@ function displayNurses() {
                     <span
                         class="status ${nurse.status}"
                     >
-
-                        ${status}
-
+                        ${statusName}
                     </span>
 
                 </td>
@@ -805,19 +840,17 @@ function viewNurse(
     nurseId
 ) {
 
-
     const nurse =
         users.find(
             user =>
-                user.id ===
-                nurseId
+                user.id === nurseId
         );
 
 
     if (!nurse) {
 
         alert(
-            "Nurse not found."
+            "Nurse could not be found."
         );
 
         return;
@@ -828,23 +861,36 @@ function viewNurse(
     alert(
 
         "NURSE PROFILE\n\n"
-
-        + "Name: "
-        + nurse.name
-
-        + "\n\nNurse ID: "
-        + nurse.id
-
-        + "\n\nEmail: "
-        + nurse.email
-
-        + "\n\nStatus: "
-        + capitalize(
+        +
+        "Name: "
+        +
+        nurse.name
+        +
+        "\n\n"
+        +
+        "Nurse ID: "
+        +
+        nurse.id
+        +
+        "\n\n"
+        +
+        "Email: "
+        +
+        nurse.email
+        +
+        "\n\n"
+        +
+        "Status: "
+        +
+        capitalize(
             nurse.status
         )
-
-        + "\n\nLast Active: "
-        + nurse.lastActive
+        +
+        "\n\n"
+        +
+        "Last Active: "
+        +
+        nurse.lastActive
 
     );
 
@@ -887,14 +933,14 @@ function capitalize(
 ) {
 
     if (!value) {
+
         return "";
+
     }
 
 
     return (
-        value
-            .charAt(0)
-            .toUpperCase()
+        value.charAt(0).toUpperCase()
         +
         value.slice(1)
     );
@@ -915,7 +961,7 @@ searchInput.addEventListener(
 
 
 /* ========================================
-   FILTER
+   STATUS FILTER
 ======================================== */
 
 statusFilter.addEventListener(
@@ -926,7 +972,7 @@ statusFilter.addEventListener(
 
 
 /* ========================================
-   START
+   INITIALIZE
 ======================================== */
 
 updateStatistics();
