@@ -22,444 +22,470 @@
 
 <body>
 
-    <div class="app-layout">
+<div class="app-layout">
 
 
-        <!-- SIDEBAR -->
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
 
-        <aside class="sidebar">
+    <aside class="sidebar">
 
-            <div class="sidebar-brand">
+        <div class="sidebar-brand">
 
-                <div class="sidebar-logo">
-                    +
-                </div>
+            <div class="sidebar-logo">
+                +
+            </div>
 
-                <div>
+            <div>
 
-                    <strong>CENDEKIA</strong>
-                    <span>MEDIKA</span>
+                <strong>CENDEKIA</strong>
+                <span>MEDIKA</span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Patients</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚕</span>
+                <span>Doctors</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">✚</span>
+                <span>Nurses</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Appointments</span>
+            </a>
+
+
+            <p class="nav-label secondary">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="users.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">♙</span>
+                <span>User Management</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                <span>↪</span>
+                Sign out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+                    ♧
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
 
                 </div>
 
             </div>
 
-
-            <nav class="sidebar-nav">
-
-                <p class="nav-label">
-                    MAIN MENU
-                </p>
+        </header>
 
 
-                <a
-                    href="dashboard.html"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">▦</span>
-                    <span>Dashboard</span>
-                </a>
+
+        <!-- PAGE CONTENT -->
+
+        <section class="page-content">
 
 
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">♙</span>
-                    <span>Patients</span>
-                </a>
+            <!-- PAGE HEADER -->
 
+            <div class="page-heading">
 
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">⚕</span>
-                    <span>Doctors</span>
-                </a>
+                <div>
 
+                    <p class="eyebrow">
+                        MANAGEMENT
+                    </p>
 
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">✚</span>
-                    <span>Nurses</span>
-                </a>
+                    <h1>
+                        User Management
+                    </h1>
 
+                    <p>
+                        Manage accounts and access across
+                        Cendekia Medika.
+                    </p>
 
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">◷</span>
-                    <span>Appointments</span>
-                </a>
+                </div>
 
-
-                <p class="nav-label secondary">
-                    MANAGEMENT
-                </p>
-
-
-                <a
-                    href="users.html"
-                    class="nav-item active"
-                >
-                    <span class="nav-icon">♙</span>
-                    <span>User Management</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">▤</span>
-                    <span>Reports</span>
-                </a>
-
-
-                <a
-                    href="#"
-                    class="nav-item"
-                >
-                    <span class="nav-icon">⚙</span>
-                    <span>Settings</span>
-                </a>
-
-            </nav>
-
-
-            <div class="sidebar-bottom">
 
                 <button
-                    class="logout-button"
-                    onclick="logout()"
+                    class="primary-button"
+                    id="addUserButton"
+                    type="button"
                 >
-                    <span>↪</span>
-                    Sign out
+                    + Add User
                 </button>
 
             </div>
 
-        </aside>
 
 
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
 
-        <!-- MAIN CONTENT -->
+            <div class="stats-grid">
 
-        <main class="main-content">
+                <div class="mini-stat">
 
+                    <span>
+                        Total Users
+                    </span>
 
-            <!-- TOPBAR -->
-
-            <header class="topbar">
-
-                <div class="topbar-right">
-
-                    <button class="notification-button">
-                        ♧
-                        <span class="notification-dot"></span>
-                    </button>
-
-
-                    <div class="profile">
-
-                        <div class="profile-avatar">
-                            A
-                        </div>
-
-                        <div class="profile-info">
-
-                            <strong>
-                                Admin
-                            </strong>
-
-                            <span>
-                                Administrator
-                            </span>
-
-                        </div>
-
-                        <span class="profile-arrow">
-                            ▾
-                        </span>
-
-                    </div>
+                    <strong id="totalUsers">
+                        0
+                    </strong>
 
                 </div>
 
-            </header>
+
+                <div class="mini-stat">
+
+                    <span>
+                        Administrators
+                    </span>
+
+                    <strong id="adminCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Doctors
+                    </span>
+
+                    <strong id="doctorCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Nurses
+                    </span>
+
+                    <strong id="nurseCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
 
 
 
-            <!-- PAGE CONTENT -->
+            <!-- =====================================
+                 USER LIST
+            ====================================== -->
 
-            <section class="page-content">
+            <section class="users-card">
 
 
-                <!-- PAGE HEADER -->
-
-                <div class="page-heading">
+                <div class="users-toolbar">
 
                     <div>
 
-                        <p class="eyebrow">
-                            MANAGEMENT
-                        </p>
-
-                        <h1>
-                            User Management
-                        </h1>
+                        <h2>
+                            All Users
+                        </h2>
 
                         <p>
-                            Manage accounts and access across
-                            Cendekia Medika.
+                            View and manage registered users.
                         </p>
 
                     </div>
 
 
-                    <button
-                        class="primary-button"
-                        id="addUserButton"
-                    >
-                        + Add User
-                    </button>
+                    <div class="toolbar-actions">
+
+
+                        <!-- SEARCH -->
+
+                        <div class="search-box">
+
+                            <span>
+                                ⌕
+                            </span>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search users..."
+                            >
+
+                        </div>
+
+
+                        <!-- ROLE FILTER -->
+
+                        <select id="roleFilter">
+
+                            <option value="all">
+                                All roles
+                            </option>
+
+                            <option value="admin">
+                                Admin
+                            </option>
+
+                            <option value="doctor">
+                                Doctor
+                            </option>
+
+                            <option value="nurse">
+                                Nurse
+                            </option>
+
+                            <option value="patient">
+                                Patient
+                            </option>
+
+                        </select>
+
+                    </div>
 
                 </div>
 
 
 
-                <!-- STATISTICS -->
+                <!-- =====================================
+                     TABLE
+                ====================================== -->
 
-                <div class="stats-grid">
+                <div class="table-container">
 
-                    <div class="mini-stat">
+                    <table>
 
-                        <span>
-                            Total Users
-                        </span>
+                        <thead>
 
-                        <strong>
-                            1,376
-                        </strong>
+                            <tr>
 
-                    </div>
+                                <th>
+                                    USER
+                                </th>
 
+                                <th>
+                                    ROLE
+                                </th>
 
-                    <div class="mini-stat">
+                                <th>
+                                    EMAIL
+                                </th>
 
-                        <span>
-                            Administrators
-                        </span>
+                                <th>
+                                    STATUS
+                                </th>
 
-                        <strong>
-                            8
-                        </strong>
+                                <th>
+                                    LAST ACTIVE
+                                </th>
 
-                    </div>
+                                <th>
+                                    ACTION
+                                </th>
 
+                            </tr>
 
-                    <div class="mini-stat">
-
-                        <span>
-                            Doctors
-                        </span>
-
-                        <strong>
-                            42
-                        </strong>
-
-                    </div>
+                        </thead>
 
 
-                    <div class="mini-stat">
+                        <tbody id="userTableBody">
+                        </tbody>
 
-                        <span>
-                            Nurses
-                        </span>
-
-                        <strong>
-                            86
-                        </strong>
-
-                    </div>
-
+                    </table>
 
                 </div>
 
 
 
-                <!-- USER LIST -->
+                <!-- PAGINATION -->
 
-                <section class="users-card">
+                <div class="pagination">
 
+                    <span id="paginationText">
+                        Showing 0 users
+                    </span>
 
-                    <div class="users-toolbar">
+                    <div>
 
-                        <div>
+                        <button
+                            type="button"
+                            disabled
+                        >
+                            ‹
+                        </button>
 
-                            <h2>
-                                All Users
-                            </h2>
+                        <button
+                            type="button"
+                            class="current"
+                        >
+                            1
+                        </button>
 
-                            <p>
-                                View and manage registered users.
-                            </p>
+                        <button type="button">
+                            2
+                        </button>
 
-                        </div>
+                        <button type="button">
+                            3
+                        </button>
 
+                        <button type="button">
+                            ...
+                        </button>
 
-                        <div class="toolbar-actions">
+                        <button type="button">
+                            276
+                        </button>
 
-                            <div class="search-box">
-
-                                <span>
-                                    ⌕
-                                </span>
-
-                                <input
-                                    type="text"
-                                    id="searchInput"
-                                    placeholder="Search users..."
-                                >
-
-                            </div>
-
-
-                            <select id="roleFilter">
-
-                                <option value="all">
-                                    All roles
-                                </option>
-
-                                <option value="admin">
-                                    Admin
-                                </option>
-
-                                <option value="doctor">
-                                    Doctor
-                                </option>
-
-                                <option value="nurse">
-                                    Nurse
-                                </option>
-
-                                <option value="patient">
-                                    Patient
-                                </option>
-
-                            </select>
-
-                        </div>
+                        <button type="button">
+                            ›
+                        </button>
 
                     </div>
 
+                </div>
 
-
-                    <!-- TABLE -->
-
-                    <div class="table-container">
-
-                        <table>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th>
-                                        USER
-                                    </th>
-
-                                    <th>
-                                        ROLE
-                                    </th>
-
-                                    <th>
-                                        EMAIL
-                                    </th>
-
-                                    <th>
-                                        STATUS
-                                    </th>
-
-                                    <th>
-                                        LAST ACTIVE
-                                    </th>
-
-                                    <th>
-                                        ACTION
-                                    </th>
-
-                                </tr>
-
-                            </thead>
-
-
-                            <tbody id="userTableBody">
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-
-                    <!-- PAGINATION -->
-
-                    <div class="pagination">
-
-                        <span>
-                            Showing 1–5 of 1,376 users
-                        </span>
-
-                        <div>
-
-                            <button disabled>
-                                ‹
-                            </button>
-
-                            <button class="current">
-                                1
-                            </button>
-
-                            <button>
-                                2
-                            </button>
-
-                            <button>
-                                3
-                            </button>
-
-                            <button>
-                                ...
-                            </button>
-
-                            <button>
-                                276
-                            </button>
-
-                            <button>
-                                ›
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                </section>
 
             </section>
 
-        </main>
+        </section>
 
-    </div>
+    </main>
+
+</div>
+
 
 
 <!-- =====================================
-     ADD USER MODAL
+     ADD / EDIT USER MODAL
 ====================================== -->
 
 <div
@@ -480,11 +506,11 @@
                     USER MANAGEMENT
                 </p>
 
-                <h2>
+                <h2 id="modalTitle">
                     Add New User
                 </h2>
 
-                <p>
+                <p id="modalDescription">
                     Create a new account for the hospital system.
                 </p>
 
@@ -687,6 +713,7 @@
                 <button
                     type="submit"
                     class="primary-button"
+                    id="submitUserButton"
                 >
                     Create User
                 </button>
@@ -700,153 +727,115 @@
 
 </div>
 
+
+
+<!-- =====================================
+     DATA
+====================================== -->
+
 <script src="../../data/users.js"></script>
 
-    <script>
-        console.log("Users loaded:", users);
-        // ========================================
-// DISPLAY USERS
-// ========================================
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* ========================================
+   ELEMENTS
+======================================== */
 
 const userTableBody =
     document.getElementById("userTableBody");
 
+const searchInput =
+    document.getElementById("searchInput");
+
+const roleFilter =
+    document.getElementById("roleFilter");
+
+const userModal =
+    document.getElementById("userModal");
+
+const addUserButton =
+    document.getElementById("addUserButton");
+
+const closeModalButton =
+    document.getElementById("closeModal");
+
+const cancelModalButton =
+    document.getElementById("cancelModal");
+
+const addUserForm =
+    document.getElementById("addUserForm");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalDescription =
+    document.getElementById("modalDescription");
+
+const submitUserButton =
+    document.getElementById("submitUserButton");
+
+
+
+/* ========================================
+   CURRENT EDITING USER
+======================================== */
+
+let editingUserId = null;
+
+
+
+/* ========================================
+   DISPLAY USERS
+======================================== */
 
 function displayUsers(userList) {
-// ========================================
-// CONNECT USER ACTION BUTTONS
-// ========================================
-
-function connectActionButtons() {
-
-    const actionButtons =
-        document.querySelectorAll(
-            ".action-button"
-        );
-
-
-    actionButtons.forEach(button => {
-
-        // Prevent duplicate listeners
-
-        if (
-            button.dataset.connected === "true"
-        ) {
-            return;
-        }
-
-
-        button.dataset.connected =
-            "true";
-
-
-        button.addEventListener(
-            "click",
-            function (event) {
-
-                event.stopPropagation();
-
-
-                // Close existing menus
-
-                document
-                    .querySelectorAll(
-                        ".action-menu"
-                    )
-                    .forEach(menu => {
-
-                        menu.remove();
-
-                    });
-
-
-                const row =
-                    button.closest("tr");
-
-
-                const userId =
-                    row.querySelector(
-                        ".user-cell span"
-                    ).textContent.trim();
-
-
-                const user =
-                    users.find(
-                        u => u.id === userId
-                    );
-
-
-                if (!user) {
-
-                    return;
-
-                }
-
-
-                // Create menu
-
-                const menu =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                menu.className =
-                    "action-menu show";
-
-
-                menu.innerHTML = `
-
-                    <button
-                        type="button"
-                        onclick="viewUser(this)"
-                    >
-                        View Profile
-                    </button>
-
-                    <button
-                        type="button"
-                        onclick="editUser(this)"
-                    >
-                        Edit User
-                    </button>
-
-                    <button
-                        type="button"
-                        class="danger"
-                        onclick="deactivateUser(this)"
-                    >
-                        Deactivate User
-                    </button>
-
-                `;
-
-
-                menu.dataset.userId =
-                    user.id;
-
-
-                row.style.position =
-                    "relative";
-
-
-                row.appendChild(menu);
-
-            }
-
-        );
-
-    });
-
-}
 
     userTableBody.innerHTML = "";
 
 
+    if (userList.length === 0) {
+
+        userTableBody.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    style="text-align:center; padding:40px;"
+                >
+                    No users found.
+                </td>
+
+            </tr>
+
+        `;
+
+        updateStatistics();
+
+        updatePagination(userList.length);
+
+        return;
+
+    }
+
+
     userList.forEach(user => {
+
 
         const row =
             document.createElement("tr");
+
+
+        row.dataset.userId =
+            user.id;
+
 
         row.dataset.role =
             user.role;
@@ -854,7 +843,8 @@ function connectActionButtons() {
 
         const initials =
             user.name
-                .split(" ")
+                .trim()
+                .split(/\s+/)
                 .map(word => word.charAt(0))
                 .join("")
                 .substring(0, 2)
@@ -862,13 +852,11 @@ function connectActionButtons() {
 
 
         const roleName =
-            user.role.charAt(0).toUpperCase()
-            + user.role.slice(1);
+            capitalize(user.role);
 
 
         const statusName =
-            user.status.charAt(0).toUpperCase()
-            + user.status.slice(1);
+            capitalize(user.status);
 
 
         row.innerHTML = `
@@ -877,18 +865,20 @@ function connectActionButtons() {
 
                 <div class="user-cell">
 
-                    <div class="user-avatar ${user.role}">
+                    <div
+                        class="user-avatar ${user.role}"
+                    >
                         ${initials}
                     </div>
 
                     <div>
 
                         <strong>
-                            ${user.name}
+                            ${escapeHTML(user.name)}
                         </strong>
 
                         <span>
-                            ${user.id}
+                            ${escapeHTML(user.id)}
                         </span>
 
                     </div>
@@ -900,7 +890,9 @@ function connectActionButtons() {
 
             <td>
 
-                <span class="role-badge ${user.role}">
+                <span
+                    class="role-badge ${user.role}"
+                >
                     ${roleName}
                 </span>
 
@@ -908,13 +900,15 @@ function connectActionButtons() {
 
 
             <td>
-                ${user.email}
+                ${escapeHTML(user.email)}
             </td>
 
 
             <td>
 
-                <span class="status ${user.status}">
+                <span
+                    class="status ${user.status}"
+                >
                     ${statusName}
                 </span>
 
@@ -922,7 +916,7 @@ function connectActionButtons() {
 
 
             <td>
-                ${user.lastActive}
+                ${escapeHTML(user.lastActive || "—")}
             </td>
 
 
@@ -931,6 +925,8 @@ function connectActionButtons() {
                 <button
                     class="action-button"
                     type="button"
+                    data-user-id="${user.id}"
+                    aria-label="User actions"
                 >
                     •••
                 </button>
@@ -944,122 +940,645 @@ function connectActionButtons() {
 
     });
 
-connectActionButtons();
+
+    updateStatistics();
+
+    updatePagination(userList.length);
 
 }
 
 
-// Display users when page loads
 
-displayUsers(users);
+/* ========================================
+   CAPITALIZE
+======================================== */
 
-        function logout() {
+function capitalize(value) {
 
-            window.location.href = "../../index.html";
+    if (!value) {
+        return "";
+    }
+
+    return (
+        value.charAt(0).toUpperCase()
+        + value.slice(1)
+    );
+
+}
+
+
+
+/* ========================================
+   BASIC HTML ESCAPE
+======================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+
+/* ========================================
+   STATISTICS
+======================================== */
+
+function updateStatistics() {
+
+    document.getElementById("totalUsers")
+        .textContent = users.length;
+
+
+    document.getElementById("adminCount")
+        .textContent =
+        users.filter(
+            user => user.role === "admin"
+        ).length;
+
+
+    document.getElementById("doctorCount")
+        .textContent =
+        users.filter(
+            user => user.role === "doctor"
+        ).length;
+
+
+    document.getElementById("nurseCount")
+        .textContent =
+        users.filter(
+            user => user.role === "nurse"
+        ).length;
+
+}
+
+
+
+/* ========================================
+   PAGINATION TEXT
+======================================== */
+
+function updatePagination(count) {
+
+    const paginationText =
+        document.getElementById(
+            "paginationText"
+        );
+
+
+    if (count === 0) {
+
+        paginationText.textContent =
+            "Showing 0 users";
+
+        return;
+
+    }
+
+
+    paginationText.textContent =
+        `Showing 1–${count} of ${count} users`;
+
+}
+
+
+
+/* ========================================
+   FILTER USERS
+======================================== */
+
+function filterUsers() {
+
+    const search =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    const selectedRole =
+        roleFilter.value;
+
+
+    const filteredUsers =
+        users.filter(user => {
+
+            const matchesSearch =
+
+                user.name
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                user.email
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                user.id
+                    .toLowerCase()
+                    .includes(search);
+
+
+            const matchesRole =
+
+                selectedRole === "all"
+                ||
+                user.role === selectedRole;
+
+
+            return (
+                matchesSearch
+                &&
+                matchesRole
+            );
+
+        });
+
+
+    displayUsers(filteredUsers);
+
+}
+
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+searchInput.addEventListener(
+    "input",
+    filterUsers
+);
+
+
+
+/* ========================================
+   ROLE FILTER
+======================================== */
+
+roleFilter.addEventListener(
+    "change",
+    filterUsers
+);
+
+
+
+/* ========================================
+   ACTION MENU
+======================================== */
+
+userTableBody.addEventListener(
+    "click",
+    function(event) {
+
+
+        const button =
+            event.target.closest(
+                ".action-button"
+            );
+
+
+        if (!button) {
+            return;
+        }
+
+
+        event.stopPropagation();
+
+
+        // Remove existing menus
+
+        document
+            .querySelectorAll(".action-menu")
+            .forEach(menu => menu.remove());
+
+
+        const userId =
+            button.dataset.userId;
+
+
+        const user =
+            users.find(
+                item => item.id === userId
+            );
+
+
+        if (!user) {
+            return;
+        }
+
+
+        const row =
+            button.closest("tr");
+
+
+        const menu =
+            document.createElement("div");
+
+
+        menu.className =
+            "action-menu show";
+
+
+        menu.innerHTML = `
+
+            <button
+                type="button"
+                data-action="view"
+                data-user-id="${user.id}"
+            >
+                View Profile
+            </button>
+
+
+            <button
+                type="button"
+                data-action="edit"
+                data-user-id="${user.id}"
+            >
+                Edit User
+            </button>
+
+
+            <button
+                type="button"
+                class="danger"
+                data-action="deactivate"
+                data-user-id="${user.id}"
+            >
+                ${
+                    user.status === "active"
+                        ? "Deactivate User"
+                        : "Activate User"
+                }
+            </button>
+
+        `;
+
+
+        row.style.position =
+            "relative";
+
+
+        row.appendChild(menu);
+
+    }
+);
+
+
+
+/* ========================================
+   ACTION MENU BUTTONS
+======================================== */
+
+userTableBody.addEventListener(
+    "click",
+    function(event) {
+
+
+        const actionButton =
+            event.target.closest(
+                ".action-menu button"
+            );
+
+
+        if (!actionButton) {
+            return;
+        }
+
+
+        event.stopPropagation();
+
+
+        const userId =
+            actionButton.dataset.userId;
+
+
+        const action =
+            actionButton.dataset.action;
+
+
+        if (action === "view") {
+
+            viewUser(userId);
 
         }
 
 
-        // SEARCH
+        if (action === "edit") {
 
-        const searchInput =
-            document.getElementById("searchInput");
+            editUser(userId);
 
-        const userRows =
-            document.querySelectorAll(
-                "#userTableBody tr"
-            );
+        }
 
 
-        searchInput.addEventListener(
-            "input",
-            function () {
+        if (action === "deactivate") {
 
-                const search =
-                    this.value.toLowerCase();
+            toggleUserStatus(userId);
 
+        }
 
-                userRows.forEach(row => {
-
-                    const text =
-                        row.textContent.toLowerCase();
+    }
+);
 
 
-                    row.style.display =
-                        text.includes(search)
-                            ? ""
-                            : "none";
 
-                });
+/* ========================================
+   CLOSE ACTION MENUS
+======================================== */
 
-            }
+document.addEventListener(
+    "click",
+    function() {
+
+        document
+            .querySelectorAll(".action-menu")
+            .forEach(menu => menu.remove());
+
+    }
+);
+
+
+
+/* ========================================
+   VIEW USER
+======================================== */
+
+function viewUser(userId) {
+
+    const user =
+        users.find(
+            item => item.id === userId
         );
 
 
-        // ROLE FILTER
-
-        const roleFilter =
-            document.getElementById("roleFilter");
-
-
-        roleFilter.addEventListener(
-            "change",
-            function () {
-
-                const selected =
-                    this.value;
+    if (!user) {
+        return;
+    }
 
 
-                userRows.forEach(row => {
+    alert(
 
-                    const role =
-                        row.dataset.role;
+        "USER PROFILE\n\n"
+
+        + "Name: "
+        + user.name
+
+        + "\nEmail: "
+        + user.email
+
+        + "\nRole: "
+        + capitalize(user.role)
+
+        + "\nStatus: "
+        + capitalize(user.status)
+
+        + "\nUser ID: "
+        + user.id
+
+    );
+
+}
 
 
-                    if (
-                        selected === "all" ||
-                        role === selected
-                    ) {
 
-                        row.style.display = "";
+/* ========================================
+   EDIT USER
+======================================== */
 
-                    } else {
+function editUser(userId) {
 
-                        row.style.display = "none";
-
-                    }
-
-                });
-
-            }
+    const user =
+        users.find(
+            item => item.id === userId
         );
 
 
-// ========================================
-// ADD USER MODAL
-// ========================================
-
-const userModal =
-    document.getElementById("userModal");
-
-const addUserButton =
-    document.getElementById("addUserButton");
-
-const closeModal =
-    document.getElementById("closeModal");
-
-const cancelModal =
-    document.getElementById("cancelModal");
-
-const addUserForm =
-    document.getElementById("addUserForm");
+    if (!user) {
+        return;
+    }
 
 
-// OPEN MODAL
+    editingUserId =
+        user.id;
+
+
+    document.getElementById(
+        "fullName"
+    ).value =
+        user.name;
+
+
+    document.getElementById(
+        "userEmail"
+    ).value =
+        user.email;
+
+
+    document.getElementById(
+        "userRole"
+    ).value =
+        user.role;
+
+
+    document.getElementById(
+        "userStatus"
+    ).value =
+        user.status;
+
+
+    document.getElementById(
+        "phone"
+    ).value =
+        user.phone || "";
+
+
+    document.getElementById(
+        "userPassword"
+    ).value = "";
+
+
+    document.getElementById(
+        "confirmPassword"
+    ).value = "";
+
+
+    document.getElementById(
+        "userPassword"
+    ).required = false;
+
+
+    document.getElementById(
+        "confirmPassword"
+    ).required = false;
+
+
+    document.getElementById(
+        "userPassword"
+    ).placeholder =
+        "Leave blank to keep current password";
+
+
+    document.getElementById(
+        "confirmPassword"
+    ).placeholder =
+        "Leave blank to keep current password";
+
+
+    modalTitle.textContent =
+        "Edit User";
+
+
+    modalDescription.textContent =
+        "Update this user's account information.";
+
+
+    submitUserButton.textContent =
+        "Save Changes";
+
+
+    userModal.classList.add("show");
+
+}
+
+
+
+/* ========================================
+   ACTIVATE / DEACTIVATE
+======================================== */
+
+function toggleUserStatus(userId) {
+
+    const user =
+        users.find(
+            item => item.id === userId
+        );
+
+
+    if (!user) {
+        return;
+    }
+
+
+    const newStatus =
+        user.status === "active"
+            ? "inactive"
+            : "active";
+
+
+    const actionText =
+        newStatus === "inactive"
+            ? "deactivate"
+            : "activate";
+
+
+    const confirmed =
+        confirm(
+            `Are you sure you want to ${actionText} ${user.name}?`
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    user.status =
+        newStatus;
+
+
+    displayUsers(
+        getFilteredUsers()
+    );
+
+
+    alert(
+        `${user.name} is now ${newStatus}.`
+    );
+
+}
+
+
+
+/* ========================================
+   GET FILTERED USERS
+======================================== */
+
+function getFilteredUsers() {
+
+    const search =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    const selectedRole =
+        roleFilter.value;
+
+
+    return users.filter(user => {
+
+        const matchesSearch =
+
+            user.name
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            user.email
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            user.id
+                .toLowerCase()
+                .includes(search);
+
+
+        const matchesRole =
+
+            selectedRole === "all"
+            ||
+            user.role === selectedRole;
+
+
+        return (
+            matchesSearch
+            &&
+            matchesRole
+        );
+
+    });
+
+}
+
+
+
+/* ========================================
+   OPEN ADD USER MODAL
+======================================== */
 
 addUserButton.addEventListener(
     "click",
-    function () {
+    function() {
+
+        editingUserId = null;
+
+
+        addUserForm.reset();
+
+
+        resetModalToAddMode();
+
 
         userModal.classList.add("show");
 
@@ -1067,7 +1586,53 @@ addUserButton.addEventListener(
 );
 
 
-// CLOSE MODAL
+
+/* ========================================
+   RESET MODAL TO ADD MODE
+======================================== */
+
+function resetModalToAddMode() {
+
+    modalTitle.textContent =
+        "Add New User";
+
+
+    modalDescription.textContent =
+        "Create a new account for the hospital system.";
+
+
+    submitUserButton.textContent =
+        "Create User";
+
+
+    document.getElementById(
+        "userPassword"
+    ).required = true;
+
+
+    document.getElementById(
+        "confirmPassword"
+    ).required = true;
+
+
+    document.getElementById(
+        "userPassword"
+    ).placeholder =
+        "Create temporary password";
+
+
+    document.getElementById(
+        "confirmPassword"
+    ).placeholder =
+        "Confirm password";
+
+}
+
+
+
+/* ========================================
+   CLOSE MODAL
+======================================== */
 
 function closeUserModal() {
 
@@ -1075,28 +1640,38 @@ function closeUserModal() {
 
     addUserForm.reset();
 
+    editingUserId = null;
+
+    resetModalToAddMode();
+
 }
 
 
-closeModal.addEventListener(
+
+closeModalButton.addEventListener(
     "click",
     closeUserModal
 );
 
 
-cancelModal.addEventListener(
+cancelModalButton.addEventListener(
     "click",
     closeUserModal
 );
 
 
-// CLOSE WHEN CLICKING OUTSIDE
+
+/* ========================================
+   CLOSE MODAL OUTSIDE
+======================================== */
 
 userModal.addEventListener(
     "click",
-    function (event) {
+    function(event) {
 
-        if (event.target === userModal) {
+        if (
+            event.target === userModal
+        ) {
 
             closeUserModal();
 
@@ -1106,39 +1681,70 @@ userModal.addEventListener(
 );
 
 
-// ========================================
-// CREATE USER
-// ========================================
+
+/* ========================================
+   CREATE / UPDATE USER
+======================================== */
 
 addUserForm.addEventListener(
     "submit",
-    function (event) {
+    function(event) {
 
         event.preventDefault();
 
- // Check whether we are editing
- const isEditing =
-    addUserForm.dataset.editing === "true";
 
         const fullName =
-            document.getElementById("fullName").value;
+            document.getElementById(
+                "fullName"
+            ).value.trim();
+
 
         const email =
-            document.getElementById("userEmail").value;
+            document.getElementById(
+                "userEmail"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "phone"
+            ).value.trim();
+
 
         const role =
-            document.getElementById("userRole").value;
+            document.getElementById(
+                "userRole"
+            ).value;
+
+
+        const status =
+            document.getElementById(
+                "userStatus"
+            ).value;
+
 
         const password =
-            document.getElementById("userPassword").value;
+            document.getElementById(
+                "userPassword"
+            ).value;
+
 
         const confirmPassword =
-            document.getElementById("confirmPassword").value;
+            document.getElementById(
+                "confirmPassword"
+            ).value;
 
 
-        // CHECK PASSWORD
 
-        if (password !== confirmPassword) {
+        /* =================================
+           PASSWORD CHECK
+        ================================= */
+
+        if (
+            password !== confirmPassword
+            &&
+            password !== ""
+        ) {
 
             alert(
                 "Passwords do not match."
@@ -1149,493 +1755,159 @@ addUserForm.addEventListener(
         }
 
 
-        // GET INITIALS
 
-        const nameParts =
-            fullName.trim().split(" ");
+        /* =================================
+           EDIT EXISTING USER
+        ================================= */
 
-        let initials =
-            nameParts[0].charAt(0).toUpperCase();
-
-
-        if (nameParts.length > 1) {
-
-            initials +=
-                nameParts[
-                    nameParts.length - 1
-                ]
-                .charAt(0)
-                .toUpperCase();
-
-        }
+        if (editingUserId) {
 
 
-        // GENERATE ID
+            const user =
+                users.find(
+                    item =>
+                        item.id === editingUserId
+                );
 
-        const userId =
-            role.toUpperCase().substring(0, 3)
-            + "-"
-            + Math.floor(
-                1000 + Math.random() * 9000
+
+            if (!user) {
+                return;
+            }
+
+
+            user.name =
+                fullName;
+
+
+            user.email =
+                email;
+
+
+            user.phone =
+                phone;
+
+
+            user.role =
+                role;
+
+
+            user.status =
+                status;
+
+
+            if (password) {
+
+                user.password =
+                    password;
+
+            }
+
+
+            displayUsers(
+                getFilteredUsers()
             );
 
-if (isEditing) {
 
-    const rowIndex =
-        Number(
-            addUserForm.dataset.rowIndex
-        );
+            closeUserModal();
 
-    const row =
-        userRows[rowIndex];
 
-    row.querySelector(
-        ".user-cell strong"
-    ).textContent = fullName;
+            alert(
+                `${fullName} has been updated successfully!`
+            );
 
-    row.querySelector(
-        ".user-cell span"
-    ).textContent =
-        row.querySelector(
-            ".user-cell span"
-        ).textContent;
 
-    row.children[2].textContent =
-        email;
-
-    row.dataset.role =
-        role;
-
-    row.querySelector(
-        ".role-badge"
-    ).className =
-        "role-badge " + role;
-
-    row.querySelector(
-        ".role-badge"
-    ).textContent =
-        role.charAt(0).toUpperCase()
-        + role.slice(1);
-
-    closeUserModal();
-
-    addUserForm.dataset.editing =
-        "false";
-
-    alert(
-        fullName +
-        " has been updated successfully!"
-    );
-
-    return;
-
-}
-// ========================================
-// ADD NEW USER TO DATA
-// ========================================
-
-if (!isEditing) {
-
-    const newUser = {
-
-        id:
-            role.toUpperCase().substring(0, 3)
-            + "-"
-            + Math.floor(
-                1000 + Math.random() * 9000
-            ),
-
-        name: fullName,
-
-        email: email,
-
-        role: role,
-
-        status: "active",
-
-        lastActive: "Just now"
-
-    };
-
-
-    // Add user to our data array
-
-    users.unshift(newUser);
-
-
-    // Refresh the table
-
-    displayUsers(users);
-
-
-    // Close modal
-
-    closeUserModal();
-
-
-    // Reset edit mode
-
-    addUserForm.dataset.editing =
-        "false";
-
-
-    // Reset password requirements
-
-    document.getElementById(
-        "userPassword"
-    ).required = true;
-
-    document.getElementById(
-        "confirmPassword"
-    ).required = true;
-
-
-    // Reset modal title
-
-    document.querySelector(
-        ".modal-header h2"
-    ).textContent =
-        "Add New User";
-
-
-    document.querySelector(
-        ".modal-header p:last-child"
-    ).textContent =
-        "Create a new account for the hospital system.";
-
-
-    document.querySelector(
-        "#addUserForm .primary-button"
-    ).textContent =
-        "Create User";
-
-
-    alert(
-        `${fullName} has been added successfully!`
-    );
-
-}
-// ========================================
-// USER ACTION MENUS
-// ========================================
-
-const allActionButtons =
-    document.querySelectorAll(".action-button");
-
-
-allActionButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        function (event) {
-
-            event.stopPropagation();
-
-            // Close existing menus
-
-            document
-                .querySelectorAll(".action-menu")
-                .forEach(menu => {
-
-                    menu.remove();
-
-                });
-
-
-            const row =
-                button.closest("tr");
-
-
-            const userName =
-                row.querySelector(
-                    ".user-cell strong"
-                ).textContent;
-
-
-            const userRole =
-                row.dataset.role;
-
-
-            // Create menu
-
-            const menu =
-                document.createElement("div");
-
-
-            menu.className =
-                "action-menu show";
-
-
-            menu.innerHTML = `
-
-                <button
-                    type="button"
-                    onclick="viewUser(this)"
-                >
-                    View Profile
-                </button>
-
-                <button
-                    type="button"
-                    onclick="editUser(this)"
-                >
-                    Edit User
-                </button>
-
-                <button
-                    type="button"
-                    class="danger"
-                    onclick="deactivateUser(this)"
-                >
-                    Deactivate User
-                </button>
-
-            `;
-
-
-            // Store information
-
-            menu.dataset.userName =
-                userName;
-
-            menu.dataset.userRole =
-                userRole;
-
-
-            row.style.position =
-                "relative";
-
-
-            row.appendChild(menu);
+            return;
 
         }
 
-    );
-
-});
 
 
-// ========================================
-// CLOSE MENUS WHEN CLICKING ELSEWHERE
-// ========================================
+        /* =================================
+           CREATE NEW USER
+        ================================= */
 
-document.addEventListener(
-    "click",
-    function () {
+        const newUserId =
 
-        document
-            .querySelectorAll(".action-menu")
-            .forEach(menu => {
+            role
+                .toUpperCase()
+                .substring(0, 3)
 
-                menu.remove();
+            + "-"
 
-            });
+            + Math.floor(
+                1000
+                + Math.random() * 9000
+            );
+
+
+        const newUser = {
+
+            id:
+                newUserId,
+
+            name:
+                fullName,
+
+            email:
+                email,
+
+            phone:
+                phone,
+
+            role:
+                role,
+
+            status:
+                status,
+
+            lastActive:
+                "Just now"
+
+        };
+
+
+        users.unshift(
+            newUser
+        );
+
+
+        displayUsers(
+            getFilteredUsers()
+        );
+
+
+        closeUserModal();
+
+
+        alert(
+            `${fullName} has been added successfully!`
+        );
 
     }
 );
 
 
-// ========================================
-// VIEW USER
-// ========================================
 
-function viewUser(button) {
+/* ========================================
+   LOGOUT
+======================================== */
 
-    const menu =
-        button.closest(".action-menu");
+function logout() {
 
-    const userName =
-        menu.dataset.userName;
-
-    const userRole =
-        menu.dataset.userRole;
-
-
-    alert(
-
-        "User Profile\n\n" +
-        "Name: " + userName + "\n" +
-        "Role: " +
-        userRole.charAt(0).toUpperCase()
-        + userRole.slice(1)
-
-    );
+    window.location.href =
+        "../../index.html";
 
 }
 
 
-// ========================================
-// EDIT USER
-// ========================================
 
-function editUser(button) {
+/* ========================================
+   INITIAL DISPLAY
+======================================== */
 
-    const menu =
-        button.closest(".action-menu");
+displayUsers(users);
 
-    const row =
-        menu.closest("tr");
-
-
-    const userName =
-        row.querySelector(
-            ".user-cell strong"
-        ).textContent;
-
-
-    const email =
-        row.children[2].textContent.trim();
-
-
-    const role =
-        row.dataset.role;
-
-
-    // Put existing data into form
-
-    document.getElementById(
-        "fullName"
-    ).value = userName;
-
-
-    document.getElementById(
-        "userEmail"
-    ).value = email;
-
-
-    document.getElementById(
-        "userRole"
-    ).value = role;
-
-
-    // Password is not required when editing
-
-    document.getElementById(
-        "userPassword"
-    ).required = false;
-
-
-    document.getElementById(
-        "confirmPassword"
-    ).required = false;
-
-
-    document.getElementById(
-        "userPassword"
-    ).placeholder =
-        "Leave blank to keep current password";
-
-
-    document.getElementById(
-        "confirmPassword"
-    ).placeholder =
-        "Leave blank to keep current password";
-
-
-    // Change modal title
-
-    document.querySelector(
-        ".modal-header h2"
-    ).textContent =
-        "Edit User";
-
-
-    document.querySelector(
-        ".modal-header p:last-child"
-    ).textContent =
-        "Update this user's account information.";
-
-
-    document.querySelector(
-        "#addUserForm .primary-button"
-    ).textContent =
-        "Save Changes";
-
-
-    // Store editing row
-
-    addUserForm.dataset.editing =
-        "true";
-
-    addUserForm.dataset.rowIndex =
-        [...userRows].indexOf(row);
-
-
-    // Open modal
-
-    userModal.classList.add("show");
-
-
-    menu.remove();
-
-}
-
-
-// ========================================
-// DEACTIVATE USER
-// ========================================
-
-function deactivateUser(button) {
-
-    const menu =
-        button.closest(".action-menu");
-
-    const row =
-        menu.closest("tr");
-
-
-    const userName =
-        row.querySelector(
-            ".user-cell strong"
-        ).textContent;
-
-
-    const confirmed =
-        confirm(
-
-            "Are you sure you want to deactivate " +
-            userName +
-            "?"
-
-        );
-
-
-    if (!confirmed) {
-
-        return;
-
-    }
-
-
-    const status =
-        row.querySelector(".status");
-
-
-    status.textContent =
-        "Inactive";
-
-
-    status.classList.remove(
-        "active"
-    );
-
-
-    status.classList.add(
-        "inactive"
-    );
-
-
-    alert(
-        userName +
-        " has been deactivated."
-    );
-
-
-    menu.remove();
-
-}
-
-    </script>
+</script>
 
 </body>
 
