@@ -174,7 +174,9 @@
                     type="button"
                 >
                     ♧
+
                     <span class="notification-dot"></span>
+
                 </button>
 
 
@@ -380,7 +382,6 @@
 
                         </select>
 
-
                     </div>
 
                 </div>
@@ -473,806 +474,6 @@
 
 
 <!-- =====================================
-     APPOINTMENT DATA
-====================================== -->
-
-<script src="../../data/appointments.js"></script>
-
-
-
-<!-- =====================================
-     JAVASCRIPT
-====================================== -->
-
-<script>
-
-
-/* ========================================
-   ELEMENTS
-======================================== */
-
-const appointmentTableBody =
-    document.getElementById(
-        "appointmentTableBody"
-    );
-
-
-const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-
-const statusFilter =
-    document.getElementById(
-        "statusFilter"
-    );
-
-
-const emptyState =
-    document.getElementById(
-        "emptyState"
-    );
-
-
-
-/* ========================================
-   UPDATE STATISTICS
-======================================== */
-
-function updateStatistics() {
-
-    const total =
-        appointments.length;
-
-
-    const confirmed =
-        appointments.filter(
-            appointment =>
-                appointment.status ===
-                "confirmed"
-        ).length;
-
-
-    const pending =
-        appointments.filter(
-            appointment =>
-                appointment.status ===
-                "pending"
-        ).length;
-
-
-    const cancelled =
-        appointments.filter(
-            appointment =>
-                appointment.status ===
-                "cancelled"
-        ).length;
-
-
-    document.getElementById(
-        "totalAppointments"
-    ).textContent =
-        total;
-
-
-    document.getElementById(
-        "confirmedAppointments"
-    ).textContent =
-        confirmed;
-
-
-    document.getElementById(
-        "pendingAppointments"
-    ).textContent =
-        pending;
-
-
-    document.getElementById(
-        "cancelledAppointments"
-    ).textContent =
-        cancelled;
-
-}
-
-
-
-/* ========================================
-   DISPLAY APPOINTMENTS
-======================================== */
-
-function displayAppointments() {
-
-
-    const search =
-        searchInput.value
-            .toLowerCase()
-            .trim();
-
-
-    const selectedStatus =
-        statusFilter.value;
-
-
-    let filteredAppointments =
-        appointments;
-
-
-
-    /* SEARCH */
-
-    if (search) {
-
-        filteredAppointments =
-            filteredAppointments.filter(
-                appointment => {
-
-                    const searchableText =
-
-                        appointment.id
-                        + " "
-                        + appointment.patient
-                        + " "
-                        + appointment.patientId
-                        + " "
-                        + appointment.doctor
-                        + " "
-                        + appointment.department;
-
-                    return searchableText
-                        .toLowerCase()
-                        .includes(search);
-
-                }
-            );
-
-    }
-
-
-
-    /* STATUS FILTER */
-
-    if (selectedStatus !== "all") {
-
-        filteredAppointments =
-            filteredAppointments.filter(
-                appointment =>
-                    appointment.status ===
-                    selectedStatus
-            );
-
-    }
-
-
-
-    /* CLEAR TABLE */
-
-    appointmentTableBody.innerHTML = "";
-
-
-
-    /* EMPTY STATE */
-
-    if (
-        filteredAppointments.length === 0
-    ) {
-
-        emptyState.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    emptyState.style.display =
-        "none";
-
-
-
-    /* CREATE TABLE ROWS */
-
-    filteredAppointments.forEach(
-        appointment => {
-
-
-            const row =
-                document.createElement(
-                    "tr"
-                );
-
-
-            const statusName =
-                appointment.status
-                    .charAt(0)
-                    .toUpperCase()
-                + appointment.status.slice(1);
-
-
-
-            row.innerHTML = `
-
-                <td>
-
-                    <strong>
-                        ${escapeHTML(
-                            appointment.id
-                        )}
-                    </strong>
-
-                </td>
-
-
-                <td>
-
-                    <div class="patient-cell">
-
-                        <div class="patient-avatar">
-                            ${getInitials(
-                                appointment.patient
-                            )}
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                ${escapeHTML(
-                                    appointment.patient
-                                )}
-                            </strong>
-
-                            <span>
-                                ${escapeHTML(
-                                    appointment.patientId
-                                )}
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </td>
-
-
-                <td>
-
-                    <div class="doctor-cell">
-
-                        <strong>
-                            ${escapeHTML(
-                                appointment.doctor
-                            )}
-                        </strong>
-
-                    </div>
-
-                </td>
-
-
-                <td>
-
-                    ${escapeHTML(
-                        appointment.department
-                    )}
-
-                </td>
-
-
-                <td>
-
-                    <div class="appointment-time">
-
-                        <strong>
-                            ${escapeHTML(
-                                appointment.date
-                            )}
-                        </strong>
-
-                        <span>
-                            ${escapeHTML(
-                                appointment.time
-                            )}
-                        </span>
-
-                    </div>
-
-                </td>
-
-
-                <td>
-
-                    <span
-                        class="status ${appointment.status}"
-                    >
-                        ${statusName}
-                    </span>
-
-                </td>
-
-
-                <td>
-
-                    <button
-                        class="action-button"
-                        type="button"
-                        onclick="viewAppointment('${escapeJS(
-                            appointment.id
-                        )}')"
-                    >
-                        •••
-                    </button>
-
-                </td>
-
-            `;
-
-
-            appointmentTableBody.appendChild(
-                row
-            );
-
-        }
-    );
-
-}
-
-
-
-/* ========================================
-   VIEW APPOINTMENT
-======================================== */
-
-function viewAppointment(
-    appointmentId
-) {
-
-
-    const appointment =
-        appointments.find(
-            item =>
-                item.id === appointmentId
-        );
-
-
-    if (!appointment) {
-
-        alert(
-            "Appointment could not be found."
-        );
-
-        return;
-
-    }
-
-
-    alert(
-
-        "APPOINTMENT DETAILS\n\n"
-        + "Appointment ID: "
-        + appointment.id
-        + "\n\n"
-        + "Patient: "
-        + appointment.patient
-        + "\n\n"
-        + "Patient ID: "
-        + appointment.patientId
-        + "\n\n"
-        + "Doctor: "
-        + appointment.doctor
-        + "\n\n"
-        + "Department: "
-        + appointment.department
-        + "\n\n"
-        + "Date: "
-        + appointment.date
-        + "\n\n"
-        + "Time: "
-        + appointment.time
-        + "\n\n"
-        + "Status: "
-        + capitalize(
-            appointment.status
-        )
-
-    );
-
-}
-
-
-
-/* ========================================
-   ADD APPOINTMENT
-======================================== */
-
-function addAppointment() {
-
-    appointmentModal.classList.add("show");
-
-}
-
-const appointmentModal =
-    document.getElementById(
-        "appointmentModal"
-    );
-
-const closeAppointmentModal =
-    document.getElementById(
-        "closeAppointmentModal"
-    );
-
-const cancelAppointmentModal =
-    document.getElementById(
-        "cancelAppointmentModal"
-    );
-
-const appointmentForm =
-    document.getElementById(
-        "appointmentForm"
-    );
-
-
-
-function closeAppointmentForm() {
-
-    appointmentModal.classList.remove(
-        "show"
-    );
-
-    appointmentForm.reset();
-
-}
-
-
-
-closeAppointmentModal.addEventListener(
-    "click",
-    closeAppointmentForm
-);
-
-
-cancelAppointmentModal.addEventListener(
-    "click",
-    closeAppointmentForm
-);
-
-
-appointmentModal.addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            event.target ===
-            appointmentModal
-        ) {
-
-            closeAppointmentForm();
-
-        }
-
-    }
-);
-
-
-
-appointmentForm.addEventListener(
-    "submit",
-    function(event) {
-
-        event.preventDefault();
-
-
-        const patient =
-            document.getElementById(
-                "appointmentPatient"
-            ).value;
-
-
-        const patientId =
-            document.getElementById(
-                "appointmentPatientId"
-            ).value;
-
-
-        const doctor =
-            document.getElementById(
-                "appointmentDoctor"
-            ).value;
-
-
-        const department =
-            document.getElementById(
-                "appointmentDepartment"
-            ).value;
-
-
-        const date =
-            document.getElementById(
-                "appointmentDate"
-            ).value;
-
-
-        const time =
-            document.getElementById(
-                "appointmentTime"
-            ).value;
-
-
-        const status =
-            document.getElementById(
-                "appointmentStatus"
-            ).value;
-
-
-
-        const newAppointment = {
-
-            id:
-                "APT-"
-                + String(
-                    appointments.length + 1
-                ).padStart(
-                    4,
-                    "0"
-                ),
-
-            patient:
-                patient,
-
-            patientId:
-                patientId,
-
-            doctor:
-                doctor,
-
-            department:
-                department,
-
-            date:
-                formatDate(date),
-
-            time:
-                formatTime(time),
-
-            status:
-                status
-
-        };
-
-
-
-        appointments.unshift(
-            newAppointment
-        );
-
-
-        updateStatistics();
-
-        displayAppointments();
-
-        closeAppointmentForm();
-
-
-        alert(
-            patient +
-            "'s appointment has been created successfully!"
-        );
-
-    }
-);
-
-function formatDate(date) {
-
-    const parts =
-        date.split("-");
-
-    return (
-        parts[2]
-        + " "
-        + getMonthName(
-            parts[1]
-        )
-        + " "
-        + parts[0]
-    );
-
-}
-
-
-function getMonthName(month) {
-
-    const months = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-    ];
-
-    return months[
-        Number(month) - 1
-    ];
-
-}
-
-
-function formatTime(time) {
-
-    const [hours, minutes] =
-        time.split(":");
-
-    let hour =
-        Number(hours);
-
-    const suffix =
-        hour >= 12
-            ? "PM"
-            : "AM";
-
-    hour =
-        hour % 12 || 12;
-
-    return (
-        hour
-        + ":"
-        + minutes
-        + " "
-        + suffix
-    );
-
-}
-
-
-
-
-
-/* ========================================
-   LOGOUT
-======================================== */
-
-function logout() {
-
-    window.location.href =
-        "../../index.html";
-
-}
-
-
-
-/* ========================================
-   GET INITIALS
-======================================== */
-
-function getInitials(name) {
-
-    return name
-        .trim()
-        .split(/\s+/)
-        .map(
-            word =>
-                word
-                    .charAt(0)
-                    .toUpperCase()
-        )
-        .join("")
-        .substring(0, 2);
-
-}
-
-
-
-/* ========================================
-   CAPITALIZE
-======================================== */
-
-function capitalize(value) {
-
-    if (!value) {
-        return "";
-    }
-
-
-    return (
-        value.charAt(0).toUpperCase()
-        + value.slice(1)
-    );
-
-}
-
-
-
-/* ========================================
-   ESCAPE HTML
-======================================== */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-
-/* ========================================
-   ESCAPE JAVASCRIPT
-======================================== */
-
-function escapeJS(value) {
-
-    return String(value)
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-        .replace(
-            /'/g,
-            "\\'"
-        );
-
-}
-
-
-
-/* ========================================
-   SEARCH
-======================================== */
-
-searchInput.addEventListener(
-    "input",
-    displayAppointments
-);
-
-
-
-/* ========================================
-   STATUS FILTER
-======================================== */
-
-statusFilter.addEventListener(
-    "change",
-    displayAppointments
-);
-
-
-
-/* ========================================
-   INITIALIZE
-======================================== */
-
-updateStatistics();
-
-displayAppointments();
-
-
-</script>
-
-<!-- =====================================
      ADD APPOINTMENT MODAL
 ====================================== -->
 
@@ -1282,6 +483,9 @@ displayAppointments();
 >
 
     <div class="modal">
+
+
+        <!-- MODAL HEADER -->
 
         <div class="modal-header">
 
@@ -1313,6 +517,8 @@ displayAppointments();
         </div>
 
 
+
+        <!-- FORM -->
 
         <form id="appointmentForm">
 
@@ -1421,6 +627,14 @@ displayAppointments();
                             Neurology
                         </option>
 
+                        <option value="Pediatrics">
+                            Pediatrics
+                        </option>
+
+                        <option value="General Surgery">
+                            General Surgery
+                        </option>
+
                     </select>
 
                 </div>
@@ -1495,6 +709,8 @@ displayAppointments();
 
 
 
+            <!-- FORM ACTIONS -->
+
             <div class="modal-actions">
 
                 <button
@@ -1520,6 +736,952 @@ displayAppointments();
     </div>
 
 </div>
+
+
+
+<!-- =====================================
+     APPOINTMENT DATA
+====================================== -->
+
+<script src="../../data/appointments.js"></script>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* ========================================
+   ELEMENTS
+======================================== */
+
+const appointmentTableBody =
+    document.getElementById(
+        "appointmentTableBody"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const statusFilter =
+    document.getElementById(
+        "statusFilter"
+    );
+
+
+const emptyState =
+    document.getElementById(
+        "emptyState"
+    );
+
+
+const appointmentModal =
+    document.getElementById(
+        "appointmentModal"
+    );
+
+
+const closeAppointmentModal =
+    document.getElementById(
+        "closeAppointmentModal"
+    );
+
+
+const cancelAppointmentModal =
+    document.getElementById(
+        "cancelAppointmentModal"
+    );
+
+
+const appointmentForm =
+    document.getElementById(
+        "appointmentForm"
+    );
+
+
+
+/* ========================================
+   UPDATE STATISTICS
+======================================== */
+
+function updateStatistics() {
+
+    const total =
+        appointments.length;
+
+
+    const confirmed =
+        appointments.filter(
+            appointment =>
+                appointment.status ===
+                "confirmed"
+        ).length;
+
+
+    const pending =
+        appointments.filter(
+            appointment =>
+                appointment.status ===
+                "pending"
+        ).length;
+
+
+    const cancelled =
+        appointments.filter(
+            appointment =>
+                appointment.status ===
+                "cancelled"
+        ).length;
+
+
+    document.getElementById(
+        "totalAppointments"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "confirmedAppointments"
+    ).textContent =
+        confirmed;
+
+
+    document.getElementById(
+        "pendingAppointments"
+    ).textContent =
+        pending;
+
+
+    document.getElementById(
+        "cancelledAppointments"
+    ).textContent =
+        cancelled;
+
+}
+
+
+
+/* ========================================
+   DISPLAY APPOINTMENTS
+======================================== */
+
+function displayAppointments() {
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const selectedStatus =
+        statusFilter.value;
+
+
+    let filteredAppointments =
+        appointments;
+
+
+    /* SEARCH */
+
+    if (search) {
+
+        filteredAppointments =
+            filteredAppointments.filter(
+                appointment => {
+
+                    const searchableText =
+
+                        appointment.id
+                        + " "
+                        + appointment.patient
+                        + " "
+                        + appointment.patientId
+                        + " "
+                        + appointment.doctor
+                        + " "
+                        + appointment.department;
+
+                    return searchableText
+                        .toLowerCase()
+                        .includes(search);
+
+                }
+            );
+
+    }
+
+
+
+    /* STATUS FILTER */
+
+    if (
+        selectedStatus !==
+        "all"
+    ) {
+
+        filteredAppointments =
+            filteredAppointments.filter(
+                appointment =>
+                    appointment.status ===
+                    selectedStatus
+            );
+
+    }
+
+
+
+    /* CLEAR TABLE */
+
+    appointmentTableBody.innerHTML =
+        "";
+
+
+
+    /* EMPTY STATE */
+
+    if (
+        filteredAppointments.length ===
+        0
+    ) {
+
+        emptyState.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    emptyState.style.display =
+        "none";
+
+
+
+    /* CREATE TABLE ROWS */
+
+    filteredAppointments.forEach(
+        appointment => {
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            const statusName =
+                capitalize(
+                    appointment.status
+                );
+
+
+            row.innerHTML = `
+
+                <td>
+
+                    <strong>
+                        ${escapeHTML(
+                            appointment.id
+                        )}
+                    </strong>
+
+                </td>
+
+
+                <td>
+
+                    <div class="patient-cell">
+
+                        <div class="patient-avatar">
+
+                            ${getInitials(
+                                appointment.patient
+                            )}
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+
+                                ${escapeHTML(
+                                    appointment.patient
+                                )}
+
+                            </strong>
+
+                            <span>
+
+                                ${escapeHTML(
+                                    appointment.patientId
+                                )}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    <div class="doctor-cell">
+
+                        <strong>
+
+                            ${escapeHTML(
+                                appointment.doctor
+                            )}
+
+                        </strong>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    ${escapeHTML(
+                        appointment.department
+                    )}
+
+                </td>
+
+
+                <td>
+
+                    <div class="appointment-time">
+
+                        <strong>
+
+                            ${escapeHTML(
+                                appointment.date
+                            )}
+
+                        </strong>
+
+                        <span>
+
+                            ${escapeHTML(
+                                appointment.time
+                            )}
+
+                        </span>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="status ${escapeHTML(
+                            appointment.status
+                        )}"
+                    >
+
+                        ${statusName}
+
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    <button
+                        class="action-button"
+                        type="button"
+                        onclick="viewAppointment('${escapeJS(
+                            appointment.id
+                        )}')"
+                    >
+
+                        •••
+
+                    </button>
+
+                </td>
+
+            `;
+
+
+            appointmentTableBody.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ========================================
+   VIEW APPOINTMENT
+======================================== */
+
+function viewAppointment(
+    appointmentId
+) {
+
+    const appointment =
+        appointments.find(
+            item =>
+                item.id ===
+                appointmentId
+        );
+
+
+    if (!appointment) {
+
+        alert(
+            "Appointment could not be found."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        "APPOINTMENT DETAILS\n\n"
+
+        + "Appointment ID: "
+        + appointment.id
+
+        + "\n\nPatient: "
+        + appointment.patient
+
+        + "\n\nPatient ID: "
+        + appointment.patientId
+
+        + "\n\nDoctor: "
+        + appointment.doctor
+
+        + "\n\nDepartment: "
+        + appointment.department
+
+        + "\n\nDate: "
+        + appointment.date
+
+        + "\n\nTime: "
+        + appointment.time
+
+        + "\n\nStatus: "
+        + capitalize(
+            appointment.status
+        )
+
+    );
+
+}
+
+
+
+/* ========================================
+   OPEN ADD APPOINTMENT MODAL
+======================================== */
+
+function addAppointment() {
+
+    appointmentModal.classList.add(
+        "show"
+    );
+
+}
+
+
+
+/* ========================================
+   CLOSE MODAL
+======================================== */
+
+function closeAppointmentForm() {
+
+    appointmentModal.classList.remove(
+        "show"
+    );
+
+    appointmentForm.reset();
+
+}
+
+
+
+/* ========================================
+   CLOSE BUTTON
+======================================== */
+
+closeAppointmentModal.addEventListener(
+    "click",
+    closeAppointmentForm
+);
+
+
+
+/* ========================================
+   CANCEL BUTTON
+======================================== */
+
+cancelAppointmentModal.addEventListener(
+    "click",
+    closeAppointmentForm
+);
+
+
+
+/* ========================================
+   CLICK OUTSIDE MODAL
+======================================== */
+
+appointmentModal.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target ===
+            appointmentModal
+        ) {
+
+            closeAppointmentForm();
+
+        }
+
+    }
+);
+
+
+
+/* ========================================
+   CREATE APPOINTMENT
+======================================== */
+
+appointmentForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const patient =
+            document.getElementById(
+                "appointmentPatient"
+            ).value.trim();
+
+
+        const patientId =
+            document.getElementById(
+                "appointmentPatientId"
+            ).value.trim();
+
+
+        const doctor =
+            document.getElementById(
+                "appointmentDoctor"
+            ).value;
+
+
+        const department =
+            document.getElementById(
+                "appointmentDepartment"
+            ).value;
+
+
+        const date =
+            document.getElementById(
+                "appointmentDate"
+            ).value;
+
+
+        const time =
+            document.getElementById(
+                "appointmentTime"
+            ).value;
+
+
+        const status =
+            document.getElementById(
+                "appointmentStatus"
+            ).value;
+
+
+
+        /* GENERATE ID */
+
+        const newId =
+            "APT-"
+            + String(
+                appointments.length + 1
+            ).padStart(
+                4,
+                "0"
+            );
+
+
+
+        /* CREATE OBJECT */
+
+        const newAppointment = {
+
+            id:
+                newId,
+
+            patient:
+                patient,
+
+            patientId:
+                patientId,
+
+            doctor:
+                doctor,
+
+            department:
+                department,
+
+            date:
+                formatDate(
+                    date
+                ),
+
+            time:
+                formatTime(
+                    time
+                ),
+
+            status:
+                status
+
+        };
+
+
+
+        /* ADD TO ARRAY */
+
+        appointments.unshift(
+            newAppointment
+        );
+
+
+
+        /* UPDATE PAGE */
+
+        updateStatistics();
+
+        displayAppointments();
+
+
+
+        /* CLOSE MODAL */
+
+        closeAppointmentForm();
+
+
+
+        /* SUCCESS */
+
+        alert(
+            patient
+            + "'s appointment has been created successfully!"
+        );
+
+    }
+);
+
+
+
+/* ========================================
+   FORMAT DATE
+======================================== */
+
+function formatDate(
+    date
+) {
+
+    if (!date) {
+        return "";
+    }
+
+
+    const parts =
+        date.split("-");
+
+
+    return (
+
+        parts[2]
+        + " "
+        + getMonthName(
+            parts[1]
+        )
+        + " "
+        + parts[0]
+
+    );
+
+}
+
+
+
+/* ========================================
+   MONTH NAME
+======================================== */
+
+function getMonthName(
+    month
+) {
+
+    const months = [
+
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+
+    ];
+
+
+    return months[
+        Number(month) - 1
+    ];
+
+}
+
+
+
+/* ========================================
+   FORMAT TIME
+======================================== */
+
+function formatTime(
+    time
+) {
+
+    if (!time) {
+        return "";
+    }
+
+
+    const parts =
+        time.split(":");
+
+
+    let hour =
+        Number(
+            parts[0]
+        );
+
+
+    const minutes =
+        parts[1];
+
+
+    const suffix =
+        hour >= 12
+            ? "PM"
+            : "AM";
+
+
+    hour =
+        hour % 12 || 12;
+
+
+    return (
+
+        hour
+        + ":"
+        + minutes
+        + " "
+        + suffix
+
+    );
+
+}
+
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+function logout() {
+
+    window.location.href =
+        "../../index.html";
+
+}
+
+
+
+/* ========================================
+   GET INITIALS
+======================================== */
+
+function getInitials(
+    name
+) {
+
+    return name
+        .trim()
+        .split(/\s+/)
+        .map(
+            word =>
+                word
+                    .charAt(0)
+                    .toUpperCase()
+        )
+        .join("")
+        .substring(
+            0,
+            2
+        );
+
+}
+
+
+
+/* ========================================
+   CAPITALIZE
+======================================== */
+
+function capitalize(
+    value
+) {
+
+    if (!value) {
+        return "";
+    }
+
+
+    return (
+
+        value.charAt(0)
+            .toUpperCase()
+
+        + value.slice(1)
+
+    );
+
+}
+
+
+
+/* ========================================
+   ESCAPE HTML
+======================================== */
+
+function escapeHTML(
+    value
+) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/* ========================================
+   ESCAPE JAVASCRIPT
+======================================== */
+
+function escapeJS(
+    value
+) {
+
+    return String(value)
+
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+searchInput.addEventListener(
+    "input",
+    displayAppointments
+);
+
+
+
+/* ========================================
+   STATUS FILTER
+======================================== */
+
+statusFilter.addEventListener(
+    "change",
+    displayAppointments
+);
+
+
+
+/* ========================================
+   INITIALIZE
+======================================== */
+
+updateStatistics();
+
+displayAppointments();
+
+
+</script>
+
 
 </body>
 
