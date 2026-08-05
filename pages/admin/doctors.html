@@ -10,11 +10,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Doctor Dashboard | Cendekia Medika</title>
+    <title>Doctors | Cendekia Medika</title>
 
     <link
         rel="stylesheet"
-        href="dashboard.css"
+        href="doctors.css"
     >
 
 </head>
@@ -25,9 +25,12 @@
 <div class="app-layout">
 
 
-    <!-- SIDEBAR -->
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
 
     <aside class="sidebar">
+
 
         <div class="sidebar-brand">
 
@@ -36,11 +39,19 @@
             </div>
 
             <div>
-                <strong>CENDEKIA</strong>
-                <span>MEDIKA</span>
+
+                <strong>
+                    CENDEKIA
+                </strong>
+
+                <span>
+                    MEDIKA
+                </span>
+
             </div>
 
         </div>
+
 
 
         <nav class="sidebar-nav">
@@ -60,7 +71,7 @@
 
 
             <a
-                href="#"
+                href="patients.html"
                 class="nav-item"
             >
                 <span class="nav-icon">♙</span>
@@ -69,7 +80,7 @@
 
 
             <a
-                href="doctor.html"
+                href="doctors.html"
                 class="nav-item active"
             >
                 <span class="nav-icon">⚕</span>
@@ -129,14 +140,21 @@
         </nav>
 
 
+
         <div class="sidebar-bottom">
 
             <button
                 class="logout-button"
+                type="button"
                 onclick="logout()"
             >
-                <span>↪</span>
+
+                <span>
+                    ↪
+                </span>
+
                 Sign out
+
             </button>
 
         </div>
@@ -145,7 +163,9 @@
 
 
 
-    <!-- MAIN CONTENT -->
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
 
     <main class="main-content">
 
@@ -154,31 +174,47 @@
 
         <header class="topbar">
 
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+
             <div class="topbar-right">
 
-                <button class="notification-button">
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
                     ♧
+
                     <span class="notification-dot"></span>
+
                 </button>
+
 
 
                 <div class="profile">
 
                     <div class="profile-avatar">
-                        D
+                        A
                     </div>
+
 
                     <div class="profile-info">
 
                         <strong>
-                            Dr. Dimas Santoso
+                            Admin
                         </strong>
 
                         <span>
-                            Doctor
+                            Administrator
                         </span>
 
                     </div>
+
 
                     <span class="profile-arrow">
                         ▾
@@ -192,9 +228,11 @@
 
 
 
-        <!-- PAGE CONTENT -->
+        <!-- =====================================
+             PAGE CONTENT
+        ====================================== -->
 
-        <section class="dashboard-content">
+        <section class="page-content">
 
 
             <!-- PAGE HEADER -->
@@ -204,48 +242,157 @@
                 <div>
 
                     <p class="eyebrow">
-                        MEDICAL STAFF
+                        STAFF MANAGEMENT
                     </p>
 
+
                     <h1>
-                        Doctor Dashboard
+                        Doctors
                     </h1>
 
+
                     <p>
-                        Welcome back, Dr. Dimas. Here's your
-                        clinical overview for today.
+                        View and manage doctors registered
+                        at Cendekia Medika.
                     </p>
 
                 </div>
+
+
+                <button
+                    class="primary-button"
+                    type="button"
+                    onclick="addDoctor()"
+                >
+                    + Add Doctor
+                </button>
 
             </div>
 
 
 
-            <!-- STATISTICS -->
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
 
             <div class="stats-grid">
 
 
-                <div class="stat-card">
+                <div class="mini-stat">
 
-                    <div class="stat-icon patient">
-                        ♙
+                    <span>
+                        Total Doctors
+                    </span>
+
+                    <strong id="totalDoctors">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Active
+                    </span>
+
+                    <strong id="activeDoctors">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Inactive
+                    </span>
+
+                    <strong id="inactiveDoctors">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Recently Active
+                    </span>
+
+                    <strong id="recentDoctors">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 DOCTOR CARD
+            ====================================== -->
+
+            <section class="doctors-card">
+
+
+                <!-- TOOLBAR -->
+
+                <div class="doctors-toolbar">
+
+
+                    <div>
+
+                        <h2>
+                            All Doctors
+                        </h2>
+
+                        <p>
+                            Registered doctor accounts.
+                        </p>
+
                     </div>
 
-                    <div class="stat-info">
 
-                        <span>
-                            My Patients
-                        </span>
+                    <div class="toolbar-actions">
 
-                        <strong>
-                            38
-                        </strong>
 
-                        <small>
-                            4 new this week
-                        </small>
+                        <div class="search-box">
+
+                            <span>
+                                ⌕
+                            </span>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search doctors..."
+                            >
+
+                        </div>
+
+
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All status
+                            </option>
+
+                            <option value="active">
+                                Active
+                            </option>
+
+                            <option value="inactive">
+                                Inactive
+                            </option>
+
+                        </select>
 
                     </div>
 
@@ -253,407 +400,78 @@
 
 
 
-                <div class="stat-card">
+                <!-- TABLE -->
 
-                    <div class="stat-icon appointment">
-                        ◷
-                    </div>
+                <div class="table-container">
 
-                    <div class="stat-info">
+                    <table>
 
-                        <span>
-                            Today's Appointments
-                        </span>
+                        <thead>
 
-                        <strong>
-                            12
-                        </strong>
+                            <tr>
 
-                        <small>
-                            3 remaining
-                        </small>
+                                <th>
+                                    DOCTOR
+                                </th>
 
-                    </div>
+                                <th>
+                                    DOCTOR ID
+                                </th>
+
+                                <th>
+                                    EMAIL
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    LAST ACTIVE
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="doctorTableBody">
+                        </tbody>
+
+                    </table>
 
                 </div>
 
 
 
-                <div class="stat-card">
+                <!-- EMPTY STATE -->
 
-                    <div class="stat-icon doctor">
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    style="display:none;"
+                >
+
+                    <div class="empty-icon">
                         ⚕
                     </div>
 
-                    <div class="stat-info">
+                    <h3>
+                        No doctors found
+                    </h3>
 
-                        <span>
-                            Consultations
-                        </span>
-
-                        <strong>
-                            8
-                        </strong>
-
-                        <small>
-                            Completed today
-                        </small>
-
-                    </div>
+                    <p>
+                        Try changing your search or filter.
+                    </p>
 
                 </div>
 
 
-
-                <div class="stat-card">
-
-                    <div class="stat-icon nurse">
-                        ▤
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>
-                            Pending Reports
-                        </span>
-
-                        <strong>
-                            5
-                        </strong>
-
-                        <small>
-                            Requires review
-                        </small>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- LOWER GRID -->
-
-            <div class="dashboard-grid">
-
-
-                <!-- TODAY'S APPOINTMENTS -->
-
-                <section class="dashboard-card patients-card">
-
-                    <div class="card-header">
-
-                        <div>
-
-                            <h2>
-                                Today's Appointments
-                            </h2>
-
-                            <p>
-                                Your scheduled consultations
-                            </p>
-
-                        </div>
-
-                        <a href="#">
-                            View all
-                        </a>
-
-                    </div>
-
-
-                    <div class="table-container">
-
-                        <table>
-
-                            <thead>
-
-                                <tr>
-
-                                    <th>
-                                        Patient
-                                    </th>
-
-                                    <th>
-                                        Time
-                                    </th>
-
-                                    <th>
-                                        Type
-                                    </th>
-
-                                    <th>
-                                        Status
-                                    </th>
-
-                                </tr>
-
-                            </thead>
-
-
-                            <tbody>
-
-
-                                <tr>
-
-                                    <td>
-
-                                        <div class="patient-name">
-
-                                            <div class="table-avatar">
-                                                AS
-                                            </div>
-
-                                            <div>
-
-                                                <strong>
-                                                    Amanda Sari
-                                                </strong>
-
-                                                <span>
-                                                    PT-001248
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-                                        09:00 AM
-                                    </td>
-
-                                    <td>
-                                        Follow-up
-                                    </td>
-
-                                    <td>
-
-                                        <span class="status active">
-                                            Completed
-                                        </span>
-
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-
-                                        <div class="patient-name">
-
-                                            <div class="table-avatar">
-                                                RM
-                                            </div>
-
-                                            <div>
-
-                                                <strong>
-                                                    Rizky Maulana
-                                                </strong>
-
-                                                <span>
-                                                    PT-001247
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-                                        10:30 AM
-                                    </td>
-
-                                    <td>
-                                        Consultation
-                                    </td>
-
-                                    <td>
-
-                                        <span class="status pending">
-                                            Upcoming
-                                        </span>
-
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-
-                                        <div class="patient-name">
-
-                                            <div class="table-avatar">
-                                                DN
-                                            </div>
-
-                                            <div>
-
-                                                <strong>
-                                                    Dinda Nuraini
-                                                </strong>
-
-                                                <span>
-                                                    PT-001246
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-                                        01:00 PM
-                                    </td>
-
-                                    <td>
-                                        New Patient
-                                    </td>
-
-                                    <td>
-
-                                        <span class="status pending">
-                                            Upcoming
-                                        </span>
-
-                                    </td>
-
-                                </tr>
-
-
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- QUICK ACTIONS -->
-
-                <section class="dashboard-card">
-
-                    <div class="card-header">
-
-                        <div>
-
-                            <h2>
-                                Quick Actions
-                            </h2>
-
-                            <p>
-                                Common clinical tasks
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="quick-actions">
-
-
-                        <button class="quick-action">
-
-                            <span class="quick-icon">
-                                ♙
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    Patient Records
-                                </strong>
-
-                                <span>
-                                    View patient information
-                                </span>
-
-                            </div>
-
-                        </button>
-
-
-                        <button class="quick-action">
-
-                            <span class="quick-icon">
-                                +
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    New Consultation
-                                </strong>
-
-                                <span>
-                                    Start a patient consultation
-                                </span>
-
-                            </div>
-
-                        </button>
-
-
-                        <button class="quick-action">
-
-                            <span class="quick-icon">
-                                ▤
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    Medical Records
-                                </strong>
-
-                                <span>
-                                    Review clinical records
-                                </span>
-
-                            </div>
-
-                        </button>
-
-
-                        <button class="quick-action">
-
-                            <span class="quick-icon">
-                                ◷
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    Appointments
-                                </strong>
-
-                                <span>
-                                    Manage your schedule
-                                </span>
-
-                            </div>
-
-                        </button>
-
-
-                    </div>
-
-                </section>
-
-            </div>
-
+            </section>
 
         </section>
 
@@ -663,16 +481,513 @@
 
 
 
+<!-- =====================================
+     USERS DATA
+====================================== -->
+
+<script src="../../data/users.js"></script>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
 <script>
 
-function logout() {
 
-    window.location.href = "../../index.html";
+/* ========================================
+   ELEMENTS
+======================================== */
+
+const doctorTableBody =
+    document.getElementById(
+        "doctorTableBody"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const statusFilter =
+    document.getElementById(
+        "statusFilter"
+    );
+
+
+const emptyState =
+    document.getElementById(
+        "emptyState"
+    );
+
+
+
+/* ========================================
+   GET DOCTORS
+======================================== */
+
+function getDoctors() {
+
+    return users.filter(
+        user =>
+            user.role === "doctor"
+    );
 
 }
 
-</script>
 
+
+/* ========================================
+   UPDATE STATISTICS
+======================================== */
+
+function updateStatistics() {
+
+
+    const doctors =
+        getDoctors();
+
+
+    const active =
+        doctors.filter(
+            doctor =>
+                doctor.status === "active"
+        );
+
+
+    const inactive =
+        doctors.filter(
+            doctor =>
+                doctor.status === "inactive"
+        );
+
+
+    const recent =
+        doctors.filter(
+            doctor =>
+                doctor.lastActive !==
+                "Yesterday"
+        );
+
+
+    document.getElementById(
+        "totalDoctors"
+    ).textContent =
+        doctors.length;
+
+
+    document.getElementById(
+        "activeDoctors"
+    ).textContent =
+        active.length;
+
+
+    document.getElementById(
+        "inactiveDoctors"
+    ).textContent =
+        inactive.length;
+
+
+    document.getElementById(
+        "recentDoctors"
+    ).textContent =
+        recent.length;
+
+}
+
+
+
+/* ========================================
+   DISPLAY DOCTORS
+======================================== */
+
+function displayDoctors() {
+
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const selectedStatus =
+        statusFilter.value;
+
+
+    let doctors =
+        getDoctors();
+
+
+    /* SEARCH */
+
+    if (search) {
+
+        doctors =
+            doctors.filter(
+                doctor => {
+
+                    const searchableText =
+                        (
+                            doctor.name
+                            + " "
+                            + doctor.id
+                            + " "
+                            + doctor.email
+                        )
+                        .toLowerCase();
+
+
+                    return searchableText
+                        .includes(search);
+
+                }
+            );
+
+    }
+
+
+
+    /* STATUS FILTER */
+
+    if (selectedStatus !== "all") {
+
+        doctors =
+            doctors.filter(
+                doctor =>
+                    doctor.status ===
+                    selectedStatus
+            );
+
+    }
+
+
+
+    /* CLEAR TABLE */
+
+    doctorTableBody.innerHTML = "";
+
+
+
+    /* EMPTY STATE */
+
+    if (doctors.length === 0) {
+
+        emptyState.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    emptyState.style.display =
+        "none";
+
+
+
+    /* CREATE ROWS */
+
+    doctors.forEach(
+        doctor => {
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            const initials =
+                doctor.name
+                    .trim()
+                    .split(/\s+/)
+                    .map(
+                        word =>
+                            word
+                                .charAt(0)
+                                .toUpperCase()
+                    )
+                    .join("")
+                    .substring(0, 2);
+
+
+            const statusName =
+                capitalize(
+                    doctor.status
+                );
+
+
+            row.innerHTML = `
+
+                <td>
+
+                    <div class="doctor-cell">
+
+                        <div class="doctor-avatar">
+                            ${initials}
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                ${escapeHTML(
+                                    doctor.name
+                                )}
+                            </strong>
+
+                            <span>
+                                Doctor
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    <strong>
+                        ${escapeHTML(
+                            doctor.id
+                        )}
+                    </strong>
+
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        doctor.email
+                    )}
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="status ${doctor.status}"
+                    >
+                        ${statusName}
+                    </span>
+
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        doctor.lastActive
+                    )}
+                </td>
+
+
+                <td>
+
+                    <button
+                        class="action-button"
+                        type="button"
+                        onclick="viewDoctor('${escapeJS(doctor.id)}')"
+                    >
+                        •••
+                    </button>
+
+                </td>
+
+            `;
+
+
+            doctorTableBody.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ========================================
+   VIEW DOCTOR
+======================================== */
+
+function viewDoctor(doctorId) {
+
+
+    const doctor =
+        users.find(
+            user =>
+                user.id === doctorId
+        );
+
+
+    if (!doctor) {
+
+        alert(
+            "Doctor could not be found."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        "DOCTOR PROFILE\n\n"
+        + "Name: "
+        + doctor.name
+        + "\n\n"
+        + "Doctor ID: "
+        + doctor.id
+        + "\n\n"
+        + "Email: "
+        + doctor.email
+        + "\n\n"
+        + "Status: "
+        + capitalize(doctor.status)
+        + "\n\n"
+        + "Last Active: "
+        + doctor.lastActive
+
+    );
+
+}
+
+
+
+/* ========================================
+   ADD DOCTOR
+======================================== */
+
+function addDoctor() {
+
+    window.location.href =
+        "users.html";
+
+}
+
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+function logout() {
+
+    window.location.href =
+        "../../index.html";
+
+}
+
+
+
+/* ========================================
+   CAPITALIZE
+======================================== */
+
+function capitalize(value) {
+
+    if (!value) {
+        return "";
+    }
+
+
+    return (
+        value.charAt(0).toUpperCase()
+        + value.slice(1)
+    );
+
+}
+
+
+
+/* ========================================
+   ESCAPE HTML
+======================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/* ========================================
+   ESCAPE JAVASCRIPT
+======================================== */
+
+function escapeJS(value) {
+
+    return String(value)
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+searchInput.addEventListener(
+    "input",
+    displayDoctors
+);
+
+
+
+/* ========================================
+   FILTER
+======================================== */
+
+statusFilter.addEventListener(
+    "change",
+    displayDoctors
+);
+
+
+
+/* ========================================
+   INITIALIZE
+======================================== */
+
+updateStatistics();
+
+displayDoctors();
+
+</script>
 
 </body>
 
