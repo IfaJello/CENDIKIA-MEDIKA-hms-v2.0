@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>User Management | Cendekia Medika</title>
+
+    <link
+        rel="stylesheet"
+        href="users.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="app-layout">
+
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="sidebar-logo">
+                    +
+                </div>
+
+                <div>
+                    <strong>CENDEKIA</strong>
+                    <span>MEDIKA</span>
+                </div>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-label">
+                    MAIN MENU
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">♙</span>
+                    <span>Patients</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">⚕</span>
+                    <span>Doctors</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">✚</span>
+                    <span>Nurses</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">◷</span>
+                    <span>Appointments</span>
+                </a>
+
+
+                <p class="nav-label secondary">
+                    MANAGEMENT
+                </p>
+
+
+                <a
+                    href="users.html"
+                    class="nav-item active"
+                >
+                    <span class="nav-icon">♙</span>
+                    <span>User Management</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">▤</span>
+                    <span>Reports</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    class="logout-button"
+                    onclick="logout()"
+                >
+                    <span>↪</span>
+                    Sign out
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div class="topbar-right">
+
+                    <button class="notification-button">
+                        ♧
+                        <span class="notification-dot"></span>
+                    </button>
+
+
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            A
+                        </div>
+
+                        <div class="profile-info">
+
+                            <strong>
+                                Admin
+                            </strong>
+
+                            <span>
+                                Administrator
+                            </span>
+
+                        </div>
+
+                        <span class="profile-arrow">
+                            ▾
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- PAGE CONTENT -->
+
+            <section class="page-content">
+
+
+                <!-- PAGE HEADING -->
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            MANAGEMENT
+                        </p>
+
+                        <h1>
+                            User Management
+                        </h1>
+
+                        <p>
+                            Manage accounts and access across
+                            Cendekia Medika.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        id="addUserButton"
+                    >
+                        + Add User
+                    </button>
+
+                </div>
+
+
+
+                <!-- USER STATISTICS -->
+
+                <div class="user-stats">
+
+
+                    <div class="user-stat">
+
+                        <div class="stat-icon total">
+                            ♙
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Total Users
+                            </span>
+
+                            <strong>
+                                1,376
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="user-stat">
+
+                        <div class="stat-icon doctors">
+                            ⚕
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Doctors
+                            </span>
+
+                            <strong>
+                                42
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="user-stat">
+
+                        <div class="stat-icon nurses">
+                            ✚
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Nurses
+                            </span>
+
+                            <strong>
+                                86
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="user-stat">
+
+                        <div class="stat-icon patients">
+                            ♡
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Patients
+                            </span>
+
+                            <strong>
+                                1,248
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- USER TABLE CARD -->
+
+                <section class="users-card">
+
+
+                    <!-- TABLE HEADER -->
+
+                    <div class="table-toolbar">
+
+                        <div>
+
+                            <h2>
+                                All Users
+                            </h2>
+
+                            <p>
+                                View and manage registered
+                                system users.
+                            </p>
+
+                        </div>
+
+
+                        <div class="toolbar-actions">
+
+                            <div class="search-box">
+
+                                <span>
+                                    ⌕
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="searchInput"
+                                    placeholder="Search users..."
+                                >
+
+                            </div>
+
+
+                            <select id="roleFilter">
+
+                                <option value="all">
+                                    All roles
+                                </option>
+
+                                <option value="admin">
+                                    Admin
+                                </option>
+
+                                <option value="doctor">
+                                    Doctor
+                                </option>
+
+                                <option value="nurse">
+                                    Nurse
+                                </option>
+
+                                <option value="patient">
+                                    Patient
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TABLE -->
+
+                    <div class="table-container">
+
+                        <table id="usersTable">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        User
+                                    </th>
+
+                                    <th>
+                                        ID
+                                    </th>
+
+                                    <th>
+                                        Role
+                                    </th>
+
+                                    <th>
+                                        Email
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Action
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="user-name">
+
+                                            <div class="user-avatar">
+                                                AS
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Aulia Sari
+                                                </strong>
+
+                                                <span>
+                                                    Registered
+                                                    02 Aug 2026
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        ADM-001
+                                    </td>
+
+                                    <td>
+                                        <span class="role-badge admin">
+                                            Admin
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        admin@cendekiamedika.com
+                                    </td>
+
+                                    <td>
+                                        <span class="status active">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="action-button">
+                                            ⋮
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="user-name">
+
+                                            <div class="user-avatar doctor">
+                                                DR
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Dr. Raka Pratama
+                                                </strong>
+
+                                                <span>
+                                                    Registered
+                                                    28 Jul 2026
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        DOC-014
+                                    </td>
+
+                                    <td>
+                                        <span class="role-badge doctor">
+                                            Doctor
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        raka@cendekiamedika.com
+                                    </td>
+
+                                    <td>
+                                        <span class="status active">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="action-button">
+                                            ⋮
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="user-name">
+
+                                            <div class="user-avatar nurse">
+                                                NS
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Nisa Rahmawati
+                                                </strong>
+
+                                                <span>
+                                                    Registered
+                                                    25 Jul 2026
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        NUR-032
+                                    </td>
+
+                                    <td>
+                                        <span class="role-badge nurse">
+                                            Nurse
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        nisa@cendekiamedika.com
+                                    </td>
+
+                                    <td>
+                                        <span class="status active">
+                                            Active
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="action-button">
+                                            ⋮
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="user-name">
+
+                                            <div class="user-avatar patient">
+                                                RA
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Rizky Aditya
+                                                </strong>
+
+                                                <span>
+                                                    Registered
+                                                    05 Aug 2026
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        PT-001248
+                                    </td>
+
+                                    <td>
+                                        <span class="role-badge patient">
+                                            Patient
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        rizky@example.com
+                                    </td>
+
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button class="action-button">
+                                            ⋮
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                </section>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <script>
+
+        function logout() {
+
+            window.location.href =
+                "../../index.html";
+
+        }
+
+
+        // Search
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const roleFilter =
+            document.getElementById("roleFilter");
+
+        const rows =
+            document.querySelectorAll(
+                "#usersTable tbody tr"
+            );
+
+
+        function filterUsers() {
+
+            const search =
+                searchInput.value.toLowerCase();
+
+            const role =
+                roleFilter.value.toLowerCase();
+
+
+            rows.forEach(row => {
+
+                const text =
+                    row.textContent.toLowerCase();
+
+                const roleText =
+                    row.querySelector(
+                        ".role-badge"
+                    ).textContent.toLowerCase();
+
+
+                const matchesSearch =
+                    text.includes(search);
+
+                const matchesRole =
+                    role === "all" ||
+                    roleText === role;
+
+
+                row.style.display =
+                    matchesSearch && matchesRole
+                        ? ""
+                        : "none";
+
+            });
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            filterUsers
+        );
+
+        roleFilter.addEventListener(
+            "change",
+            filterUsers
+        );
+
+
+        // Add user button
+
+        document
+            .getElementById("addUserButton")
+            .addEventListener("click", () => {
+
+                alert(
+                    "Add User feature will be built next."
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>
