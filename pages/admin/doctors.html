@@ -10,11 +10,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Doctors | Cendekia Medika</title>
+    <title>Doctor Dashboard | Cendekia Medika</title>
 
     <link
         rel="stylesheet"
-        href="doctors.css"
+        href="dashboard.css"
     >
 
 </head>
@@ -25,9 +25,7 @@
 <div class="app-layout">
 
 
-    <!-- =====================================
-         SIDEBAR
-    ====================================== -->
+    <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
@@ -52,31 +50,46 @@
             </p>
 
 
-            <a href="dashboard.html" class="nav-item">
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
                 <span class="nav-icon">▦</span>
                 <span>Dashboard</span>
             </a>
 
 
-            <a href="#" class="nav-item">
+            <a
+                href="#"
+                class="nav-item"
+            >
                 <span class="nav-icon">♙</span>
                 <span>Patients</span>
             </a>
 
 
-            <a href="doctors.html" class="nav-item active">
+            <a
+                href="doctor.html"
+                class="nav-item active"
+            >
                 <span class="nav-icon">⚕</span>
                 <span>Doctors</span>
             </a>
 
 
-            <a href="#" class="nav-item">
+            <a
+                href="#"
+                class="nav-item"
+            >
                 <span class="nav-icon">✚</span>
                 <span>Nurses</span>
             </a>
 
 
-            <a href="#" class="nav-item">
+            <a
+                href="#"
+                class="nav-item"
+            >
                 <span class="nav-icon">◷</span>
                 <span>Appointments</span>
             </a>
@@ -87,19 +100,28 @@
             </p>
 
 
-            <a href="users.html" class="nav-item">
+            <a
+                href="users.html"
+                class="nav-item"
+            >
                 <span class="nav-icon">♙</span>
                 <span>User Management</span>
             </a>
 
 
-            <a href="#" class="nav-item">
+            <a
+                href="#"
+                class="nav-item"
+            >
                 <span class="nav-icon">▤</span>
                 <span>Reports</span>
             </a>
 
 
-            <a href="#" class="nav-item">
+            <a
+                href="#"
+                class="nav-item"
+            >
                 <span class="nav-icon">⚙</span>
                 <span>Settings</span>
             </a>
@@ -123,9 +145,7 @@
 
 
 
-    <!-- =====================================
-         MAIN CONTENT
-    ====================================== -->
+    <!-- MAIN CONTENT -->
 
     <main class="main-content">
 
@@ -145,17 +165,17 @@
                 <div class="profile">
 
                     <div class="profile-avatar">
-                        A
+                        D
                     </div>
 
                     <div class="profile-info">
 
                         <strong>
-                            Admin
+                            Dr. Dimas Santoso
                         </strong>
 
                         <span>
-                            Administrator
+                            Doctor
                         </span>
 
                     </div>
@@ -174,7 +194,7 @@
 
         <!-- PAGE CONTENT -->
 
-        <section class="page-content">
+        <section class="dashboard-content">
 
 
             <!-- PAGE HEADER -->
@@ -184,27 +204,19 @@
                 <div>
 
                     <p class="eyebrow">
-                        STAFF MANAGEMENT
+                        MEDICAL STAFF
                     </p>
 
                     <h1>
-                        Doctors
+                        Doctor Dashboard
                     </h1>
 
                     <p>
-                        Manage doctors and their information
-                        across Cendekia Medika.
+                        Welcome back, Dr. Dimas. Here's your
+                        clinical overview for today.
                     </p>
 
                 </div>
-
-
-                <button
-                    class="primary-button"
-                    id="addDoctorButton"
-                >
-                    + Add Doctor
-                </button>
 
             </div>
 
@@ -214,54 +226,106 @@
 
             <div class="stats-grid">
 
-                <div class="mini-stat">
 
-                    <span>
-                        Total Doctors
-                    </span>
+                <div class="stat-card">
 
-                    <strong id="totalDoctors">
-                        0
-                    </strong>
+                    <div class="stat-icon patient">
+                        ♙
+                    </div>
 
-                </div>
+                    <div class="stat-info">
 
+                        <span>
+                            My Patients
+                        </span>
 
-                <div class="mini-stat">
+                        <strong>
+                            38
+                        </strong>
 
-                    <span>
-                        Active
-                    </span>
+                        <small>
+                            4 new this week
+                        </small>
 
-                    <strong id="activeDoctors">
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="mini-stat">
-
-                    <span>
-                        Inactive
-                    </span>
-
-                    <strong id="inactiveDoctors">
-                        0
-                    </strong>
+                    </div>
 
                 </div>
 
 
-                <div class="mini-stat">
 
-                    <span>
-                        Available Today
-                    </span>
+                <div class="stat-card">
 
-                    <strong id="availableDoctors">
-                        0
-                    </strong>
+                    <div class="stat-icon appointment">
+                        ◷
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Today's Appointments
+                        </span>
+
+                        <strong>
+                            12
+                        </strong>
+
+                        <small>
+                            3 remaining
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon doctor">
+                        ⚕
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Consultations
+                        </span>
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <small>
+                            Completed today
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon nurse">
+                        ▤
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Pending Reports
+                        </span>
+
+                        <strong>
+                            5
+                        </strong>
+
+                        <small>
+                            Requires review
+                        </small>
+
+                    </div>
 
                 </div>
 
@@ -269,136 +333,327 @@
 
 
 
-            <!-- DOCTORS CARD -->
+            <!-- LOWER GRID -->
 
-            <section class="doctors-card">
-
-
-                <div class="doctors-toolbar">
-
-                    <div>
-
-                        <h2>
-                            Doctor Directory
-                        </h2>
-
-                        <p>
-                            View and manage registered doctors.
-                        </p>
-
-                    </div>
+            <div class="dashboard-grid">
 
 
-                    <div class="toolbar-actions">
+                <!-- TODAY'S APPOINTMENTS -->
 
-                        <div class="search-box">
+                <section class="dashboard-card patients-card">
 
-                            <span>
-                                ⌕
-                            </span>
+                    <div class="card-header">
 
-                            <input
-                                type="text"
-                                id="searchInput"
-                                placeholder="Search doctors..."
-                            >
+                        <div>
+
+                            <h2>
+                                Today's Appointments
+                            </h2>
+
+                            <p>
+                                Your scheduled consultations
+                            </p>
 
                         </div>
 
-
-                        <select id="statusFilter">
-
-                            <option value="all">
-                                All status
-                            </option>
-
-                            <option value="active">
-                                Active
-                            </option>
-
-                            <option value="inactive">
-                                Inactive
-                            </option>
-
-                        </select>
+                        <a href="#">
+                            View all
+                        </a>
 
                     </div>
 
-                </div>
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Patient
+                                    </th>
+
+                                    <th>
+                                        Time
+                                    </th>
+
+                                    <th>
+                                        Type
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
 
 
-
-                <!-- TABLE -->
-
-                <div class="table-container">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>
-                                    DOCTOR
-                                </th>
-
-                                <th>
-                                    SPECIALTY
-                                </th>
-
-                                <th>
-                                    EMAIL
-                                </th>
-
-                                <th>
-                                    STATUS
-                                </th>
-
-                                <th>
-                                    LAST ACTIVE
-                                </th>
-
-                                <th>
-                                    ACTION
-                                </th>
-
-                            </tr>
-
-                        </thead>
+                            <tbody>
 
 
-                        <tbody id="doctorTableBody">
-                        </tbody>
+                                <tr>
 
-                    </table>
+                                    <td>
 
-                </div>
+                                        <div class="patient-name">
+
+                                            <div class="table-avatar">
+                                                AS
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Amanda Sari
+                                                </strong>
+
+                                                <span>
+                                                    PT-001248
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        09:00 AM
+                                    </td>
+
+                                    <td>
+                                        Follow-up
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status active">
+                                            Completed
+                                        </span>
+
+                                    </td>
+
+                                </tr>
 
 
+                                <tr>
 
-                <!-- EMPTY STATE -->
+                                    <td>
 
-                <div
-                    class="empty-state"
-                    id="emptyState"
-                >
+                                        <div class="patient-name">
 
-                    <div class="empty-icon">
-                        ⚕
+                                            <div class="table-avatar">
+                                                RM
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Rizky Maulana
+                                                </strong>
+
+                                                <span>
+                                                    PT-001247
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        10:30 AM
+                                    </td>
+
+                                    <td>
+                                        Consultation
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status pending">
+                                            Upcoming
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="patient-name">
+
+                                            <div class="table-avatar">
+                                                DN
+                                            </div>
+
+                                            <div>
+
+                                                <strong>
+                                                    Dinda Nuraini
+                                                </strong>
+
+                                                <span>
+                                                    PT-001246
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        01:00 PM
+                                    </td>
+
+                                    <td>
+                                        New Patient
+                                    </td>
+
+                                    <td>
+
+                                        <span class="status pending">
+                                            Upcoming
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
                     </div>
 
-                    <h3>
-                        No doctors found
-                    </h3>
-
-                    <p>
-                        Try changing your search or filter.
-                    </p>
-
-                </div>
+                </section>
 
 
-            </section>
+
+                <!-- QUICK ACTIONS -->
+
+                <section class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>
+                                Quick Actions
+                            </h2>
+
+                            <p>
+                                Common clinical tasks
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-icon">
+                                ♙
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Patient Records
+                                </strong>
+
+                                <span>
+                                    View patient information
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-icon">
+                                +
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    New Consultation
+                                </strong>
+
+                                <span>
+                                    Start a patient consultation
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-icon">
+                                ▤
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Medical Records
+                                </strong>
+
+                                <span>
+                                    Review clinical records
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+                        <button class="quick-action">
+
+                            <span class="quick-icon">
+                                ◷
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Appointments
+                                </strong>
+
+                                <span>
+                                    Manage your schedule
+                                </span>
+
+                            </div>
+
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+            </div>
+
 
         </section>
 
@@ -408,967 +663,16 @@
 
 
 
-<!-- =====================================
-     ADD DOCTOR MODAL
-====================================== -->
-
-<div
-    class="modal-overlay"
-    id="doctorModal"
->
-
-    <div class="modal">
-
-
-        <div class="modal-header">
-
-            <div>
-
-                <p class="eyebrow">
-                    STAFF MANAGEMENT
-                </p>
-
-                <h2>
-                    Add New Doctor
-                </h2>
-
-                <p>
-                    Create a doctor profile for the hospital system.
-                </p>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="modal-close"
-                id="closeModal"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-
-        <form id="doctorForm">
-
-            <div class="form-grid">
-
-
-                <div class="form-group full">
-
-                    <label for="doctorName">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="doctorName"
-                        placeholder="Dr. Full Name"
-                        required
-                    >
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="doctorEmail">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="doctorEmail"
-                        placeholder="doctor@cendekiamedika.com"
-                        required
-                    >
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="specialty">
-                        Specialty
-                    </label>
-
-                    <select
-                        id="specialty"
-                        required
-                    >
-
-                        <option value="">
-                            Select specialty
-                        </option>
-
-                        <option value="Internal Medicine">
-                            Internal Medicine
-                        </option>
-
-                        <option value="Cardiology">
-                            Cardiology
-                        </option>
-
-                        <option value="Neurology">
-                            Neurology
-                        </option>
-
-                        <option value="Pediatrics">
-                            Pediatrics
-                        </option>
-
-                        <option value="Surgery">
-                            Surgery
-                        </option>
-
-                        <option value="Obstetrics & Gynecology">
-                            Obstetrics & Gynecology
-                        </option>
-
-                        <option value="Dermatology">
-                            Dermatology
-                        </option>
-
-                        <option value="Emergency Medicine">
-                            Emergency Medicine
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="doctorPhone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="doctorPhone"
-                        placeholder="+62 xxx xxxx xxxx"
-                    >
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="doctorStatus">
-                        Status
-                    </label>
-
-                    <select id="doctorStatus">
-
-                        <option value="active">
-                            Active
-                        </option>
-
-                        <option value="inactive">
-                            Inactive
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="modal-actions">
-
-                <button
-                    type="button"
-                    class="cancel-button"
-                    id="cancelModal"
-                >
-                    Cancel
-                </button>
-
-
-                <button
-                    type="submit"
-                    class="primary-button"
-                >
-                    Add Doctor
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================
-     JAVASCRIPT
-====================================== -->
-
-<script src="../../data/users.js"></script>
-
-
 <script>
-
-const doctorTableBody =
-    document.getElementById("doctorTableBody");
-
-const emptyState =
-    document.getElementById("emptyState");
-
-
-// ========================================
-// GET DOCTORS FROM USERS DATA
-// ========================================
-
-let doctors =
-    users.filter(user => user.role === "doctor");
-
-
-// ========================================
-// DISPLAY DOCTORS
-// ========================================
-
-function displayDoctors(list) {
-
-    doctorTableBody.innerHTML = "";
-
-    emptyState.style.display =
-        list.length === 0
-            ? "block"
-            : "none";
-
-
-    list.forEach(doctor => {
-
-        const row =
-            document.createElement("tr");
-
-
-        row.dataset.status =
-            doctor.status;
-
-
-        const initials =
-            doctor.name
-                .replace("Dr.", "")
-                .trim()
-                .split(" ")
-                .map(word => word.charAt(0))
-                .join("")
-                .substring(0, 2)
-                .toUpperCase();
-
-
-        const statusName =
-            doctor.status.charAt(0).toUpperCase()
-            + doctor.status.slice(1);
-
-
-        row.innerHTML = `
-
-            <td>
-
-                <div class="doctor-cell">
-
-                    <div class="doctor-avatar">
-                        ${initials}
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            ${doctor.name}
-                        </strong>
-
-                        <span>
-                            ${doctor.id}
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </td>
-
-
-            <td>
-                <span class="specialty-badge">
-                    ${doctor.specialty || "General Practice"}
-                </span>
-            </td>
-
-
-            <td>
-                ${doctor.email}
-            </td>
-
-
-            <td>
-
-                <span class="status ${doctor.status}">
-                    ${statusName}
-                </span>
-
-            </td>
-
-
-            <td>
-                ${doctor.lastActive}
-            </td>
-
-
-            <td>
-
-                <button
-                    class="action-button"
-                    type="button"
-                    onclick="showDoctorMenu(this)"
-                >
-                    •••
-                </button>
-
-            </td>
-
-        `;
-
-
-        doctorTableBody.appendChild(row);
-
-    });
-
-}
-
-
-// ========================================
-// UPDATE STATISTICS
-// ========================================
-
-function updateStatistics() {
-
-    const total =
-        doctors.length;
-
-
-    const active =
-        doctors.filter(
-            doctor => doctor.status === "active"
-        ).length;
-
-
-    const inactive =
-        doctors.filter(
-            doctor => doctor.status === "inactive"
-        ).length;
-
-
-    document.getElementById(
-        "totalDoctors"
-    ).textContent = total;
-
-
-    document.getElementById(
-        "activeDoctors"
-    ).textContent = active;
-
-
-    document.getElementById(
-        "inactiveDoctors"
-    ).textContent = inactive;
-
-
-    document.getElementById(
-        "availableDoctors"
-    ).textContent = active;
-
-}
-
-
-// ========================================
-// SEARCH
-// ========================================
-
-document
-    .getElementById("searchInput")
-    .addEventListener(
-        "input",
-        function () {
-
-            applyFilters();
-
-        }
-    );
-
-
-// ========================================
-// STATUS FILTER
-// ========================================
-
-document
-    .getElementById("statusFilter")
-    .addEventListener(
-        "change",
-        function () {
-
-            applyFilters();
-
-        }
-    );
-
-
-// ========================================
-// FILTER FUNCTION
-// ========================================
-
-function applyFilters() {
-
-    const search =
-        document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase();
-
-
-    const status =
-        document
-            .getElementById("statusFilter")
-            .value;
-
-
-    const filtered =
-        doctors.filter(doctor => {
-
-            const matchesSearch =
-                doctor.name
-                    .toLowerCase()
-                    .includes(search)
-                ||
-                doctor.email
-                    .toLowerCase()
-                    .includes(search)
-                ||
-                doctor.id
-                    .toLowerCase()
-                    .includes(search)
-                ||
-                (doctor.specialty || "")
-                    .toLowerCase()
-                    .includes(search);
-
-
-            const matchesStatus =
-                status === "all"
-                ||
-                doctor.status === status;
-
-
-            return matchesSearch && matchesStatus;
-
-        });
-
-
-    displayDoctors(filtered);
-
-}
-
-
-// ========================================
-// DOCTOR ACTION MENU
-// ========================================
-
-function showDoctorMenu(button) {
-
-    document
-        .querySelectorAll(".action-menu")
-        .forEach(menu => menu.remove());
-
-
-    const row =
-        button.closest("tr");
-
-
-    const doctorId =
-        row.querySelector(
-            ".doctor-cell span"
-        ).textContent;
-
-
-    const doctor =
-        doctors.find(
-            item => item.id === doctorId
-        );
-
-
-    const menu =
-        document.createElement("div");
-
-
-    menu.className =
-        "action-menu";
-
-
-    menu.innerHTML = `
-
-        <button
-            type="button"
-            onclick="viewDoctor('${doctor.id}')"
-        >
-            View Profile
-        </button>
-
-        <button
-            type="button"
-            onclick="editDoctor('${doctor.id}')"
-        >
-            Edit Doctor
-        </button>
-
-        <button
-            type="button"
-            class="danger"
-            onclick="deactivateDoctor('${doctor.id}')"
-        >
-            Deactivate Doctor
-        </button>
-
-    `;
-
-
-    row.style.position =
-        "relative";
-
-
-    row.appendChild(menu);
-
-}
-
-
-// ========================================
-// VIEW DOCTOR
-// ========================================
-
-function viewDoctor(id) {
-
-    const doctor =
-        doctors.find(
-            item => item.id === id
-        );
-
-
-    if (!doctor) return;
-
-
-    alert(
-
-        "Doctor Profile\n\n" +
-
-        "Name: " +
-        doctor.name +
-
-        "\nDoctor ID: " +
-        doctor.id +
-
-        "\nEmail: " +
-        doctor.email +
-
-        "\nSpecialty: " +
-        (doctor.specialty || "General Practice") +
-
-        "\nStatus: " +
-        doctor.status
-
-    );
-
-}
-
-
-// ========================================
-// EDIT DOCTOR
-// ========================================
-
-function editDoctor(id) {
-
-    const doctor =
-        doctors.find(
-            item => item.id === id
-        );
-
-
-    if (!doctor) return;
-
-
-    document.getElementById(
-        "doctorName"
-    ).value = doctor.name;
-
-
-    document.getElementById(
-        "doctorEmail"
-    ).value = doctor.email;
-
-
-    document.getElementById(
-        "specialty"
-    ).value =
-        doctor.specialty || "";
-
-
-    document.getElementById(
-        "doctorStatus"
-    ).value = doctor.status;
-
-
-    doctorForm.dataset.editing =
-        "true";
-
-
-    doctorForm.dataset.doctorId =
-        id;
-
-
-    document.querySelector(
-        ".modal-header h2"
-    ).textContent =
-        "Edit Doctor";
-
-
-    document.querySelector(
-        ".modal-header p:last-child"
-    ).textContent =
-        "Update this doctor's information.";
-
-
-    document.querySelector(
-        "#doctorForm .primary-button"
-    ).textContent =
-        "Save Changes";
-
-
-    doctorModal.classList.add("show");
-
-}
-
-
-// ========================================
-// DEACTIVATE DOCTOR
-// ========================================
-
-function deactivateDoctor(id) {
-
-    const doctor =
-        doctors.find(
-            item => item.id === id
-        );
-
-
-    if (!doctor) return;
-
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to deactivate " +
-            doctor.name +
-            "?"
-        );
-
-
-    if (!confirmed) return;
-
-
-    doctor.status =
-        "inactive";
-
-
-    doctor.lastActive =
-        "Deactivated";
-
-
-    updateStatistics();
-
-    applyFilters();
-
-}
-
-
-// ========================================
-// MODAL
-// ========================================
-
-const doctorModal =
-    document.getElementById("doctorModal");
-
-
-const addDoctorButton =
-    document.getElementById("addDoctorButton");
-
-
-const closeModal =
-    document.getElementById("closeModal");
-
-
-const cancelModal =
-    document.getElementById("cancelModal");
-
-
-const doctorForm =
-    document.getElementById("doctorForm");
-
-
-addDoctorButton.addEventListener(
-    "click",
-    function () {
-
-        doctorForm.reset();
-
-        doctorForm.dataset.editing =
-            "false";
-
-        document.querySelector(
-            ".modal-header h2"
-        ).textContent =
-            "Add New Doctor";
-
-        document.querySelector(
-            ".modal-header p:last-child"
-        ).textContent =
-            "Create a doctor profile for the hospital system.";
-
-        document.querySelector(
-            "#doctorForm .primary-button"
-        ).textContent =
-            "Add Doctor";
-
-        doctorModal.classList.add("show");
-
-    }
-);
-
-
-function closeDoctorModal() {
-
-    doctorModal.classList.remove("show");
-
-    doctorForm.reset();
-
-}
-
-
-closeModal.addEventListener(
-    "click",
-    closeDoctorModal
-);
-
-
-cancelModal.addEventListener(
-    "click",
-    closeDoctorModal
-);
-
-
-doctorModal.addEventListener(
-    "click",
-    function (event) {
-
-        if (event.target === doctorModal) {
-
-            closeDoctorModal();
-
-        }
-
-    }
-);
-
-
-// ========================================
-// FORM SUBMIT
-// ========================================
-
-doctorForm.addEventListener(
-    "submit",
-    function (event) {
-
-        event.preventDefault();
-
-
-        const name =
-            document.getElementById(
-                "doctorName"
-            ).value.trim();
-
-
-        const email =
-            document.getElementById(
-                "doctorEmail"
-            ).value.trim();
-
-
-        const specialty =
-            document.getElementById(
-                "specialty"
-            ).value;
-
-
-        const status =
-            document.getElementById(
-                "doctorStatus"
-            ).value;
-
-
-        const isEditing =
-            doctorForm.dataset.editing === "true";
-
-
-        if (isEditing) {
-
-            const id =
-                doctorForm.dataset.doctorId;
-
-
-            const doctor =
-                doctors.find(
-                    item => item.id === id
-                );
-
-
-            if (doctor) {
-
-                doctor.name =
-                    name;
-
-                doctor.email =
-                    email;
-
-                doctor.specialty =
-                    specialty;
-
-                doctor.status =
-                    status;
-
-            }
-
-        } else {
-
-            const newDoctor = {
-
-                id:
-                    "DOC-" +
-                    Math.floor(
-                        1000 +
-                        Math.random() * 9000
-                    ),
-
-                name:
-                    name,
-
-                email:
-                    email,
-
-                role:
-                    "doctor",
-
-                specialty:
-                    specialty,
-
-                status:
-                    status,
-
-                lastActive:
-                    "Just now"
-
-            };
-
-
-            doctors.unshift(
-                newDoctor
-            );
-
-
-            users.unshift(
-                newDoctor
-            );
-
-        }
-
-
-        updateStatistics();
-
-        applyFilters();
-
-        closeDoctorModal();
-
-
-        alert(
-            isEditing
-                ? name + " has been updated successfully!"
-                : name + " has been added successfully!"
-        );
-
-    }
-);
-
-
-// ========================================
-// CLOSE ACTION MENUS
-// ========================================
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        if (
-            !event.target.closest(
-                ".action-button"
-            )
-            &&
-            !event.target.closest(
-                ".action-menu"
-            )
-        ) {
-
-            document
-                .querySelectorAll(".action-menu")
-                .forEach(
-                    menu => menu.remove()
-                );
-
-        }
-
-    }
-);
-
-
-// ========================================
-// LOGOUT
-// ========================================
 
 function logout() {
 
-    window.location.href =
-        "../../index.html";
+    window.location.href = "../../index.html";
 
 }
 
-
-// ========================================
-// INITIAL LOAD
-// ========================================
-
-displayDoctors(doctors);
-
-updateStatistics();
-
 </script>
+
 
 </body>
 
