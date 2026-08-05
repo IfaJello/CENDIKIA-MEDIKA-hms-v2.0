@@ -22,546 +22,664 @@
 
 <body>
 
-    <!-- ========================================
-         SIDEBAR
-         ======================================== -->
-
-    <aside class="sidebar">
-
-        <div class="sidebar-brand">
-
-            <div class="sidebar-logo">
-                +
-            </div>
-
-            <div>
-
-                <strong>
-                    CENDEKIA
-                </strong>
-
-                <span>
-                    MEDIKA
-                </span>
-
-            </div>
-
-        </div>
+    <div class="app-layout">
 
 
-        <nav class="sidebar-nav">
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
 
-            <p class="nav-label">
-                MAIN
-            </p>
+        <aside class="sidebar">
 
-            <a
-                href="#"
-                class="nav-item active"
-            >
-                <span>⌂</span>
-                Dashboard
-            </a>
+            <!-- Logo -->
 
+            <div class="sidebar-brand">
 
-            <p class="nav-label">
-                MANAGEMENT
-            </p>
+                <div class="sidebar-logo">
+                    +
+                </div>
 
-            <a
-                href="#"
-                class="nav-item"
-            >
-                <span>♙</span>
-                Users
-            </a>
+                <div>
 
-            <a
-                href="#"
-                class="nav-item"
-            >
-                <span>♡</span>
-                Patients
-            </a>
+                    <strong>
+                        CENDEKIA
+                    </strong>
 
-            <a
-                href="#"
-                class="nav-item"
-            >
-                <span>⚕</span>
-                Doctors
-            </a>
-
-            <a
-                href="#"
-                class="nav-item"
-            >
-                <span>✚</span>
-                Nurses
-            </a>
-
-            <a
-                href="#"
-                class="nav-item"
-            >
-                <span>▣</span>
-                Appointments
-            </a>
-
-
-            <p class="nav-label">
-                SYSTEM
-            </p>
-
-            <a
-                href="#"
-                class="nav-item"
-            >
-                <span>▤</span>
-                Reports
-            </a>
-
-            <a
-                href="#"
-                class="nav-item"
-            >
-                <span>⚙</span>
-                Settings
-            </a>
-
-        </nav>
-
-
-        <div class="sidebar-bottom">
-
-            <button
-                class="logout-button"
-                onclick="logout()"
-            >
-                <span>↪</span>
-                Sign out
-            </button>
-
-        </div>
-
-    </aside>
-
-
-
-    <!-- ========================================
-         MAIN CONTENT
-         ======================================== -->
-
-    <main class="main-content">
-
-
-        <!-- TOP BAR -->
-
-        <header class="topbar">
-
-            <div>
-
-                <p class="breadcrumb">
-                    Administration / Dashboard
-                </p>
-
-            </div>
-
-
-            <div class="topbar-right">
-
-                <button class="notification-button">
-                    ♧
-                    <span class="notification-dot"></span>
-                </button>
-
-
-                <div class="admin-profile">
-
-                    <div class="profile-avatar">
-                        A
-                    </div>
-
-                    <div class="profile-info">
-
-                        <strong>
-                            Administrator
-                        </strong>
-
-                        <span>
-                            System Admin
-                        </span>
-
-                    </div>
-
-                    <span class="profile-arrow">
-                        ▾
+                    <span>
+                        MEDIKA
                     </span>
 
                 </div>
 
             </div>
 
-        </header>
+
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-label">
+                    MAIN MENU
+                </p>
 
 
+                <a
+                    href="#"
+                    class="nav-item active"
+                >
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
 
-        <!-- PAGE CONTENT -->
 
-        <section class="page-content">
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">♙</span>
+                    <span>Patients</span>
+                </a>
 
 
-            <!-- WELCOME -->
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">⚕</span>
+                    <span>Doctors</span>
+                </a>
 
-            <div class="welcome-section">
 
-                <div>
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">✚</span>
+                    <span>Nurses</span>
+                </a>
 
-                    <p class="eyebrow">
-                        ADMINISTRATION
-                    </p>
 
-                    <h1>
-                        Good morning, Administrator
-                    </h1>
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">◷</span>
+                    <span>Appointments</span>
+                </a>
 
-                    <p>
-                        Here's what's happening across
-                        Cendekia Medika today.
-                    </p>
 
-                </div>
+                <p class="nav-label secondary">
+                    MANAGEMENT
+                </p>
 
-                <div class="date-display">
-                    Wednesday, August 5, 2026
-                </div>
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">♙</span>
+                    <span>User Management</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">▤</span>
+                    <span>Reports</span>
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+
+            <!-- Sidebar bottom -->
+
+            <div class="sidebar-bottom">
+
+                <button
+                    class="logout-button"
+                    onclick="logout()"
+                >
+                    <span>↪</span>
+                    Sign out
+                </button>
 
             </div>
 
+        </aside>
 
 
-            <!-- ========================================
-                 STATISTICS
-                 ======================================== -->
 
-            <section class="stats-grid">
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <main class="main-content">
 
 
-                <div class="stat-card">
+            <!-- TOP BAR -->
 
-                    <div class="stat-icon patient-icon">
-                        ♡
-                    </div>
+            <header class="topbar">
 
-                    <div class="stat-content">
+                <div class="mobile-menu">
+                    ☰
+                </div>
 
-                        <span>
-                            Total Patients
+
+                <div class="topbar-right">
+
+                    <button class="notification-button">
+                        ♧
+                        <span class="notification-dot"></span>
+                    </button>
+
+
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            A
+                        </div>
+
+                        <div class="profile-info">
+
+                            <strong>
+                                Admin
+                            </strong>
+
+                            <span>
+                                Administrator
+                            </span>
+
+                        </div>
+
+                        <span class="profile-arrow">
+                            ▾
                         </span>
-
-                        <strong>
-                            1,284
-                        </strong>
-
-                        <small>
-                            ↑ 8.2% this month
-                        </small>
 
                     </div>
 
                 </div>
 
+            </header>
 
-                <div class="stat-card">
 
-                    <div class="stat-icon doctor-icon">
-                        ⚕
+
+            <!-- DASHBOARD CONTENT -->
+
+            <section class="dashboard-content">
+
+
+                <!-- PAGE HEADING -->
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            ADMINISTRATION
+                        </p>
+
+                        <h1>
+                            Good morning, Admin
+                        </h1>
+
+                        <p>
+                            Here's what's happening at
+                            Cendekia Medika today.
+                        </p>
+
                     </div>
 
-                    <div class="stat-content">
 
-                        <span>
-                            Doctors
-                        </span>
-
-                        <strong>
-                            86
-                        </strong>
-
-                        <small>
-                            4 departments
-                        </small>
-
-                    </div>
+                    <button class="primary-button">
+                        + Add User
+                    </button>
 
                 </div>
 
 
-                <div class="stat-card">
 
-                    <div class="stat-icon nurse-icon">
-                        ✚
+                <!-- STATISTICS -->
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon patient">
+                            ♙
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span>
+                                Total Patients
+                            </span>
+
+                            <strong>
+                                1,248
+                            </strong>
+
+                            <small>
+                                +8.2% this month
+                            </small>
+
+                        </div>
+
                     </div>
 
-                    <div class="stat-content">
 
-                        <span>
-                            Nurses
-                        </span>
 
-                        <strong>
-                            142
-                        </strong>
+                    <div class="stat-card">
 
-                        <small>
-                            12 on duty today
-                        </small>
+                        <div class="stat-icon doctor">
+                            ⚕
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span>
+                                Doctors
+                            </span>
+
+                            <strong>
+                                42
+                            </strong>
+
+                            <small>
+                                3 new this month
+                            </small>
+
+                        </div>
 
                     </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon nurse">
+                            ✚
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span>
+                                Nurses
+                            </span>
+
+                            <strong>
+                                86
+                            </strong>
+
+                            <small>
+                                4 new this month
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon appointment">
+                            ◷
+                        </div>
+
+                        <div class="stat-info">
+
+                            <span>
+                                Appointments
+                            </span>
+
+                            <strong>
+                                156
+                            </strong>
+
+                            <small>
+                                Today
+                            </small>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
 
-                <div class="stat-card">
 
-                    <div class="stat-icon appointment-icon">
-                        ▣
-                    </div>
+                <!-- LOWER GRID -->
 
-                    <div class="stat-content">
+                <div class="dashboard-grid">
 
-                        <span>
-                            Appointments
-                        </span>
 
-                        <strong>
-                            64
-                        </strong>
+                    <!-- RECENT PATIENTS -->
 
-                        <small>
-                            18 remaining today
-                        </small>
+                    <section class="dashboard-card patients-card">
 
-                    </div>
+                        <div class="card-header">
+
+                            <div>
+
+                                <h2>
+                                    Recent Patients
+                                </h2>
+
+                                <p>
+                                    Recently registered patients
+                                </p>
+
+                            </div>
+
+                            <a href="#">
+                                View all
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-container">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Patient
+                                        </th>
+
+                                        <th>
+                                            ID
+                                        </th>
+
+                                        <th>
+                                            Department
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="patient-name">
+
+                                                <div class="table-avatar">
+                                                    AS
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Amanda Sari
+                                                    </strong>
+
+                                                    <span>
+                                                        Female, 28
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            PT-001248
+                                        </td>
+
+                                        <td>
+                                            Internal Medicine
+                                        </td>
+
+                                        <td>
+                                            <span class="status active">
+                                                Active
+                                            </span>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="patient-name">
+
+                                                <div class="table-avatar">
+                                                    RM
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Rizky Maulana
+                                                    </strong>
+
+                                                    <span>
+                                                        Male, 35
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            PT-001247
+                                        </td>
+
+                                        <td>
+                                            Cardiology
+                                        </td>
+
+                                        <td>
+                                            <span class="status active">
+                                                Active
+                                            </span>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="patient-name">
+
+                                                <div class="table-avatar">
+                                                    DN
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Dinda Nuraini
+                                                    </strong>
+
+                                                    <span>
+                                                        Female, 41
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            PT-001246
+                                        </td>
+
+                                        <td>
+                                            Neurology
+                                        </td>
+
+                                        <td>
+                                            <span class="status pending">
+                                                Pending
+                                            </span>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <section class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h2>
+                                    Quick Actions
+                                </h2>
+
+                                <p>
+                                    Common administrative tasks
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-actions">
+
+
+                            <button class="quick-action">
+
+                                <span class="quick-icon">
+                                    +
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Add Patient
+                                    </strong>
+
+                                    <span>
+                                        Register a new patient
+                                    </span>
+
+                                </div>
+
+                            </button>
+
+
+                            <button class="quick-action">
+
+                                <span class="quick-icon">
+                                    ♙
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Add Staff
+                                    </strong>
+
+                                    <span>
+                                        Add doctor or nurse
+                                    </span>
+
+                                </div>
+
+                            </button>
+
+
+                            <button class="quick-action">
+
+                                <span class="quick-icon">
+                                    ◷
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Schedule
+                                    </strong>
+
+                                    <span>
+                                        Manage appointments
+                                    </span>
+
+                                </div>
+
+                            </button>
+
+
+                            <button class="quick-action">
+
+                                <span class="quick-icon">
+                                    ▤
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Generate Report
+                                    </strong>
+
+                                    <span>
+                                        View hospital reports
+                                    </span>
+
+                                </div>
+
+                            </button>
+
+
+                        </div>
+
+                    </section>
+
 
                 </div>
-
 
             </section>
 
+        </main>
 
+    </div>
 
-            <!-- ========================================
-                 DASHBOARD GRID
-                 ======================================== -->
 
-            <section class="dashboard-grid">
-
-
-                <!-- RECENT ACTIVITY -->
-
-                <div class="dashboard-card activity-card">
-
-                    <div class="card-header">
-
-                        <div>
-
-                            <h2>
-                                Recent Activity
-                            </h2>
-
-                            <p>
-                                Latest system activities
-                            </p>
-
-                        </div>
-
-                        <button>
-                            View all
-                        </button>
-
-                    </div>
-
-
-                    <div class="activity-list">
-
-
-                        <div class="activity-item">
-
-                            <div class="activity-avatar">
-                                N
-                            </div>
-
-                            <div class="activity-info">
-
-                                <strong>
-                                    New patient registered
-                                </strong>
-
-                                <span>
-                                    Nadia Permata · 10 minutes ago
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="activity-item">
-
-                            <div class="activity-avatar">
-                                D
-                            </div>
-
-                            <div class="activity-info">
-
-                                <strong>
-                                    Doctor account created
-                                </strong>
-
-                                <span>
-                                    Dr. Ahmad Fauzi · 32 minutes ago
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="activity-item">
-
-                            <div class="activity-avatar">
-                                R
-                            </div>
-
-                            <div class="activity-info">
-
-                                <strong>
-                                    Patient record updated
-                                </strong>
-
-                                <span>
-                                    Rina Maharani · 1 hour ago
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="activity-item">
-
-                            <div class="activity-avatar">
-                                S
-                            </div>
-
-                            <div class="activity-info">
-
-                                <strong>
-                                    Nurse account created
-                                </strong>
-
-                                <span>
-                                    Siti Rahma · 2 hours ago
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- QUICK ACTIONS -->
-
-                <div class="dashboard-card">
-
-                    <div class="card-header">
-
-                        <div>
-
-                            <h2>
-                                Quick Actions
-                            </h2>
-
-                            <p>
-                                Common administrative tasks
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="quick-actions">
-
-                        <button class="quick-action">
-                            <span>+</span>
-                            <div>
-                                <strong>
-                                    Add User
-                                </strong>
-                                <small>
-                                    Create a new account
-                                </small>
-                            </div>
-                        </button>
-
-
-                        <button class="quick-action">
-                            <span>+</span>
-                            <div>
-                                <strong>
-                                    Register Patient
-                                </strong>
-                                <small>
-                                    Add a new patient
-                                </small>
-                            </div>
-                        </button>
-
-
-                        <button class="quick-action">
-                            <span>▣</span>
-                            <div>
-                                <strong>
-                                    Schedule
-                                </strong>
-                                <small>
-                                    Manage appointments
-                                </small>
-                            </div>
-                        </button>
-
-
-                        <button class="quick-action">
-                            <span>▤</span>
-                            <div>
-                                <strong>
-                                    Generate Report
-                                </strong>
-                                <small>
-                                    View hospital reports
-                                </small>
-                            </div>
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-            </section>
-
-
-        </section>
-
-    </main>
-
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
 
     <script>
 
