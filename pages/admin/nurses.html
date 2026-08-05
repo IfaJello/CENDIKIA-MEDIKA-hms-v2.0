@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nurses | Cendekia Medika</title>
+
+    <link
+        rel="stylesheet"
+        href="nurses.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                +
+            </div>
+
+            <div>
+
+                <strong>
+                    CENDEKIA
+                </strong>
+
+                <span>
+                    MEDIKA
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="patients.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Patients</span>
+            </a>
+
+
+            <a
+                href="doctors.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚕</span>
+                <span>Doctors</span>
+            </a>
+
+
+            <a
+                href="nurses.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">✚</span>
+                <span>Nurses</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Appointments</span>
+            </a>
+
+
+            <p class="nav-label secondary">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="users.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>User Management</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                type="button"
+                onclick="logout()"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Sign out
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
+                    ♧
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        STAFF MANAGEMENT
+                    </p>
+
+
+                    <h1>
+                        Nurses
+                    </h1>
+
+
+                    <p>
+                        View and manage nurses registered
+                        at Cendekia Medika.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    type="button"
+                    onclick="addNurse()"
+                >
+                    + Add Nurse
+                </button>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
+
+            <div class="stats-grid">
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Total Nurses
+                    </span>
+
+                    <strong id="totalNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Active
+                    </span>
+
+                    <strong id="activeNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Inactive
+                    </span>
+
+                    <strong id="inactiveNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Recently Active
+                    </span>
+
+                    <strong id="recentNurses">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 NURSE CARD
+            ====================================== -->
+
+            <section class="nurses-card">
+
+
+                <!-- TOOLBAR -->
+
+                <div class="nurses-toolbar">
+
+
+                    <div>
+
+                        <h2>
+                            All Nurses
+                        </h2>
+
+                        <p>
+                            Registered nurse accounts.
+                        </p>
+
+                    </div>
+
+
+                    <div class="toolbar-actions">
+
+
+                        <!-- SEARCH -->
+
+                        <div class="search-box">
+
+                            <span>
+                                ⌕
+                            </span>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search nurses..."
+                            >
+
+                        </div>
+
+
+
+                        <!-- STATUS FILTER -->
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All status
+                            </option>
+
+                            <option value="active">
+                                Active
+                            </option>
+
+                            <option value="inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TABLE -->
+
+                <div class="table-container">
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    NURSE
+                                </th>
+
+                                <th>
+                                    NURSE ID
+                                </th>
+
+                                <th>
+                                    EMAIL
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    LAST ACTIVE
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="nurseTableBody">
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    style="display:none;"
+                >
+
+                    <div class="empty-icon">
+                        ✚
+                    </div>
+
+                    <h3>
+                        No nurses found
+                    </h3>
+
+                    <p>
+                        Try changing your search or filter.
+                    </p>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================
+     USERS DATA
+====================================== -->
+
+<script src="../../data/users.js"></script>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* ========================================
+   ELEMENTS
+======================================== */
+
+const nurseTableBody =
+    document.getElementById(
+        "nurseTableBody"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const statusFilter =
+    document.getElementById(
+        "statusFilter"
+    );
+
+
+const emptyState =
+    document.getElementById(
+        "emptyState"
+    );
+
+
+
+/* ========================================
+   GET NURSES
+======================================== */
+
+function getNurses() {
+
+    return users.filter(
+        user =>
+            user.role === "nurse"
+    );
+
+}
+
+
+
+/* ========================================
+   UPDATE STATISTICS
+======================================== */
+
+function updateStatistics() {
+
+
+    const nurses =
+        getNurses();
+
+
+    const active =
+        nurses.filter(
+            nurse =>
+                nurse.status === "active"
+        );
+
+
+    const inactive =
+        nurses.filter(
+            nurse =>
+                nurse.status === "inactive"
+        );
+
+
+    const recent =
+        nurses.filter(
+            nurse =>
+                nurse.lastActive !==
+                "Yesterday"
+        );
+
+
+    document.getElementById(
+        "totalNurses"
+    ).textContent =
+        nurses.length;
+
+
+    document.getElementById(
+        "activeNurses"
+    ).textContent =
+        active.length;
+
+
+    document.getElementById(
+        "inactiveNurses"
+    ).textContent =
+        inactive.length;
+
+
+    document.getElementById(
+        "recentNurses"
+    ).textContent =
+        recent.length;
+
+}
+
+
+
+/* ========================================
+   DISPLAY NURSES
+======================================== */
+
+function displayNurses() {
+
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const selectedStatus =
+        statusFilter.value;
+
+
+    let nurses =
+        getNurses();
+
+
+    /* SEARCH */
+
+    if (search) {
+
+        nurses =
+            nurses.filter(
+                nurse => {
+
+                    const searchableText =
+                        (
+                            nurse.name
+                            + " "
+                            + nurse.id
+                            + " "
+                            + nurse.email
+                        )
+                        .toLowerCase();
+
+
+                    return searchableText
+                        .includes(search);
+
+                }
+            );
+
+    }
+
+
+
+    /* STATUS FILTER */
+
+    if (selectedStatus !== "all") {
+
+        nurses =
+            nurses.filter(
+                nurse =>
+                    nurse.status ===
+                    selectedStatus
+            );
+
+    }
+
+
+
+    /* CLEAR TABLE */
+
+    nurseTableBody.innerHTML = "";
+
+
+
+    /* EMPTY STATE */
+
+    if (nurses.length === 0) {
+
+        emptyState.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    emptyState.style.display =
+        "none";
+
+
+
+    /* CREATE ROWS */
+
+    nurses.forEach(
+        nurse => {
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            const initials =
+                nurse.name
+                    .trim()
+                    .split(/\s+/)
+                    .map(
+                        word =>
+                            word
+                                .charAt(0)
+                                .toUpperCase()
+                    )
+                    .join("")
+                    .substring(0, 2);
+
+
+            const statusName =
+                nurse.status
+                    .charAt(0)
+                    .toUpperCase()
+                + nurse.status.slice(1);
+
+
+
+            row.innerHTML = `
+
+                <td>
+
+                    <div class="nurse-cell">
+
+
+                        <div class="nurse-avatar">
+                            ${initials}
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHTML(
+                                    nurse.name
+                                )}
+                            </strong>
+
+                            <span>
+                                Registered Nurse
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    <strong>
+                        ${escapeHTML(
+                            nurse.id
+                        )}
+                    </strong>
+
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        nurse.email
+                    )}
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="status ${nurse.status}"
+                    >
+                        ${statusName}
+                    </span>
+
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        nurse.lastActive
+                    )}
+                </td>
+
+
+                <td>
+
+                    <button
+                        class="action-button"
+                        type="button"
+                        onclick="viewNurse('${escapeJS(nurse.id)}')"
+                    >
+                        •••
+                    </button>
+
+                </td>
+
+            `;
+
+
+            nurseTableBody.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ========================================
+   VIEW NURSE
+======================================== */
+
+function viewNurse(nurseId) {
+
+
+    const nurse =
+        users.find(
+            user =>
+                user.id === nurseId
+        );
+
+
+    if (!nurse) {
+
+        alert(
+            "Nurse could not be found."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        "NURSE PROFILE\n\n"
+        + "Name: "
+        + nurse.name
+        + "\n\n"
+        + "Nurse ID: "
+        + nurse.id
+        + "\n\n"
+        + "Email: "
+        + nurse.email
+        + "\n\n"
+        + "Status: "
+        + capitalize(nurse.status)
+        + "\n\n"
+        + "Last Active: "
+        + nurse.lastActive
+
+    );
+
+}
+
+
+
+/* ========================================
+   ADD NURSE
+======================================== */
+
+function addNurse() {
+
+    window.location.href =
+        "users.html";
+
+}
+
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+function logout() {
+
+    window.location.href =
+        "../../index.html";
+
+}
+
+
+
+/* ========================================
+   CAPITALIZE
+======================================== */
+
+function capitalize(value) {
+
+    if (!value) {
+        return "";
+    }
+
+
+    return (
+        value.charAt(0).toUpperCase()
+        + value.slice(1)
+    );
+
+}
+
+
+
+/* ========================================
+   ESCAPE HTML
+======================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+
+/* ========================================
+   ESCAPE JAVASCRIPT
+======================================== */
+
+function escapeJS(value) {
+
+    return String(value)
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+
+}
+
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+searchInput.addEventListener(
+    "input",
+    displayNurses
+);
+
+
+
+/* ========================================
+   FILTER
+======================================== */
+
+statusFilter.addEventListener(
+    "change",
+    displayNurses
+);
+
+
+
+/* ========================================
+   INITIALIZE
+======================================== */
+
+updateStatistics();
+
+displayNurses();
+
+
+</script>
+
+</body>
+
+</html>
