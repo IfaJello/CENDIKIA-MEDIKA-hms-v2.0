@@ -438,7 +438,20 @@
 <!-- USERS DATA -->
 
 <script src="../../data/users.js"></script>
-
+<script>
+    document.body.innerHTML = `
+        <div style="
+            padding:40px;
+            font-family:Arial;
+            font-size:24px;
+        ">
+            <h1>NURSES TEST</h1>
+            <p>Total users: ${users.length}</p>
+            <p>Nurses: ${users.filter(user => user.role === "nurse").length}</p>
+            <p>${users.filter(user => user.role === "nurse")[0].name}</p>
+        </div>
+    `;
+</script>
 
 <!-- NURSES JAVASCRIPT -->
 
