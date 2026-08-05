@@ -1055,3 +1055,245 @@ tbody tr:last-child td {
     }
 
 }
+
+
+/* =========================================
+   APPOINTMENT MODAL
+========================================= */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(20, 35, 48, 0.42);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.2s ease;
+
+    z-index: 1000;
+}
+
+
+.modal-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.modal {
+    width: min(680px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(20, 35, 48, 0.18);
+
+    transform: translateY(10px);
+
+    transition: 0.2s ease;
+}
+
+
+.modal-overlay.show .modal {
+    transform: translateY(0);
+}
+
+
+.modal-header {
+    padding: 24px 26px;
+
+    border-bottom: 1px solid #edf0f3;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.modal-header h2 {
+    font-size: 20px;
+
+    color: #263746;
+
+    margin-bottom: 6px;
+}
+
+
+.modal-header p:last-child {
+    font-size: 12px;
+
+    color: #8a97a4;
+}
+
+
+.modal-close {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    background: #f4f6f8;
+
+    border-radius: 8px;
+
+    color: #71808e;
+
+    font-size: 22px;
+
+    line-height: 1;
+}
+
+
+.modal-close:hover {
+    background: #e9edf1;
+
+    color: #344655;
+}
+
+
+#appointmentForm {
+    padding: 25px 26px;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+}
+
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.form-group label {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: #526271;
+}
+
+
+.form-group input,
+.form-group select {
+    height: 40px;
+
+    border: 1px solid #dfe5eb;
+
+    border-radius: 7px;
+
+    padding: 0 11px;
+
+    outline: none;
+
+    color: #344655;
+
+    background: #ffffff;
+
+    font-size: 12px;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #7895aa;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(120, 149, 170, 0.10);
+}
+
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f3;
+}
+
+
+.cancel-button {
+    height: 40px;
+
+    padding: 0 17px;
+
+    border: 1px solid #dfe5eb;
+
+    background: #ffffff;
+
+    color: #667583;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.cancel-button:hover {
+    background: #f7f9fa;
+}
+
+
+@media (max-width: 600px) {
+
+    .modal {
+        max-height: 95vh;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modal-header {
+        padding: 20px;
+    }
+
+
+    #appointmentForm {
+        padding: 20px;
+    }
+
+}

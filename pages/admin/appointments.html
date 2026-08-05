@@ -886,11 +886,249 @@ function viewAppointment(
 
 function addAppointment() {
 
-    alert(
-        "Add Appointment feature coming next!"
+    appointmentModal.classList.add("show");
+
+}
+
+const appointmentModal =
+    document.getElementById(
+        "appointmentModal"
+    );
+
+const closeAppointmentModal =
+    document.getElementById(
+        "closeAppointmentModal"
+    );
+
+const cancelAppointmentModal =
+    document.getElementById(
+        "cancelAppointmentModal"
+    );
+
+const appointmentForm =
+    document.getElementById(
+        "appointmentForm"
+    );
+
+
+
+function closeAppointmentForm() {
+
+    appointmentModal.classList.remove(
+        "show"
+    );
+
+    appointmentForm.reset();
+
+}
+
+
+
+closeAppointmentModal.addEventListener(
+    "click",
+    closeAppointmentForm
+);
+
+
+cancelAppointmentModal.addEventListener(
+    "click",
+    closeAppointmentForm
+);
+
+
+appointmentModal.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target ===
+            appointmentModal
+        ) {
+
+            closeAppointmentForm();
+
+        }
+
+    }
+);
+
+
+
+appointmentForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const patient =
+            document.getElementById(
+                "appointmentPatient"
+            ).value;
+
+
+        const patientId =
+            document.getElementById(
+                "appointmentPatientId"
+            ).value;
+
+
+        const doctor =
+            document.getElementById(
+                "appointmentDoctor"
+            ).value;
+
+
+        const department =
+            document.getElementById(
+                "appointmentDepartment"
+            ).value;
+
+
+        const date =
+            document.getElementById(
+                "appointmentDate"
+            ).value;
+
+
+        const time =
+            document.getElementById(
+                "appointmentTime"
+            ).value;
+
+
+        const status =
+            document.getElementById(
+                "appointmentStatus"
+            ).value;
+
+
+
+        const newAppointment = {
+
+            id:
+                "APT-"
+                + String(
+                    appointments.length + 1
+                ).padStart(
+                    4,
+                    "0"
+                ),
+
+            patient:
+                patient,
+
+            patientId:
+                patientId,
+
+            doctor:
+                doctor,
+
+            department:
+                department,
+
+            date:
+                formatDate(date),
+
+            time:
+                formatTime(time),
+
+            status:
+                status
+
+        };
+
+
+
+        appointments.unshift(
+            newAppointment
+        );
+
+
+        updateStatistics();
+
+        displayAppointments();
+
+        closeAppointmentForm();
+
+
+        alert(
+            patient +
+            "'s appointment has been created successfully!"
+        );
+
+    }
+);
+
+function formatDate(date) {
+
+    const parts =
+        date.split("-");
+
+    return (
+        parts[2]
+        + " "
+        + getMonthName(
+            parts[1]
+        )
+        + " "
+        + parts[0]
     );
 
 }
+
+
+function getMonthName(month) {
+
+    const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    ];
+
+    return months[
+        Number(month) - 1
+    ];
+
+}
+
+
+function formatTime(time) {
+
+    const [hours, minutes] =
+        time.split(":");
+
+    let hour =
+        Number(hours);
+
+    const suffix =
+        hour >= 12
+            ? "PM"
+            : "AM";
+
+    hour =
+        hour % 12 || 12;
+
+    return (
+        hour
+        + ":"
+        + minutes
+        + " "
+        + suffix
+    );
+
+}
+
+
 
 
 
@@ -1033,6 +1271,255 @@ displayAppointments();
 
 
 </script>
+
+<!-- =====================================
+     ADD APPOINTMENT MODAL
+====================================== -->
+
+<div
+    class="modal-overlay"
+    id="appointmentModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    SCHEDULING
+                </p>
+
+                <h2>
+                    Add Appointment
+                </h2>
+
+                <p>
+                    Schedule a new patient appointment.
+                </p>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                type="button"
+                id="closeAppointmentModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <form id="appointmentForm">
+
+            <div class="form-grid">
+
+
+                <!-- PATIENT -->
+
+                <div class="form-group">
+
+                    <label for="appointmentPatient">
+                        Patient
+                    </label>
+
+                    <input
+                        type="text"
+                        id="appointmentPatient"
+                        placeholder="Enter patient name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PATIENT ID -->
+
+                <div class="form-group">
+
+                    <label for="appointmentPatientId">
+                        Patient ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="appointmentPatientId"
+                        placeholder="PT-001xxx"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- DOCTOR -->
+
+                <div class="form-group">
+
+                    <label for="appointmentDoctor">
+                        Doctor
+                    </label>
+
+                    <select
+                        id="appointmentDoctor"
+                        required
+                    >
+
+                        <option value="">
+                            Select doctor
+                        </option>
+
+                        <option value="Dr. Dimas Santoso">
+                            Dr. Dimas Santoso
+                        </option>
+
+                        <option value="Dr. Budi Hartono">
+                            Dr. Budi Hartono
+                        </option>
+
+                        <option value="Dr. Maya Putri">
+                            Dr. Maya Putri
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DEPARTMENT -->
+
+                <div class="form-group">
+
+                    <label for="appointmentDepartment">
+                        Department
+                    </label>
+
+                    <select
+                        id="appointmentDepartment"
+                        required
+                    >
+
+                        <option value="">
+                            Select department
+                        </option>
+
+                        <option value="Internal Medicine">
+                            Internal Medicine
+                        </option>
+
+                        <option value="Cardiology">
+                            Cardiology
+                        </option>
+
+                        <option value="Neurology">
+                            Neurology
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DATE -->
+
+                <div class="form-group">
+
+                    <label for="appointmentDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="appointmentDate"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- TIME -->
+
+                <div class="form-group">
+
+                    <label for="appointmentTime">
+                        Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="appointmentTime"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label for="appointmentStatus">
+                        Status
+                    </label>
+
+                    <select
+                        id="appointmentStatus"
+                    >
+
+                        <option value="confirmed">
+                            Confirmed
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="cancelled">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelAppointmentModal"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Create Appointment
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
 
 </body>
 
