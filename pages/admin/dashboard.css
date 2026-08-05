@@ -1035,3 +1035,6 @@ td {
     }
 
 }
+.main-content {
+    background: red !important;
+}
