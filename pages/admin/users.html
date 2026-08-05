@@ -453,7 +453,11 @@
 
 
                                     <td>
-                                        <button class="action-button">
+                                        <button
+                                            class="action-button"
+                                            type="button"
+                                            onclick="openUserActions(this)"
+                                        >
                                             •••
                                         </button>
                                     </td>
@@ -514,7 +518,11 @@
 
 
                                     <td>
-                                        <button class="action-button">
+                                        <button
+                                            class="action-button"
+                                            type="button"
+                                            onclick="openUserActions(this)"
+                                        >
                                             •••
                                         </button>
                                     </td>
@@ -575,7 +583,11 @@
 
 
                                     <td>
-                                        <button class="action-button">
+                                        <button
+                                            class="action-button"
+                                            type="button"
+                                            onclick="openUserActions(this)"
+                                        >
                                             •••
                                         </button>
                                     </td>
@@ -636,7 +648,11 @@
 
 
                                     <td>
-                                        <button class="action-button">
+                                        <button
+                                            class="action-button"
+                                            type="button"
+                                            onclick="openUserActions(this)"
+                                        >
                                             •••
                                         </button>
                                     </td>
@@ -697,7 +713,11 @@
 
 
                                     <td>
-                                        <button class="action-button">
+                                        <button
+                                            class="action-button"
+                                            type="button"
+                                            onclick="openUserActions(this)"
+                                        >
                                             •••
                                         </button>
                                     </td>
@@ -1171,6 +1191,9 @@ addUserForm.addEventListener(
 
         event.preventDefault();
 
+ // Check whether we are editing
+ const isEditing =
+    addUserForm.dataset.editing === "true";
 
         const fullName =
             document.getElementById("fullName").value;
@@ -1231,6 +1254,57 @@ addUserForm.addEventListener(
                 1000 + Math.random() * 9000
             );
 
+if (isEditing) {
+
+    const rowIndex =
+        Number(
+            addUserForm.dataset.rowIndex
+        );
+
+    const row =
+        userRows[rowIndex];
+
+    row.querySelector(
+        ".user-cell strong"
+    ).textContent = fullName;
+
+    row.querySelector(
+        ".user-cell span"
+    ).textContent =
+        row.querySelector(
+            ".user-cell span"
+        ).textContent;
+
+    row.children[2].textContent =
+        email;
+
+    row.dataset.role =
+        role;
+
+    row.querySelector(
+        ".role-badge"
+    ).className =
+        "role-badge " + role;
+
+    row.querySelector(
+        ".role-badge"
+    ).textContent =
+        role.charAt(0).toUpperCase()
+        + role.slice(1);
+
+    closeUserModal();
+
+    addUserForm.dataset.editing =
+        "false";
+
+    alert(
+        fullName +
+        " has been updated successfully!"
+    );
+
+    return;
+
+}
 
         // CREATE ROW
 
@@ -1328,6 +1402,326 @@ addUserForm.addEventListener(
 
     }
 );
+// ========================================
+// USER ACTION MENUS
+// ========================================
+
+const allActionButtons =
+    document.querySelectorAll(".action-button");
+
+
+allActionButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+            // Close existing menus
+
+            document
+                .querySelectorAll(".action-menu")
+                .forEach(menu => {
+
+                    menu.remove();
+
+                });
+
+
+            const row =
+                button.closest("tr");
+
+
+            const userName =
+                row.querySelector(
+                    ".user-cell strong"
+                ).textContent;
+
+
+            const userRole =
+                row.dataset.role;
+
+
+            // Create menu
+
+            const menu =
+                document.createElement("div");
+
+
+            menu.className =
+                "action-menu show";
+
+
+            menu.innerHTML = `
+
+                <button
+                    type="button"
+                    onclick="viewUser(this)"
+                >
+                    View Profile
+                </button>
+
+                <button
+                    type="button"
+                    onclick="editUser(this)"
+                >
+                    Edit User
+                </button>
+
+                <button
+                    type="button"
+                    class="danger"
+                    onclick="deactivateUser(this)"
+                >
+                    Deactivate User
+                </button>
+
+            `;
+
+
+            // Store information
+
+            menu.dataset.userName =
+                userName;
+
+            menu.dataset.userRole =
+                userRole;
+
+
+            row.style.position =
+                "relative";
+
+
+            row.appendChild(menu);
+
+        }
+
+    );
+
+});
+
+
+// ========================================
+// CLOSE MENUS WHEN CLICKING ELSEWHERE
+// ========================================
+
+document.addEventListener(
+    "click",
+    function () {
+
+        document
+            .querySelectorAll(".action-menu")
+            .forEach(menu => {
+
+                menu.remove();
+
+            });
+
+    }
+);
+
+
+// ========================================
+// VIEW USER
+// ========================================
+
+function viewUser(button) {
+
+    const menu =
+        button.closest(".action-menu");
+
+    const userName =
+        menu.dataset.userName;
+
+    const userRole =
+        menu.dataset.userRole;
+
+
+    alert(
+
+        "User Profile\n\n" +
+        "Name: " + userName + "\n" +
+        "Role: " +
+        userRole.charAt(0).toUpperCase()
+        + userRole.slice(1)
+
+    );
+
+}
+
+
+// ========================================
+// EDIT USER
+// ========================================
+
+function editUser(button) {
+
+    const menu =
+        button.closest(".action-menu");
+
+    const row =
+        menu.closest("tr");
+
+
+    const userName =
+        row.querySelector(
+            ".user-cell strong"
+        ).textContent;
+
+
+    const email =
+        row.children[2].textContent.trim();
+
+
+    const role =
+        row.dataset.role;
+
+
+    // Put existing data into form
+
+    document.getElementById(
+        "fullName"
+    ).value = userName;
+
+
+    document.getElementById(
+        "userEmail"
+    ).value = email;
+
+
+    document.getElementById(
+        "userRole"
+    ).value = role;
+
+
+    // Password is not required when editing
+
+    document.getElementById(
+        "userPassword"
+    ).required = false;
+
+
+    document.getElementById(
+        "confirmPassword"
+    ).required = false;
+
+
+    document.getElementById(
+        "userPassword"
+    ).placeholder =
+        "Leave blank to keep current password";
+
+
+    document.getElementById(
+        "confirmPassword"
+    ).placeholder =
+        "Leave blank to keep current password";
+
+
+    // Change modal title
+
+    document.querySelector(
+        ".modal-header h2"
+    ).textContent =
+        "Edit User";
+
+
+    document.querySelector(
+        ".modal-header p:last-child"
+    ).textContent =
+        "Update this user's account information.";
+
+
+    document.querySelector(
+        "#addUserForm .primary-button"
+    ).textContent =
+        "Save Changes";
+
+
+    // Store editing row
+
+    addUserForm.dataset.editing =
+        "true";
+
+    addUserForm.dataset.rowIndex =
+        [...userRows].indexOf(row);
+
+
+    // Open modal
+
+    userModal.classList.add("show");
+
+
+    menu.remove();
+
+}
+
+
+// ========================================
+// DEACTIVATE USER
+// ========================================
+
+function deactivateUser(button) {
+
+    const menu =
+        button.closest(".action-menu");
+
+    const row =
+        menu.closest("tr");
+
+
+    const userName =
+        row.querySelector(
+            ".user-cell strong"
+        ).textContent;
+
+
+    const confirmed =
+        confirm(
+
+            "Are you sure you want to deactivate " +
+            userName +
+            "?"
+
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    const status =
+        row.querySelector(".status");
+
+
+    status.textContent =
+        "Inactive";
+
+
+    status.classList.remove(
+        "active"
+    );
+
+
+    status.classList.add(
+        "inactive"
+    );
+
+
+    alert(
+        userName +
+        " has been deactivated."
+    );
+
+
+    menu.remove();
+
+}
+
     </script>
 
 </body>
