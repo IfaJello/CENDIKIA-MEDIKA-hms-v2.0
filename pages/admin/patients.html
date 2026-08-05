@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Patients | Cendekia Medika</title>
+
+    <link
+        rel="stylesheet"
+        href="patients.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                +
+            </div>
+
+            <div>
+
+                <strong>
+                    CENDEKIA
+                </strong>
+
+                <span>
+                    MEDIKA
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-label">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="patients.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Patients</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚕</span>
+                <span>Doctors</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">✚</span>
+                <span>Nurses</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Appointments</span>
+            </a>
+
+
+            <p class="nav-label secondary">
+                MANAGEMENT
+            </p>
+
+
+            <a
+                href="users.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>User Management</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                type="button"
+                onclick="logout()"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Sign out
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
+                    ♧
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        PATIENT MANAGEMENT
+                    </p>
+
+
+                    <h1>
+                        Patients
+                    </h1>
+
+
+                    <p>
+                        View and manage registered patients
+                        at Cendekia Medika.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    type="button"
+                    onclick="addPatient()"
+                >
+                    + Add Patient
+                </button>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 STATISTICS
+            ====================================== -->
+
+            <div class="stats-grid">
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Total Patients
+                    </span>
+
+                    <strong id="totalPatients">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Active
+                    </span>
+
+                    <strong id="activePatients">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Inactive
+                    </span>
+
+                    <strong id="inactivePatients">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <span>
+                        Recently Active
+                    </span>
+
+                    <strong id="recentPatients">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================
+                 PATIENT CARD
+            ====================================== -->
+
+            <section class="patients-card">
+
+
+                <!-- TOOLBAR -->
+
+                <div class="patients-toolbar">
+
+
+                    <div>
+
+                        <h2>
+                            All Patients
+                        </h2>
+
+                        <p>
+                            Registered patient accounts.
+                        </p>
+
+                    </div>
+
+
+                    <div class="toolbar-actions">
+
+
+                        <!-- SEARCH -->
+
+                        <div class="search-box">
+
+                            <span>
+                                ⌕
+                            </span>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search patients..."
+                            >
+
+                        </div>
+
+
+
+                        <!-- STATUS FILTER -->
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All status
+                            </option>
+
+                            <option value="active">
+                                Active
+                            </option>
+
+                            <option value="inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TABLE -->
+
+                <div class="table-container">
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    PATIENT
+                                </th>
+
+                                <th>
+                                    PATIENT ID
+                                </th>
+
+                                <th>
+                                    EMAIL
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    LAST ACTIVE
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="patientTableBody">
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    style="display:none;"
+                >
+
+                    <div class="empty-icon">
+                        ♙
+                    </div>
+
+                    <h3>
+                        No patients found
+                    </h3>
+
+                    <p>
+                        Try changing your search or filter.
+                    </p>
+
+                </div>
+
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================
+     USERS DATA
+====================================== -->
+
+<script src="../../data/users.js"></script>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* ========================================
+   ELEMENTS
+======================================== */
+
+const patientTableBody =
+    document.getElementById(
+        "patientTableBody"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const statusFilter =
+    document.getElementById(
+        "statusFilter"
+    );
+
+
+const emptyState =
+    document.getElementById(
+        "emptyState"
+    );
+
+
+
+/* ========================================
+   GET PATIENTS
+======================================== */
+
+function getPatients() {
+
+    return users.filter(
+        user =>
+            user.role === "patient"
+    );
+
+}
+
+
+
+/* ========================================
+   UPDATE STATISTICS
+======================================== */
+
+function updateStatistics() {
+
+
+    const patients =
+        getPatients();
+
+
+    const active =
+        patients.filter(
+            patient =>
+                patient.status === "active"
+        );
+
+
+    const inactive =
+        patients.filter(
+            patient =>
+                patient.status === "inactive"
+        );
+
+
+    /*
+       For now, "Recently Active"
+       means patients whose lastActive
+       is not Yesterday.
+    */
+
+    const recent =
+        patients.filter(
+            patient =>
+                patient.lastActive !==
+                "Yesterday"
+        );
+
+
+    document.getElementById(
+        "totalPatients"
+    ).textContent =
+        patients.length;
+
+
+    document.getElementById(
+        "activePatients"
+    ).textContent =
+        active.length;
+
+
+    document.getElementById(
+        "inactivePatients"
+    ).textContent =
+        inactive.length;
+
+
+    document.getElementById(
+        "recentPatients"
+    ).textContent =
+        recent.length;
+
+}
+
+
+
+/* ========================================
+   DISPLAY PATIENTS
+======================================== */
+
+function displayPatients() {
+
+
+    const search =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const selectedStatus =
+        statusFilter.value;
+
+
+    let patients =
+        getPatients();
+
+
+    /* SEARCH */
+
+    if (search) {
+
+        patients =
+            patients.filter(
+                patient => {
+
+                    const searchableText =
+                        (
+                            patient.name
+                            + " "
+                            + patient.id
+                            + " "
+                            + patient.email
+                        )
+                        .toLowerCase();
+
+
+                    return searchableText
+                        .includes(search);
+
+                }
+            );
+
+    }
+
+
+
+    /* STATUS FILTER */
+
+    if (selectedStatus !== "all") {
+
+        patients =
+            patients.filter(
+                patient =>
+                    patient.status ===
+                    selectedStatus
+            );
+
+    }
+
+
+
+    /* CLEAR TABLE */
+
+    patientTableBody.innerHTML = "";
+
+
+
+    /* EMPTY STATE */
+
+    if (patients.length === 0) {
+
+        emptyState.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    emptyState.style.display =
+        "none";
+
+
+
+    /* CREATE ROWS */
+
+    patients.forEach(
+        patient => {
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            const initials =
+                patient.name
+                    .trim()
+                    .split(/\s+/)
+                    .map(
+                        word =>
+                            word
+                                .charAt(0)
+                                .toUpperCase()
+                    )
+                    .join("")
+                    .substring(0, 2);
+
+
+            const statusName =
+                patient.status
+                    .charAt(0)
+                    .toUpperCase()
+                + patient.status.slice(1);
+
+
+
+            row.innerHTML = `
+
+                <td>
+
+                    <div class="patient-cell">
+
+
+                        <div class="patient-avatar">
+                            ${initials}
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHTML(
+                                    patient.name
+                                )}
+                            </strong>
+
+                            <span>
+                                Patient
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    <strong>
+                        ${escapeHTML(
+                            patient.id
+                        )}
+                    </strong>
+
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        patient.email
+                    )}
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="status ${patient.status}"
+                    >
+                        ${statusName}
+                    </span>
+
+                </td>
+
+
+                <td>
+                    ${escapeHTML(
+                        patient.lastActive
+                    )}
+                </td>
+
+
+                <td>
+
+                    <button
+                        class="action-button"
+                        type="button"
+                        onclick="viewPatient('${escapeJS(patient.id)}')"
+                    >
+                        •••
+                    </button>
+
+                </td>
+
+            `;
+
+
+            patientTableBody.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ========================================
+   VIEW PATIENT
+======================================== */
+
+function viewPatient(patientId) {
+
+
+    const patient =
+        users.find(
+            user =>
+                user.id === patientId
+        );
+
+
+    if (!patient) {
+
+        alert(
+            "Patient could not be found."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        "PATIENT PROFILE\n\n"
+        + "Name: "
+        + patient.name
+        + "\n\n"
+        + "Patient ID: "
+        + patient.id
+        + "\n\n"
+        + "Email: "
+        + patient.email
+        + "\n\n"
+        + "Status: "
+        + capitalize(patient.status)
+        + "\n\n"
+        + "Last Active: "
+        + patient.lastActive
+
+    );
+
+}
+
+
+
+/* ========================================
+   ADD PATIENT
+======================================== */
+
+function addPatient() {
+
+    window.location.href =
+        "users.html";
+
+}
+
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+function logout() {
+
+    window.location.href =
+        "../../index.html";
+
+}
+
+
+
+/* ========================================
+   CAPITALIZE
+======================================== */
+
+function capitalize(value) {
+
+    if (!value) {
+        return "";
+    }
+
+
+    return (
+        value.charAt(0).toUpperCase()
+        + value.slice(1)
+    );
+
+}
+
+
+
+/* ========================================
+   ESCAPE HTML
+======================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/* ========================================
+   ESCAPE JAVASCRIPT
+======================================== */
+
+function escapeJS(value) {
+
+    return String(value)
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
+
+
+/* ========================================
+   SEARCH
+======================================== */
+
+searchInput.addEventListener(
+    "input",
+    displayPatients
+);
+
+
+
+/* ========================================
+   FILTER
+======================================== */
+
+statusFilter.addEventListener(
+    "change",
+    displayPatients
+);
+
+
+
+/* ========================================
+   INITIALIZE
+======================================== */
+
+updateStatistics();
+
+displayPatients();
+
+
+</script>
+
+</body>
+
+</html>
