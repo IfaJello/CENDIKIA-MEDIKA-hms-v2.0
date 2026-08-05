@@ -1,12 +1,10 @@
 const users = [
-
     {
         id: "ADM-0001",
         name: "Ahmad Rahman",
         email: "ahmad@cendekiamedika.com",
         role: "admin",
-        status: "active",
-        lastActive: "Just now"
+        status: "active"
     },
 
     {
@@ -14,8 +12,7 @@ const users = [
         name: "Dr. Dimas Santoso",
         email: "dimas@cendekiamedika.com",
         role: "doctor",
-        status: "active",
-        lastActive: "12 min ago"
+        status: "active"
     },
 
     {
@@ -23,8 +20,7 @@ const users = [
         name: "Siti Amelia",
         email: "siti@cendekiamedika.com",
         role: "nurse",
-        status: "active",
-        lastActive: "35 min ago"
+        status: "active"
     },
 
     {
@@ -32,8 +28,7 @@ const users = [
         name: "Andi Pratama",
         email: "andi@example.com",
         role: "patient",
-        status: "active",
-        lastActive: "1 hour ago"
+        status: "active"
     },
 
     {
@@ -41,8 +36,6 @@ const users = [
         name: "Fajar Nugraha",
         email: "fajar@example.com",
         role: "patient",
-        status: "inactive",
-        lastActive: "Yesterday"
+        status: "inactive"
     }
-
 ];
