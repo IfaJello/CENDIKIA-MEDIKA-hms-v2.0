@@ -362,6 +362,8 @@
                     <div class="toolbar-actions">
 
 
+                        <!-- SEARCH -->
+
                         <div class="search-box">
 
                             <span>
@@ -377,6 +379,8 @@
                         </div>
 
 
+
+                        <!-- STATUS FILTER -->
 
                         <select id="statusFilter">
 
@@ -405,6 +409,7 @@
                 <div class="table-container">
 
                     <table>
+
 
                         <thead>
 
@@ -441,6 +446,7 @@
 
                         <tbody id="doctorTableBody">
                         </tbody>
+
 
                     </table>
 
@@ -714,9 +720,11 @@ function displayDoctors() {
 
 
             const statusName =
-                capitalize(
-                    doctor.status
-                );
+                doctor.status
+                    .charAt(0)
+                    .toUpperCase()
+                + doctor.status.slice(1);
+
 
 
             row.innerHTML = `
@@ -725,9 +733,11 @@ function displayDoctors() {
 
                     <div class="doctor-cell">
 
+
                         <div class="doctor-avatar">
                             ${initials}
                         </div>
+
 
                         <div>
 
@@ -738,7 +748,7 @@ function displayDoctors() {
                             </strong>
 
                             <span>
-                                Doctor
+                                Medical Doctor
                             </span>
 
                         </div>
@@ -986,6 +996,7 @@ statusFilter.addEventListener(
 updateStatistics();
 
 displayDoctors();
+
 
 </script>
 
