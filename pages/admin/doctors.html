@@ -506,34 +506,21 @@
 
 <script>
 
-
 /* ========================================
    ELEMENTS
 ======================================== */
 
 const doctorTableBody =
-    document.getElementById(
-        "doctorTableBody"
-    );
-
+    document.getElementById("doctorTableBody");
 
 const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
+    document.getElementById("searchInput");
 
 const statusFilter =
-    document.getElementById(
-        "statusFilter"
-    );
-
+    document.getElementById("statusFilter");
 
 const emptyState =
-    document.getElementById(
-        "emptyState"
-    );
-
+    document.getElementById("emptyState");
 
 
 /* ========================================
@@ -542,73 +529,46 @@ const emptyState =
 
 function getDoctors() {
 
-    return users.filter(
-        user =>
-            user.role === "doctor"
-    );
+    return users.filter(function(user) {
+        return user.role === "doctor";
+    });
 
 }
 
 
-
 /* ========================================
-   UPDATE STATISTICS
+   STATISTICS
 ======================================== */
 
 function updateStatistics() {
 
+    const doctors = getDoctors();
 
-    const doctors =
-        getDoctors();
+    const activeDoctors =
+        doctors.filter(function(doctor) {
+            return doctor.status === "active";
+        });
 
+    const inactiveDoctors =
+        doctors.filter(function(doctor) {
+            return doctor.status === "inactive";
+        });
 
-    const active =
-        doctors.filter(
-            doctor =>
-                doctor.status === "active"
-        );
-
-
-    const inactive =
-        doctors.filter(
-            doctor =>
-                doctor.status === "inactive"
-        );
-
-
-    const recent =
-        doctors.filter(
-            doctor =>
-                doctor.lastActive !==
-                "Yesterday"
-        );
-
-
-    document.getElementById(
-        "totalDoctors"
-    ).textContent =
+    document.getElementById("totalDoctors").textContent =
         doctors.length;
 
+    document.getElementById("activeDoctors").textContent =
+        activeDoctors.length;
 
-    document.getElementById(
-        "activeDoctors"
-    ).textContent =
-        active.length;
+    document.getElementById("inactiveDoctors").textContent =
+        inactiveDoctors.length;
 
-
-    document.getElementById(
-        "inactiveDoctors"
-    ).textContent =
-        inactive.length;
-
-
-    document.getElementById(
-        "recentDoctors"
-    ).textContent =
-        recent.length;
+    document.getElementById("recentDoctors").textContent =
+        doctors.filter(function(doctor) {
+            return doctor.lastActive !== "Yesterday";
+        }).length;
 
 }
-
 
 
 /* ========================================
@@ -617,63 +577,46 @@ function updateStatistics() {
 
 function displayDoctors() {
 
-
     const search =
-        searchInput.value
-            .toLowerCase()
-            .trim();
-
+        searchInput.value.toLowerCase().trim();
 
     const selectedStatus =
         statusFilter.value;
 
-
-    let doctors =
-        getDoctors();
+    let doctors = getDoctors();
 
 
     /* SEARCH */
 
-    if (search) {
+    if (search !== "") {
 
-        doctors =
-            doctors.filter(
-                doctor => {
+        doctors = doctors.filter(function(doctor) {
 
-                    const searchableText =
-                        (
-                            doctor.name
-                            + " "
-                            + doctor.id
-                            + " "
-                            + doctor.email
-                        )
-                        .toLowerCase();
+            const text =
+                doctor.name + " " +
+                doctor.id + " " +
+                doctor.email;
 
+            return text
+                .toLowerCase()
+                .includes(search);
 
-                    return searchableText
-                        .includes(search);
-
-                }
-            );
+        });
 
     }
-
 
 
     /* STATUS FILTER */
 
     if (selectedStatus !== "all") {
 
-        doctors =
-            doctors.filter(
-                doctor =>
-                    doctor.status ===
-                    selectedStatus
-            );
+        doctors = doctors.filter(function(doctor) {
+
+            return doctor.status === selectedStatus;
+
+        });
 
     }
-
 
 
     /* CLEAR TABLE */
@@ -681,148 +624,127 @@ function displayDoctors() {
     doctorTableBody.innerHTML = "";
 
 
-
     /* EMPTY STATE */
 
     if (doctors.length === 0) {
 
-        emptyState.style.display =
-            "block";
+        emptyState.style.display = "block";
 
         return;
 
     }
 
-
-    emptyState.style.display =
-        "none";
+    emptyState.style.display = "none";
 
 
+    /* CREATE DOCTOR ROWS */
 
-    /* CREATE ROWS */
+    doctors.forEach(function(doctor) {
 
-    doctors.forEach(
-        doctor => {
-
-            const row =
-                document.createElement(
-                    "tr"
-                );
+        const row =
+            document.createElement("tr");
 
 
-            const initials =
-                doctor.name
-                    .trim()
-                    .split(/\s+/)
-                    .map(
-                        word =>
-                            word
-                                .charAt(0)
-                                .toUpperCase()
-                    )
-                    .join("")
-                    .substring(0, 2);
+        /* INITIALS */
+
+        const nameParts =
+            doctor.name.trim().split(/\s+/);
+
+        let initials =
+            nameParts[0].charAt(0).toUpperCase();
+
+        if (nameParts.length > 1) {
+
+            initials +=
+                nameParts[
+                    nameParts.length - 1
+                ].charAt(0).toUpperCase();
+
+        }
 
 
-            const statusName =
-                doctor.status
-                    .charAt(0)
-                    .toUpperCase()
-                + doctor.status.slice(1);
+        /* STATUS */
+
+        const statusName =
+            doctor.status.charAt(0).toUpperCase()
+            + doctor.status.slice(1);
 
 
+        /* ROW */
 
-            row.innerHTML = `
+        row.innerHTML = `
 
-                <td>
+            <td>
 
-                    <div class="doctor-cell">
+                <div class="doctor-cell">
 
+                    <div class="doctor-avatar">
+                        ${initials}
+                    </div>
 
-                        <div class="doctor-avatar">
-                            ${initials}
-                        </div>
+                    <div>
 
+                        <strong>
+                            ${doctor.name}
+                        </strong>
 
-                        <div>
-
-                            <strong>
-                                ${escapeHTML(
-                                    doctor.name
-                                )}
-                            </strong>
-
-                            <span>
-                                Medical Doctor
-                            </span>
-
-                        </div>
+                        <span>
+                            Medical Doctor
+                        </span>
 
                     </div>
 
-                </td>
+                </div>
+
+            </td>
 
 
-                <td>
-
-                    <strong>
-                        ${escapeHTML(
-                            doctor.id
-                        )}
-                    </strong>
-
-                </td>
+            <td>
+                <strong>
+                    ${doctor.id}
+                </strong>
+            </td>
 
 
-                <td>
-                    ${escapeHTML(
-                        doctor.email
-                    )}
-                </td>
+            <td>
+                ${doctor.email}
+            </td>
 
 
-                <td>
+            <td>
 
-                    <span
-                        class="status ${doctor.status}"
-                    >
-                        ${statusName}
-                    </span>
+                <span class="status ${doctor.status}">
+                    ${statusName}
+                </span>
 
-                </td>
+            </td>
 
 
-                <td>
-                    ${escapeHTML(
-                        doctor.lastActive
-                    )}
-                </td>
+            <td>
+                ${doctor.lastActive}
+            </td>
 
 
-                <td>
+            <td>
 
-                    <button
-                        class="action-button"
-                        type="button"
-                        onclick="viewDoctor('${escapeJS(doctor.id)}')"
-                    >
-                        •••
-                    </button>
+                <button
+                    class="action-button"
+                    type="button"
+                    onclick="viewDoctor('${doctor.id}')"
+                >
+                    •••
+                </button>
 
-                </td>
+            </td>
 
-            `;
+        `;
 
 
-            doctorTableBody.appendChild(
-                row
-            );
+        doctorTableBody.appendChild(row);
 
-        }
-    );
+    });
 
 }
-
 
 
 /* ========================================
@@ -831,19 +753,17 @@ function displayDoctors() {
 
 function viewDoctor(doctorId) {
 
-
     const doctor =
-        users.find(
-            user =>
-                user.id === doctorId
-        );
+        users.find(function(user) {
+
+            return user.id === doctorId;
+
+        });
 
 
     if (!doctor) {
 
-        alert(
-            "Doctor could not be found."
-        );
+        alert("Doctor could not be found.");
 
         return;
 
@@ -851,27 +771,18 @@ function viewDoctor(doctorId) {
 
 
     alert(
-
-        "DOCTOR PROFILE\n\n"
-        + "Name: "
-        + doctor.name
-        + "\n\n"
-        + "Doctor ID: "
-        + doctor.id
-        + "\n\n"
-        + "Email: "
-        + doctor.email
-        + "\n\n"
-        + "Status: "
-        + capitalize(doctor.status)
-        + "\n\n"
-        + "Last Active: "
-        + doctor.lastActive
-
+        "DOCTOR PROFILE\n\n" +
+        "Name: " + doctor.name + "\n" +
+        "Doctor ID: " + doctor.id + "\n" +
+        "Email: " + doctor.email + "\n" +
+        "Status: " +
+        doctor.status.charAt(0).toUpperCase() +
+        doctor.status.slice(1) + "\n" +
+        "Last Active: " +
+        doctor.lastActive
     );
 
 }
-
 
 
 /* ========================================
@@ -880,11 +791,9 @@ function viewDoctor(doctorId) {
 
 function addDoctor() {
 
-    window.location.href =
-        "users.html";
+    window.location.href = "users.html";
 
 }
-
 
 
 /* ========================================
@@ -893,83 +802,9 @@ function addDoctor() {
 
 function logout() {
 
-    window.location.href =
-        "../../index.html";
+    window.location.href = "../../index.html";
 
 }
-
-
-
-/* ========================================
-   CAPITALIZE
-======================================== */
-
-function capitalize(value) {
-
-    if (!value) {
-        return "";
-    }
-
-
-    return (
-        value.charAt(0).toUpperCase()
-        + value.slice(1)
-    );
-
-}
-
-
-
-/* ========================================
-   ESCAPE HTML
-======================================== */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-
-/* ========================================
-   ESCAPE JAVASCRIPT
-======================================== */
-
-function escapeJS(value) {
-
-    return String(value)
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-        .replace(
-            /'/g,
-            "\\'"
-        );
-
-}
-
 
 
 /* ========================================
@@ -982,7 +817,6 @@ searchInput.addEventListener(
 );
 
 
-
 /* ========================================
    FILTER
 ======================================== */
@@ -993,31 +827,14 @@ statusFilter.addEventListener(
 );
 
 
-
 /* ========================================
-   INITIALIZE
+   START PAGE
 ======================================== */
 
 updateStatistics();
 
 displayDoctors();
 
-
-</script>
-
-<script>
-    alert("Doctors page JavaScript is running");
-
-    if (typeof users === "undefined") {
-        alert("❌ users.js is NOT loaded");
-    } else {
-        alert(
-            "✅ users.js loaded!\n\n" +
-            "Total users: " + users.length + "\n" +
-            "Doctors: " +
-            users.filter(user => user.role === "doctor").length
-        );
-    }
 </script>
 
 </body>
