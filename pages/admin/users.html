@@ -713,6 +713,132 @@ const userTableBody =
 
 
 function displayUsers(userList) {
+// ========================================
+// CONNECT USER ACTION BUTTONS
+// ========================================
+
+function connectActionButtons() {
+
+    const actionButtons =
+        document.querySelectorAll(
+            ".action-button"
+        );
+
+
+    actionButtons.forEach(button => {
+
+        // Prevent duplicate listeners
+
+        if (
+            button.dataset.connected === "true"
+        ) {
+            return;
+        }
+
+
+        button.dataset.connected =
+            "true";
+
+
+        button.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+
+                // Close existing menus
+
+                document
+                    .querySelectorAll(
+                        ".action-menu"
+                    )
+                    .forEach(menu => {
+
+                        menu.remove();
+
+                    });
+
+
+                const row =
+                    button.closest("tr");
+
+
+                const userId =
+                    row.querySelector(
+                        ".user-cell span"
+                    ).textContent.trim();
+
+
+                const user =
+                    users.find(
+                        u => u.id === userId
+                    );
+
+
+                if (!user) {
+
+                    return;
+
+                }
+
+
+                // Create menu
+
+                const menu =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                menu.className =
+                    "action-menu show";
+
+
+                menu.innerHTML = `
+
+                    <button
+                        type="button"
+                        onclick="viewUser(this)"
+                    >
+                        View Profile
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="editUser(this)"
+                    >
+                        Edit User
+                    </button>
+
+                    <button
+                        type="button"
+                        class="danger"
+                        onclick="deactivateUser(this)"
+                    >
+                        Deactivate User
+                    </button>
+
+                `;
+
+
+                menu.dataset.userId =
+                    user.id;
+
+
+                row.style.position =
+                    "relative";
+
+
+                row.appendChild(menu);
+
+            }
+
+        );
+
+    });
+
+}
 
     userTableBody.innerHTML = "";
 
@@ -817,6 +943,8 @@ function displayUsers(userList) {
         userTableBody.appendChild(row);
 
     });
+
+connectActionButtons();
 
 }
 
@@ -1102,103 +1230,91 @@ if (isEditing) {
     return;
 
 }
+// ========================================
+// ADD NEW USER TO DATA
+// ========================================
 
-        // CREATE ROW
+if (!isEditing) {
 
-        const newRow =
-            document.createElement("tr");
+    const newUser = {
 
-        newRow.dataset.role = role;
+        id:
+            role.toUpperCase().substring(0, 3)
+            + "-"
+            + Math.floor(
+                1000 + Math.random() * 9000
+            ),
 
+        name: fullName,
 
-        newRow.innerHTML = `
+        email: email,
 
-            <td>
+        role: role,
 
-                <div class="user-cell">
+        status: "active",
 
-                    <div class="user-avatar ${role}">
-                        ${initials}
-                    </div>
+        lastActive: "Just now"
 
-                    <div>
-
-                        <strong>
-                            ${fullName}
-                        </strong>
-
-                        <span>
-                            ${userId}
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </td>
+    };
 
 
-            <td>
+    // Add user to our data array
 
-                <span class="role-badge ${role}">
-                    ${role.charAt(0).toUpperCase() + role.slice(1)}
-                </span>
-
-            </td>
+    users.unshift(newUser);
 
 
-            <td>
-                ${email}
-            </td>
+    // Refresh the table
+
+    displayUsers(users);
 
 
-            <td>
+    // Close modal
 
-                <span class="status active">
-                    Active
-                </span>
-
-            </td>
+    closeUserModal();
 
 
-            <td>
-                Just now
-            </td>
+    // Reset edit mode
+
+    addUserForm.dataset.editing =
+        "false";
 
 
-            <td>
+    // Reset password requirements
 
-                <button
-                    class="action-button"
-                >
-                    •••
-                </button>
+    document.getElementById(
+        "userPassword"
+    ).required = true;
 
-            </td>
-
-        `;
+    document.getElementById(
+        "confirmPassword"
+    ).required = true;
 
 
-        // ADD TO TABLE
+    // Reset modal title
 
-        document
-            .getElementById("userTableBody")
-            .prepend(newRow);
-
-
-        // CLOSE MODAL
-
-        closeUserModal();
+    document.querySelector(
+        ".modal-header h2"
+    ).textContent =
+        "Add New User";
 
 
-        // SUCCESS MESSAGE
+    document.querySelector(
+        ".modal-header p:last-child"
+    ).textContent =
+        "Create a new account for the hospital system.";
 
-        alert(
-            `${fullName} has been added successfully!`
-        );
 
-    }
-);
+    document.querySelector(
+        "#addUserForm .primary-button"
+    ).textContent =
+        "Create User";
+
+
+    alert(
+        `${fullName} has been added successfully!`
+    );
+
+}
 // ========================================
 // USER ACTION MENUS
 // ========================================
